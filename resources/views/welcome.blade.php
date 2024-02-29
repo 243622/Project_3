@@ -13,7 +13,7 @@
             <li><a class="text-xl" href="checkout">Chechout</a></li>
             <li><a class="text-xl" href="order">Order</a></li>
             <li><a class="text-xl" href="">Homepage</a></li>
-            <a class="text-xl">Stonks Pizza</a>
+            <a class="text-xl"><img src="/PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png"></a>
         </ul>
     </nav>
 </header>
@@ -35,7 +35,7 @@
         <p>beschrijving</p>
     </div>
     <div>
-        <p><img class="h-52" src="/PizzaFotos/BarbequeChickenPizza.png"></p>
+        <p><img class="h-52" src="/PizzaFotos/BarbecueChicken.png"></p>
         <h1>Barbeque Chicken Pizza</h1>
         <p>beschrijving</p>
     </div>
