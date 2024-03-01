@@ -25,7 +25,7 @@ Route::get('/log', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return ('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -43,8 +43,8 @@ Route::get('/order', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 });
-Route::get('/customerSuport', function () {
-    return view('customerSuport');
+Route::get('/customerSupport', function () {
+    return view('customerSupport');
 });
 
 require __DIR__.'/auth.php';

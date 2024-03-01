@@ -30,7 +30,7 @@
                 <button onclick="showIngredients('Barbecue Chicken')">View Ingredients</button>
                 <div class="order-section">
                     <label for="quantity1">Quantity:</label>
-                    <input type="number" id="quantity1" name="quantity" value="1" min="1">
+                    <input type="number" id="quantity1" name="quantity" value="0" min="0">
                     <button onclick="addToCart('Barbecue Chicken', 10.99, 'quantity1')">Add to Cart</button>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                 <button onclick="showIngredients('Hawaii Pizza')">View Ingredients</button>
                 <div class="order-section">
                     <label for="quantity2">Quantity:</label>
-                    <input type="number" id="quantity2" name="quantity" value="1" min="1">
+                    <input type="number" id="quantity2" name="quantity" value="0" min="0">
                     <button onclick="addToCart('Hawaii Pizza', 10.99, 'quantity2')">Add to Cart</button>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                 <button onclick="showIngredients('Salami Pizza')">View Ingredients</button>
                 <div class="order-section">
                     <label for="quantity3">Quantity:</label>
-                    <input type="number" id="quantity3" name="quantity" value="1" min="1">
+                    <input type="number" id="quantity3" name="quantity" value="0" min="0">
                     <button onclick="addToCart('Salami Pizza', 10.99, 'quantity3')">Add to Cart</button>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                 <button onclick="showIngredients('Tonijn Pizza')">View Ingredients</button>
                 <div class="order-section">
                     <label for="quantity4">Quantity:</label>
-                    <input type="number" id="quantity4" name="quantity" value="1" min="1">
+                    <input type="number" id="quantity4" name="quantity" value="0" min="0">
                     <button onclick="addToCart('Tonijn Pizza', 10.99, 'quantity4')">Add to Cart</button>
                 </div>
             </div>
