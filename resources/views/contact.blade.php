@@ -17,6 +17,51 @@
             </nav>
             <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" >
         </header>
+
+        <div class="flex">
+
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.5561217302084!2d5.493817312641216!3d51
+            .46630567168636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d8d3f3dacee7%3A0x1acd712bb57b8792!2sSte
+            rrenlaan%2010%2C%205631%20KA%20Eindhoven!5e0!3m2!1snl!2snl!4v1709299533187!5m2!1snl!2snl"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <div class="flex justify-center">
+                <form class="form">
+                    <p class="title">Register </p>
+                    <p class="message">Signup now and get full access to our app. </p>
+                    <div class="flex">
+                        <label>
+                            <input required="" placeholder="" type="text" class="input">
+                            <span>Firstname</span>
+                        </label>
+
+                        <label>
+                            <input required="" placeholder="" type="text" class="input">
+                            <span>Lastname</span>
+                        </label>
+                    </div>
+
+                    <label>
+                        <input required="" placeholder="" type="email" class="input">
+                        <span>Email</span>
+                    </label>
+
+                    <label>
+                        <input required="" placeholder="" type="password" class="input">
+                        <span>Password</span>
+                    </label>
+                    <label>
+                        <input required="" placeholder="" type="password" class="input">
+                        <span>Confirm password</span>
+                    </label>
+                    <button class="submit">Submit</button>
+                    <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
+                </form>
+            </div>
+
+        </div>
+
         <footer class="flex items-center flex-col">
             <div class="card">
                 <a href="#" class="socialContainer containerOne">
