@@ -27,6 +27,7 @@
                 <h2>Barbecue Chicken Pizza</h2>
                 <p>Description of Barbecue Chicken Pizza</p>
                 <p>Price: $10.99</p>
+                <button onclick="showIngredients('Barbecue Chicken')">View Ingredients</button>
                 <div class="order-section">
                     <label for="quantity1">Quantity:</label>
                     <input type="number" id="quantity1" name="quantity" value="1" min="1">
@@ -40,6 +41,7 @@
                 <h2>Hawaii Pizza</h2>
                 <p>Description of Hawaii Pizza</p>
                 <p>Price: $10.99</p>
+                <button onclick="showIngredients('Hawaii Pizza')">View Ingredients</button>
                 <div class="order-section">
                     <label for="quantity2">Quantity:</label>
                     <input type="number" id="quantity2" name="quantity" value="1" min="1">
@@ -53,6 +55,7 @@
                 <h2>Salami Pizza</h2>
                 <p>Description of Salami Pizza</p>
                 <p>Price: $10.99</p>
+                <button onclick="showIngredients('Salami Pizza')">View Ingredients</button>
                 <div class="order-section">
                     <label for="quantity3">Quantity:</label>
                     <input type="number" id="quantity3" name="quantity" value="1" min="1">
@@ -66,6 +69,7 @@
                 <h2>Tonijn Pizza</h2>
                 <p>Description of Tonijn Pizza</p>
                 <p>Price: $10.99</p>
+                <button onclick="showIngredients('Tonijn Pizza')">View Ingredients</button>
                 <div class="order-section">
                     <label for="quantity4">Quantity:</label>
                     <input type="number" id="quantity4" name="quantity" value="1" min="1">
@@ -73,6 +77,13 @@
                 </div>
             </div>
         </div>
+        <div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Ingredients</h2>
+        <p id="ingredients"></p>
+    </div>
+</div>
     </main>
     <footer>
     <div id="shopping-cart">
@@ -95,10 +106,44 @@
 
 // Function to toggle the side panel
 function toggleSidePanel() {
-    var sidePanel = document.getElementById('side-panel');
-    sidePanel.classList.toggle('open');
+            var sidePanel = document.getElementById('side-panel');
+            sidePanel.classList.toggle('open');
+        }
+
+        // Function to show ingredients popup
+   // Function to show ingredients in a modal
+function showIngredients(pizzaName) {
+    var ingredients;
+    // Mocking ingredients for demonstration purpose
+    if (pizzaName === 'Barbecue Chicken') {
+        ingredients = 'Chicken, barbecue sauce, onions, bell peppers, cheese';
+    } else if (pizzaName === 'Hawaii Pizza') {
+        ingredients = 'Ham, pineapple, cheese, tomato sauce';
+    } else if (pizzaName === 'Salami Pizza') {
+        ingredients = 'Salami, cheese, mushrooms, olives, tomato sauce';
+    } else if (pizzaName === 'Tonijn Pizza') {
+        ingredients = 'Tuna, onions, olives, cheese, tomato sauce';
+    }
+    // Display modal with ingredients
+    var modal = document.getElementById('modal');
+    var ingredientsDisplay = document.getElementById('ingredients');
+    ingredientsDisplay.textContent = ingredients;
+    modal.style.display = 'block';
 }
 
+// Close the modal when the user clicks on the close button (x)
+document.getElementsByClassName('close')[0].onclick = function() {
+    var modal = document.getElementById('modal');
+    modal.style.display = 'none';
+}
+
+// Close the modal when the user clicks anywhere outside of the modal
+window.onclick = function(event) {
+    var modal = document.getElementById('modal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
 // Function to add an item to the cart
 function addToCart(pizzaName, price, quantityInputId) {
 var quantity = document.getElementById(quantityInputId).value;
@@ -119,26 +164,30 @@ alert("Added " + quantity + " " + pizzaName + "(s) to cart.\nWishlist: " + wishl
 
 // Function to update cart display
 function updateCartDisplay() {
-var cartItemsDiv = document.getElementById('cart-items');
-cartItemsDiv.innerHTML = ''; // Clear previous items
-var totalItems = 0;
-var totalPrice = 0;
-cart.forEach(function(item, index) {
-    totalItems += item.quantity;
-    totalPrice += item.totalPrice;
-    var itemDiv = document.createElement('div');
-    itemDiv.classList.add('cart-item');
-    itemDiv.innerHTML = `
-        <p>${item.name} - Quantity: ${item.quantity} - Price: $${item.price.toFixed(2)} - Total: $${item.totalPrice.toFixed(2)}</p>
-        <button class="cart-button" onclick="removeFromCart(${index})">Remove</button>
-        <button class="cart-button" onclick="changeQuantity(${index}, -1)">-</button>
-        <button class="cart-button" onclick="changeQuantity(${index}, 1)">+</button>
-    `;
-    cartItemsDiv.appendChild(itemDiv);
-});
-document.getElementById('cart-count').textContent = totalItems;
-document.getElementById('total-price').textContent = totalPrice.toFixed(2);
-}
+        var cartItemsDiv = document.getElementById('cart-items');
+        cartItemsDiv.innerHTML = ''; // Clear previous items
+        var totalItems = 0;
+        var totalPrice = 0;
+        cart.forEach(function(item, index) {
+            totalItems += item.quantity;
+            totalPrice += item.totalPrice;
+            var itemDiv = document.createElement('div');
+            itemDiv.classList.add('cart-item');
+            itemDiv.innerHTML = `
+                <p>Name: ${item.name}</p>
+                <p>Quantity: ${item.quantity}</p>
+                <p>Price: $${item.price.toFixed(2)}</p>
+                <p>Total: $${item.totalPrice.toFixed(2)}</p>
+                <p>Wishlist: ${item.wishlist}</p>
+                <button class="cart-button" onclick="removeFromCart(${index})">Remove</button>
+                <button class="cart-button" onclick="changeQuantity(${index}, -1)">-</button>
+                <button class="cart-button" onclick="changeQuantity(${index}, 1)">+</button>
+            `;
+            cartItemsDiv.appendChild(itemDiv);
+        });
+        document.getElementById('cart-count').textContent = totalItems;
+        document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+    }
 
 // Function to remove an item from the cart
 function removeFromCart(index) {
