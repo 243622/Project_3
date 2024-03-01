@@ -43,8 +43,8 @@ Route::get('/order', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 });
-Route::get('/customerSupport', function () {
-    return view('customerSupport');
+Route::get('/contact', function () {
+    return view('contact');
 });
 
 require __DIR__.'/auth.php';
