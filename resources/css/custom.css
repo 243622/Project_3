@@ -5,7 +5,7 @@ body {
     background-color: #f9f9f9;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures the content area fills at least the height of the viewport */
+    min-height: 100vh; 
     color: #000000;
 }
 
@@ -14,40 +14,61 @@ header {
     color: #fff;
     padding: 20px 0;
     text-align: center;
+    height: 120px;
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center;
+}
+input{
+width: 20px;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center; /* Align items vertically */
 }
 
 nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-nav ul li a:hover {
-    background-color: #555;
-}
-
-nav ul li:not(:last-child) {
-    margin-right: 10px; /* Adjust spacing between menu items */
+    margin-right: 20px; /* Increase space between buttons */
 }
 
 nav img {
     vertical-align: middle;
-    margin-right: 10px; /* Adjust spacing between logo and menu items */
+    margin-left: auto; /* Move logo to the right */
+    margin-right: 20px; /* Add space between logo and buttons */
 }
 
+
+.cart-icon-container {
+    position: relative;
+    margin-left: auto; /* Pushes the icon and buttons to the right */
+}
+
+
+
+.cart-icon-container .material-symbols-outlined {
+    font-size: 36px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 1px;
+    font-size: 12px;
+    width: 18px;
+    height: 20px;
+}
+
+
 main {
-    flex: 1; /* Allow the main content to grow and fill available space */
+    flex: 1; 
     padding: 20px;
     text-align: center;
 }
@@ -62,25 +83,35 @@ h1 {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out; /* Add transition for hover effect */
+}
+
+.pizza-menu:hover {
+    transform: translateY(-5px); /* Add a slight lift on hover */
 }
 
 .pizza-card {
     padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid #ddd; /* Add a subtle border */
 }
 
 .pizza-card img {
     max-width: 100%;
-    border-radius: 10px;
+    border-radius: 10px; /* Rounded corners for images */
+    margin-bottom: 15px; /* Add space below the image */
 }
 
 .pizza-card h2 {
     color: #333;
     margin-top: 10px;
     font-weight: bold;
+    font-size: 18px; /* Increase font size for pizza name */
 }
 
 .pizza-card p {
     color: #666;
+    margin-bottom: 10px; /* Add space below each paragraph */
 }
 
 .pizza-card button {
@@ -91,10 +122,11 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-top: 10px; /* Add space above the button */
 }
 
 .pizza-card button:hover {
-    background-color: #45a049;
+    background-color: #aa3333;
 }
 #side-panel {
     position: fixed;

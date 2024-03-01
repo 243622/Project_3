@@ -4,20 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Pizza</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     @vite(['resources/css/app.css','resources/css/custom.css', 'resources/js/app.js'])
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
+<header><img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="
+    position: absolute;
+">
+    <nav style="
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+">
+        
+        <ul>
             <li><a href="/">Homepage</a></li>
             <li><a href="order">Order</a></li>
-                <li><a href="checkout">Checkout</a></li> 
-            </ul>
-        </nav>
-        <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" >
-    </header>
+            <li class="cart-icon-container">
+                <span class="material-symbols-outlined">shopping_basket</span>
+                <div class="cart-count">0</div>
+            </li>
+        </ul>
+    </nav>
+</header>
     <main>
         <h1>Available Pizzas</h1>
         <h2>Top Four</h2>
@@ -25,12 +40,11 @@
             <div class="pizza-card">
                 <img src="/PizzaFotos/BarbecueChicken.png" alt="Barbecue Chicken Pizza">
                 <h2>Barbecue Chicken Pizza</h2>
-                <p>Description of Barbecue Chicken Pizza</p>
+                <p>Chicken, barbecue sauce, onions, cheese</p>
                 <p>Price: $10.99</p>
-                <button onclick="showIngredients('Barbecue Chicken')">View Ingredients</button>
                 <div class="order-section">
                     <label for="quantity1">Quantity:</label>
-                    <input type="number" id="quantity1" name="quantity" value="0" min="1">
+                    <input type="number" id="quantity1" name="quantity" value="1" min="1">
                     <button onclick="addToCart('Barbecue Chicken', 10.99, 'quantity1')">Add to Cart</button>
                 </div>
             </div>
@@ -39,12 +53,11 @@
             <div class="pizza-card">
                 <img src="/Pizzafotos/HawaiiPizza.png" alt="Hawaii Pizza">
                 <h2>Hawaii Pizza</h2>
-                <p>Description of Hawaii Pizza</p>
+                <p>Ham, pineapple, cheese, tomato sauce</p>
                 <p>Price: $10.99</p>
-                <button onclick="showIngredients('Hawaii Pizza')">View Ingredients</button>
                 <div class="order-section">
                     <label for="quantity2">Quantity:</label>
-                    <input type="number" id="quantity2" name="quantity" value="0" min="1">
+                    <input type="number" id="quantity2" name="quantity" value="1" min="1">
                     <button onclick="addToCart('Hawaii Pizza', 10.99, 'quantity2')">Add to Cart</button>
                 </div>
             </div>
@@ -53,12 +66,11 @@
             <div class="pizza-card">
                 <img src="/Pizzafotos/SalamiPizza.png" alt="Salami Pizza">
                 <h2>Salami Pizza</h2>
-                <p>Description of Salami Pizza</p>
+                <p>Salami, cheese, mushrooms, olives, tomato sauce</p>
                 <p>Price: $10.99</p>
-                <button onclick="showIngredients('Salami Pizza')">View Ingredients</button>
                 <div class="order-section">
                     <label for="quantity3">Quantity:</label>
-                    <input type="number" id="quantity3" name="quantity" value="0" min="1">
+                    <input type="number" id="quantity3" name="quantity" value="1" min="1">
                     <button onclick="addToCart('Salami Pizza', 10.99, 'quantity3')">Add to Cart</button>
                 </div>
             </div>
@@ -67,12 +79,11 @@
             <div class="pizza-card">
                 <img src="/Pizzafotos/TonijnPizza.png" alt="Tonijn Pizza">
                 <h2>Tonijn Pizza</h2>
-                <p>Description of Tonijn Pizza</p>
+                <p>Tuna, onions, olives, cheese, tomato sauce</p>
                 <p>Price: $10.99</p>
-                <button onclick="showIngredients('Tonijn Pizza')">View Ingredients</button>
                 <div class="order-section">
                     <label for="quantity4">Quantity:</label>
-                    <input type="number" id="quantity4" name="quantity" value="0" min="1">
+                    <input type="number" id="quantity4" name="quantity" value="1" min="1">
                     <button onclick="addToCart('Tonijn Pizza', 10.99, 'quantity4')">Add to Cart</button>
                 </div>
             </div>
@@ -101,69 +112,38 @@
     </div>
 </footer>
 
-    <script>
- var cart = []; // Array to store cart items
+<script>
+    var cart = []; // Array to store cart items
+    var cartCount = 0; // Variable to store the count of items in the cart
 
-// Function to toggle the side panel
-function toggleSidePanel() {
-            var sidePanel = document.getElementById('side-panel');
-            sidePanel.classList.toggle('open');
-        }
-
-        // Function to show ingredients popup
-   // Function to show ingredients in a modal
-function showIngredients(pizzaName) {
-    var ingredients;
-    // Mocking ingredients for demonstration purpose
-    if (pizzaName === 'Barbecue Chicken') {
-        ingredients = 'Chicken, barbecue sauce, onions, bell peppers, cheese';
-    } else if (pizzaName === 'Hawaii Pizza') {
-        ingredients = 'Ham, pineapple, cheese, tomato sauce';
-    } else if (pizzaName === 'Salami Pizza') {
-        ingredients = 'Salami, cheese, mushrooms, olives, tomato sauce';
-    } else if (pizzaName === 'Tonijn Pizza') {
-        ingredients = 'Tuna, onions, olives, cheese, tomato sauce';
+    // Function to toggle the side panel
+    function toggleSidePanel() {
+        var sidePanel = document.getElementById('side-panel');
+        sidePanel.classList.toggle('open');
     }
-    // Display modal with ingredients
-    var modal = document.getElementById('modal');
-    var ingredientsDisplay = document.getElementById('ingredients');
-    ingredientsDisplay.textContent = ingredients;
-    modal.style.display = 'block';
-}
 
-// Close the modal when the user clicks on the close button (x)
-document.getElementsByClassName('close')[0].onclick = function() {
-    var modal = document.getElementById('modal');
-    modal.style.display = 'none';
-}
-
-// Close the modal when the user clicks anywhere outside of the modal
-window.onclick = function(event) {
-    var modal = document.getElementById('modal');
-    if (event.target == modal) {
-        modal.style.display = 'none';
+    // Function to add an item to the cart
+    function addToCart(pizzaName, price, quantityInputId) {
+        var quantity = document.getElementById(quantityInputId).value;
+        var pizzaPrice = quantity * price;
+        var wishlist = prompt("Enter your wishlist (e.g., no onions, no meat):");
+        var cartItem = {
+            name: pizzaName,
+            price: price,
+            quantity: parseInt(quantity),
+            totalPrice: pizzaPrice,
+            wishlist: wishlist
+        };
+        cart.push(cartItem); // Add item to cart
+        updateCartDisplay(); // Update cart display
+        cartCount++; // Increment cart count
+        updateCartCountDisplay(); // Update cart count display
+        // Display alert with pizza name, wishlist, and total price
+        alert("Added " + quantity + " " + pizzaName + "(s) to cart.\nWishlist: " + wishlist + "\nTotal Price: $" + pizzaPrice.toFixed(2));
     }
-}
-// Function to add an item to the cart
-function addToCart(pizzaName, price, quantityInputId) {
-var quantity = document.getElementById(quantityInputId).value;
-var pizzaPrice = quantity * price;
-var wishlist = prompt("Enter your wishlist (e.g., no onions, no meat):");
-var cartItem = {
-    name: pizzaName,
-    price: price,
-    quantity: parseInt(quantity),
-    totalPrice: pizzaPrice,
-    wishlist: wishlist
-};
-cart.push(cartItem); // Add item to cart
-updateCartDisplay(); // Update cart display
-// Display alert with pizza name, wishlist, and total price
-alert("Added " + quantity + " " + pizzaName + "(s) to cart.\nWishlist: " + wishlist + "\nTotal Price: $" + pizzaPrice.toFixed(2));
-}
 
-// Function to update cart display
-function updateCartDisplay() {
+    // Function to update cart display
+    function updateCartDisplay() {
         var cartItemsDiv = document.getElementById('cart-items');
         cartItemsDiv.innerHTML = ''; // Clear previous items
         var totalItems = 0;
@@ -185,27 +165,35 @@ function updateCartDisplay() {
             `;
             cartItemsDiv.appendChild(itemDiv);
         });
-        document.getElementById('cart-count').textContent = totalItems;
         document.getElementById('total-price').textContent = totalPrice.toFixed(2);
     }
 
-// Function to remove an item from the cart
-function removeFromCart(index) {
-    cart.splice(index, 1); // Remove item from cart
-    updateCartDisplay(); // Update cart display
-}
-
-// Function to change the quantity of an item in the cart
-function changeQuantity(index, change) {
-    if (cart[index]) {
-        cart[index].quantity += change;
-        if (cart[index].quantity < 1) {
-            cart[index].quantity = 1;
-        }
-        cart[index].totalPrice = cart[index].quantity * cart[index].price;
-        updateCartDisplay(); // Update cart display
+    // Function to update cart count display
+    function updateCartCountDisplay() {
+        var cartCountElement = document.querySelector('.cart-count');
+        cartCountElement.textContent = cartCount;
     }
-}
-    </script>
+
+    // Function to remove an item from the cart
+    function removeFromCart(index) {
+        cart.splice(index, 1); // Remove item from cart
+        updateCartDisplay(); // Update cart display
+        cartCount--; // Decrement cart count
+        updateCartCountDisplay(); // Update cart count display
+    }
+
+    // Function to change the quantity of an item in the cart
+    function changeQuantity(index, change) {
+        if (cart[index]) {
+            cart[index].quantity += change;
+            if (cart[index].quantity < 1) {
+                cart[index].quantity = 1;
+            }
+            cart[index].totalPrice = cart[index].quantity * cart[index].price;
+            updateCartDisplay(); // Update cart display
+        }
+    }
+</script>
+
 </body>
 </html>
