@@ -27,7 +27,7 @@
             <li><a href="/">Homepage</a></li>
             <li><a href="order">Order</a></li>
             <li class="cart-icon-container">
-                <span class="material-symbols-outlined">shopping_basket</span>
+                <span class="material-symbols-outlined" onclick="toggleSidePanel()">shopping_basket</span>
                 <div class="cart-count">0</div>
             </li>
         </ul>
@@ -66,7 +66,7 @@
             <div class="pizza-card">
                 <img src="/Pizzafotos/SalamiPizza.png" alt="Salami Pizza">
                 <h2>Salami Pizza</h2>
-                <p>Salami, cheese, mushrooms, olives, tomato sauce</p>
+                <p>Salami, cheese, mushrooms, tomato sauce</p>
                 <p>Price: $10.99</p>
                 <div class="order-section">
                     <label for="quantity3">Quantity:</label>
@@ -88,111 +88,162 @@
                 </div>
             </div>
         </div>
-        <div id="modal" class="modal">
+</div>
+<div id="modal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h2>Ingredients</h2>
-        <p id="ingredients"></p>
+        <h2 id="pizza-name">Pizza Name</h2>
+        <p>Price: <span id="pizza-price">$0.00</span></p>
+        <h3>Select Pizza Size:</h3>
+    <select id="pizza-size">
+        <option value="Small">Small</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="Large">Large</option>
+    </select>
+        <h3>Customization:</h3>
+        <label for="special-instructions">Whislist:</label><br>
+        <textarea id="special-instructions" name="special-instructions" rows="4" cols="50"></textarea><br>
+        <button onclick="addToCart()" id="add-to-cart-modal">Add to Cart</button>
     </div>
 </div>
     </main>
     <footer>
-    <div id="shopping-cart">
-        <h2>Shopping Cart</h2>
-        <p>Total Items: <span id="cart-count">0</span></p>
-        <p>Total Price: $<span id="total-price">0.00</span></p> <!-- Display total price here -->
-        <button class="cart-button" onclick="toggleSidePanel()">View Cart</button>
-    </div>
+    <div class="card">
+                <a href="#" class="socialContainer containerOne">
+                    <svg class="socialSvg instagramSvg" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path> </svg>
+                </a>
 
+                <a href="#" class="socialContainer containerTwo">
+                    <svg class="socialSvg twitterSvg" viewBox="0 0 16 16">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path> </svg>              </a>
+
+                <a href="#" class="socialContainer containerThree">
+                    <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512">
+                        <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
+                </a>
+
+                <a href="#" class="socialContainer containerFour">
+                    <svg class="socialSvg whatsappSvg" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path> </svg>
+                </a>
+            </div>
+            <div>
+                <p>@2024 Stonkspizza Alle rechten voorbehouden</p>
+            </div>
     <!-- Shopping cart side panel -->
     <div id="side-panel">
-        <h2>Your Cart</h2>
         <div id="cart-items"></div>
         <button class="cart-button" onclick="toggleSidePanel()">Close</button>
     </div>
 </footer>
 
 <script>
-    var cart = []; // Array to store cart items
-    var cartCount = 0; // Variable to store the count of items in the cart
+   var cart = []; // Array to store cart items
 
-    // Function to toggle the side panel
-    function toggleSidePanel() {
-        var sidePanel = document.getElementById('side-panel');
-        sidePanel.classList.toggle('open');
+// Function to toggle the side panel
+function toggleSidePanel() {
+    var sidePanel = document.getElementById('side-panel');
+    sidePanel.classList.toggle('open');
+}
+
+// Function to add a pizza to the cart and customize it
+function addToCart(name, price, quantityInputId) {
+    var quantity = parseInt(document.getElementById(quantityInputId).value);
+    
+    // Create a pizza object with default values
+    var pizza = {
+        name: name,
+        price: price,
+        quantity: quantity,
+        totalPrice: price * quantity,
+        size: "Medium", // Default size
+        wishlist: "No" // Default wishlist status
+    };
+    
+    // Show modal for pizza customization
+    showModal(pizza);
+}
+
+// Function to show modal for pizza customization
+function showModal(pizza) {
+    var modal = document.getElementById('modal');
+    modal.style.display = "block";
+
+    // Populate modal with pizza details
+    document.getElementById('pizza-name').textContent = pizza.name;
+    document.getElementById('pizza-price').textContent = "$" + pizza.price.toFixed(2);
+
+    // Event listener for modal close button
+    var closeBtn = document.getElementsByClassName("close")[0];
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
     }
 
-    // Function to add an item to the cart
-    function addToCart(pizzaName, price, quantityInputId) {
-        var quantity = document.getElementById(quantityInputId).value;
-        var pizzaPrice = quantity * price;
-        var wishlist = prompt("Enter your wishlist (e.g., no onions, no meat):");
-        var cartItem = {
-            name: pizzaName,
-            price: price,
-            quantity: parseInt(quantity),
-            totalPrice: pizzaPrice,
-            wishlist: wishlist
-        };
-        cart.push(cartItem); // Add item to cart
+    // Event listener for add to cart button in modal
+    var addToCartBtn = document.getElementById('add-to-cart-modal');
+    addToCartBtn.onclick = function() {
+        // Update pizza details based on user input in modal
+        pizza.size = document.querySelector('input[name="pizza-size"]:checked').value;
+        pizza.wishlist = document.getElementById('special-instructions').value; // Get value from textarea
+
+        // Add customized pizza to cart
+        cart.push(pizza);
         updateCartDisplay(); // Update cart display
-        cartCount++; // Increment cart count
-        updateCartCountDisplay(); // Update cart count display
-        // Display alert with pizza name, wishlist, and total price
-        alert("Added " + quantity + " " + pizzaName + "(s) to cart.\nWishlist: " + wishlist + "\nTotal Price: $" + pizzaPrice.toFixed(2));
+        modal.style.display = "none"; // Close modal
     }
+}
 
-    // Function to update cart display
-    function updateCartDisplay() {
-        var cartItemsDiv = document.getElementById('cart-items');
-        cartItemsDiv.innerHTML = ''; // Clear previous items
-        var totalItems = 0;
-        var totalPrice = 0;
-        cart.forEach(function(item, index) {
-            totalItems += item.quantity;
-            totalPrice += item.totalPrice;
-            var itemDiv = document.createElement('div');
-            itemDiv.classList.add('cart-item');
-            itemDiv.innerHTML = `
-                <p>Name: ${item.name}</p>
-                <p>Quantity: ${item.quantity}</p>
-                <p>Price: $${item.price.toFixed(2)}</p>
-                <p>Total: $${item.totalPrice.toFixed(2)}</p>
-                <p>Wishlist: ${item.wishlist}</p>
-                <button class="cart-button" onclick="removeFromCart(${index})">Remove</button>
-                <button class="cart-button" onclick="changeQuantity(${index}, -1)">-</button>
-                <button class="cart-button" onclick="changeQuantity(${index}, 1)">+</button>
-            `;
-            cartItemsDiv.appendChild(itemDiv);
-        });
-        document.getElementById('total-price').textContent = totalPrice.toFixed(2);
-    }
+// Function to update cart display
+function updateCartDisplay() {
+    var cartItemsDiv = document.getElementById('cart-items');
+    cartItemsDiv.innerHTML = ''; // Clear previous items
+    var totalItems = 0;
+    var totalPrice = 0;
+    cart.forEach(function(item, index) {
+        totalItems += item.quantity;
+        totalPrice += item.totalPrice;
+        var itemDiv = document.createElement('div');
+        itemDiv.classList.add('cart-item');
+        itemDiv.innerHTML = `
+            <p>Name: ${item.name}</p>
+            <p>Quantity: ${item.quantity}</p>
+            <p>Price: $${item.price.toFixed(2)}</p>
+            <p>Total: $${item.totalPrice.toFixed(2)}</p>
+            <p>Wishlist: ${item.wishlist}</p>
+            <button class="cart-button" onclick="removeFromCart(${index})">Remove</button>
+            <button class="cart-button" onclick="changeQuantity(${index}, -1)">-</button>
+            <button class="cart-button" onclick="changeQuantity(${index}, 1)">+</button>
+        `;
+        cartItemsDiv.appendChild(itemDiv);
+    });
+    document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+    updateCartCountDisplay(totalItems); // Update cart count display with total items
+}
 
-    // Function to update cart count display
-    function updateCartCountDisplay() {
-        var cartCountElement = document.querySelector('.cart-count');
-        cartCountElement.textContent = cartCount;
-    }
+// Function to update cart count display
+function updateCartCountDisplay(totalItems) {
+    var cartCountElement = document.querySelector('.cart-count');
+    cartCountElement.textContent = totalItems; // Display total items in cart
+}
 
-    // Function to remove an item from the cart
-    function removeFromCart(index) {
-        cart.splice(index, 1); // Remove item from cart
-        updateCartDisplay(); // Update cart display
-        cartCount--; // Decrement cart count
-        updateCartCountDisplay(); // Update cart count display
-    }
+// Function to remove an item from the cart
+function removeFromCart(index) {
+    cart.splice(index, 1); // Remove item from cart
+    updateCartDisplay(); // Update cart display
+}
 
-    // Function to change the quantity of an item in the cart
-    function changeQuantity(index, change) {
-        if (cart[index]) {
-            cart[index].quantity += change;
-            if (cart[index].quantity < 1) {
-                cart[index].quantity = 1;
-            }
-            cart[index].totalPrice = cart[index].quantity * cart[index].price;
-            updateCartDisplay(); // Update cart display
+// Function to change the quantity of an item in the cart
+function changeQuantity(index, change) {
+    if (cart[index]) {
+        cart[index].quantity += change;
+        if (cart[index].quantity < 1) {
+            cart[index].quantity = 1;
         }
+        cart[index].totalPrice = cart[index].quantity * cart[index].price;
+        updateCartDisplay(); // Update cart display
     }
+}
 </script>
 
 </body>
