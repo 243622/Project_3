@@ -22,7 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css','resources/css/custom.css', 'resources/css/contact.css'])
 </head>
 <body class="">
     <header class="flex justify-around gap-3 items-center">
@@ -38,74 +38,101 @@
     <br>
     <h1 class="text-4xl text-center">Most popular pizza's</h1>
     <div class="grid grid-rows-3">
-        <div id="pizzas" class="flex justify-between inline-block p-14">
-            <div class=" text-center ">
-                <p><img class="h-52" src="/PizzaFotos/TonijnPizza.png"></p>
+        <div id="pizzas" class="flex justify-between gap-8 p-20">
+            <div class="text-center">
+                <p><img class="h-60" src="/PizzaFotos/TonijnPizza.png"></p>
                 <h1>Tonijn Pizza</h1>
                 <button class="rounded-lg bg-red-600 p-2"><a href="order">More Information</a></button>
             </div>
             <div class="text-center">
-                <p><img class="h-52" src="/PizzaFotos/SalamiPizza.png"></p>
+                <p><img class="h-60" src="/PizzaFotos/SalamiPizza.png"></p>
                 <h1>Salami Pizza</h1>
                 <button class="rounded-lg bg-red-600 p-2"><a href="order">More Information</a></button>
             </div>
             <div class="text-center">
-                <p><img class="h-52" src="/PizzaFotos/HawaiiPizza.png"></p>
+                <p><img class="h-60" src="/PizzaFotos/HawaiiPizza.png"></p>
                 <h1 class="">Hawaii Pizza</h1>
                 <button class="rounded-lg bg-red-600 p-2"><a href="order">More Information</a></button>
             </div>
             <div class="text-center">
-                <p><img class="h-52" src="/PizzaFotos/BarbecueChicken.png"></p>
+                <p><img class="h-60" src="/PizzaFotos/BarbecueChicken.png"></p>
                 <h1>Barbeque Chicken Pizza</h1>
                 <button class="rounded-lg bg-red-600 p-2"><a href="order">More Information</a></button>
             </div>
         </div>
 
-        <div class="grid grid-1">
+        <div class="grid">
             <div id="Information" class="grid grid-rows-3 w-3/4 place-items-center place-self-center">
                 <h1 class="text-4xl text-center">The history of Stonks Pizza</h1>
-
-                <div class="m-3">
-                    <p>🍕De lekkerste pizza bestel je bij New York Pizza
-                        Wat is een New York pizza?
-                        De enige echte New York style pizza bestel je bij New York Pizza. Al sinds 1993 bezorgen wij de echte New York pizza bij jou aan de deur. Pizza’s uit New York kenmerken zich door de medium dikke korst die knapperig is en tegelijkertijd toch een bite heeft. Dit combineren wij met smaakvolle tomatensaus, verse mozzarella en natuurlijk de heerlijkste toppings, van traditioneel tot de beste variaties. Bij ons kun je altijd de pizza bestellen die perfect bij jouw smaak past en ben je verzekerd van de meest verse ingrediënten. It's the dough!
+                <div class="m-2">
+                    <h1 class="text-2xl">What is an Stonks Pizza?</h1>
+                    <p>🍕You can order the tastiest pizza at Stonks Pizza.
+                        You can order the one and only Stonks Style at Stonks Pizza. We have been delivering the real Stonks Pizza to your door since 1993. Pizzas from Stonks are characterized by the medium thick crust that is random but still has a bite. We combine this with efficient tomato sauce, fresh mozzarella and of course the most delicious toppings, from traditional to the best variations. With us you can always order the pizza that perfectly suits your taste and you are assured of the freshest ingredients.
                     </p>
                 </div>
                 <div class="m-2">
+                    <h1 class="text-2xl">Order food from Stonks Pizza</h1>
                     <p>
-                        Eten bestellen bij New York Pizza
-                        Van vlees pizza's tot vegetarische en vegan pizza’s. Voor iedereen hebben we een pizza naar wens. Ook ander eten bestellen kan bij New York Pizza. Je kunt bij ons ook terecht voor de heerlijkste pasta’s en salades. Maak je bestelling compleet met lekkere fingerfoods, zoals een Garlic Bread of Chicken pops en een van onze heerlijke desserts.
+                        Order food from Stonks Pizza.
+                        From meat pizzas to vegetarian and vegan pizzas. We have a pizza to suit everyone's taste. You can also order other food at Stonks Pizza. You can also come to us for the most delicious pastas and salads. Complete your order with delicious finger foods, such as Garlic Bread or Chicken pops and one of our delicious desserts.
                     </p>
                 </div>
                 <div class="m-2">
+                    <h1 class="text-2xl">Easily order your pizza</h1>
                     <p>
-                        Makkelijk je pizza bestellen
-                        Elke pizza die je bij New York Pizza bestelt, kunnen wij aan je deur bezorgen. Wij garanderen dat je je pizza net zo vers en heet opeet als wanneer je hem bij ons in de keuken zou krijgen. Bestel via de website, de app of geef ons een belletje. Waar je ook bent, wanneer je ook wilt, bezorgen wij jou de echte New York style pizza. Natuurlijk is het ook mogelijk om je pizza af te halen, door van tevoren je pizza bestelling door te geven via de website, telefoon of app. Je kunt natuurlijk ook langskomen in één van onze vestigingen en ter plaatse bestellen. De pizza maken we binnen enkele minuten voor je klaar terwijl je wacht.
+                        Easily order your pizza.
+                        We can deliver any pizza you order from Stonks Pizza to your door. We guarantee that you will eat your pizza as fresh and hot as if you got it in our kitchen. Order via the website, the app or give us a call. Wherever you are, whenever you want, we will deliver you the real Stonks style pizza. Of course, it is also possible to pick up your pizza by placing your pizza order in advance via the website, telephone or app. You can of course also visit one of our branches and order on site. We will prepare the pizza for you within a few minutes while you wait.
                     </p>
                 </div>
             </div>
         </div>
 
-        <div class="grid grid-cols-3 inline-block p-14 place-items-center">
-            <div class="">
-                <h1 class="text-xl text-center">Plastic-Free Packaging</h1>
-                <p><img class="h-52" src="/PizzaFotos/SalamiPizza.png"></p>
+        <div class="grid grid-cols-3 inline-block p-24 gap-20">
+            <div class="text-center">
+                <h1 class="text-xl">Plastic-Free Packaging</h1>
+                <p><img class="h-52 mx-auto" src="/PizzaFotos/pizzabox.png"></p>
                 <p>We believe it is important to keep our impact on the environment as low as possible. That's why 95% of our packaging is already plastic-free. In addition, our pizza boxes can simply be thrown away with the waste paper. Read more about our vision and the steps we have taken here.</p>
             </div>
 
-            <div class="">
-                <h1 class="text-xl text-center">Information About Stonks Pizza</h1>
-                <p><img class="h-52" src="/PizzaFotos/SalamiPizza.png"></p>
+            <div class="text-center">
+                <h1 class="text-xl">Information About Stonks Pizza</h1>
+                <p><img class="h-52 mx-auto" src="/PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png"></p>
                 <p>We want to do good because it feels good. Doing good for our customers, people, communities, the environment and our food. We call our mission to create a better world for everyone: Stonks For Good.</p>
             </div>
 
-            <div class="">
-                <h1 class="text-xl text-center">Stonks Most Recent Pizza</h1>
-                <p><img class="h-52" src="/PizzaFotos/SalamiPizza.png"></p>
+            <div class="text-center">
+                <h1 class="text-xl">Stonks Most Recent Pizza</h1>
+                <p><img class="h-52 mx-auto" src="/PizzaFotos/TonijnPizza.png"></p>
                 <p>Most recent pizza created</p>
             </div>
         </div>
-
     </div>
+
+    <footer class="flex items-center flex-col">
+        <div class="card">
+            <a href="#" class="socialContainer containerOne">
+                <svg class="socialSvg instagramSvg" viewBox="0 0 16 16">
+                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path> </svg>
+            </a>
+
+            <a href="#" class="socialContainer containerTwo">
+                <svg class="socialSvg twitterSvg" viewBox="0 0 16 16">
+                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path> </svg>              </a>
+
+            <a href="#" class="socialContainer containerThree">
+                <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512">
+                    <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
+            </a>
+
+            <a href="#" class="socialContainer containerFour">
+                <svg class="socialSvg whatsappSvg" viewBox="0 0 16 16">
+                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path> </svg>
+            </a>
+        </div>
+
+        <div>
+            <p class="text-white">@2024 Stonkspizza Alle rechten voorbehouden</p>
+        </div>
+    </footer>
 </body>
 </html>
