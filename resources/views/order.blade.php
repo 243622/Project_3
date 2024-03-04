@@ -107,7 +107,7 @@
     </div>
 </div>
     </main>
-    <footer>
+    <footer class="flex items-center flex-col">
     <div class="card">
                 <a href="https://www.instagram.com/stonkspizza/ " class="socialContainer containerOne">
                     <svg class="socialSvg instagramSvg" viewBox="0 0 16 16">
@@ -141,6 +141,7 @@
 </footer>
 
 <script>
+    
 function redirectToCheckout() {
     // Assuming checkout.blade.php is in the same directory
     window.location.href = 'checkout';
@@ -202,6 +203,37 @@ function showModal(pizza) {
 
 
 
+
+
+// Function to update cart count display
+function updateCartCountDisplay(totalItems) {
+    var cartCountElement = document.querySelector('.cart-count');
+    cartCountElement.textContent = totalItems; // Display total items in cart
+}
+
+// Function to remove an item from the cart
+function removeFromCart(index) {
+    cart.splice(index, 1); // Remove item from cart
+    updateCartDisplay(); // Update cart display
+}
+// Function to retrieve cart data from localStorage
+function getCartFromLocalStorage() {
+    var cartData = localStorage.getItem('cart');
+    return cartData ? JSON.parse(cartData) : [];
+}
+
+// Function to save cart data to localStorage
+function saveCartToLocalStorage(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Initialize cart from localStorage when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    cart = getCartFromLocalStorage();
+    updateCartDisplay(); // Update cart display with items from localStorage
+});
+
+// Function to update cart display and save cart to localStorage
 // Function to update cart display
 function updateCartDisplay() {
     var cartItemsDiv = document.getElementById('cart-items');
@@ -227,21 +259,18 @@ function updateCartDisplay() {
     });
     document.getElementById('total-price').textContent = totalPrice.toFixed(2);
     updateCartCountDisplay(totalItems); // Update cart count display with total items
+
+    saveCartToLocalStorage(cart);
 }
 
-// Function to update cart count display
-function updateCartCountDisplay(totalItems) {
-    var cartCountElement = document.querySelector('.cart-count');
-    cartCountElement.textContent = totalItems; // Display total items in cart
-}
-
-// Function to remove an item from the cart
 function removeFromCart(index) {
     cart.splice(index, 1); // Remove item from cart
     updateCartDisplay(); // Update cart display
+
+    saveCartToLocalStorage(cart);
 }
 
-// Function to change the quantity of an item in the cart
+// Function to change the quantity of an item in the cart and update localStorage
 function changeQuantity(index, change) {
     if (cart[index]) {
         cart[index].quantity += change;
@@ -251,7 +280,9 @@ function changeQuantity(index, change) {
         cart[index].totalPrice = cart[index].quantity * cart[index].price;
         updateCartDisplay(); // Update cart display
     }
+    saveCartToLocalStorage(cart);
 }
+
 </script>
 
 </body>

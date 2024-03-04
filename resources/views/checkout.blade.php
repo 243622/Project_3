@@ -17,7 +17,7 @@
         <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" >
     </header>
 
-    <footer>
+    <footer class="flex items-center flex-col">
     <div class="card">
                 <a href="" class="socialContainer containerOne">
                     <svg class="socialSvg instagramSvg" viewBox="0 0 16 16">
