@@ -26,7 +26,57 @@
             </nav>
         </header>
 
-        <div class=" flex justify-center">
+        <main class="content flex items-center justify-center gap-5">
+            <div class="info flex flex-col justify-evenly p-5">
+                <table>
+                    <tr>
+                        <td>Our contacts:</td>
+                    </tr>
+                    <tr class="flex justify-start">
+                        <td>Location: Sterrenlaan 10</td>
+                    </tr>
+                    <tr class="flex justify-start">
+                        <td>Mail: PS238571@edu.summacollege.nl</td>
+                    </tr>
+                    <tr class="flex justify-start">
+                        <td>Phone: 040 269 4444</td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr>
+                        <td>Opening times:</td>
+                    </tr>
+                    <tr class="flex justify-start">
+                        <td>Monday:</td>
+                        <td>closed</td>
+                    </tr>
+                    <tr class="flex justify-start">
+                        <td>Tuesday:</td>
+                        <td>16:00 - 20:00</td>
+                    </tr >
+                    <tr class="flex justify-start">
+                        <td>Wednesday:</td>
+                        <td>16:00 - 20:00</td>
+                    </tr>
+                    <tr class="flex justify-start">
+                        <td>Thursday:</td>
+                        <td>16:00 - 20:00</td>
+                    </tr>
+                    <tr class="flex justify-start">
+                        <td>Friday:</td>
+                        <td>16:00 - 20:00</td>
+                    </tr>
+                    <tr class="flex justify-start">
+                        <td>Saturday:</td>
+                        <td>15:00 - 19:00</td>
+                    </tr>
+                    <tr class="flex justify-start">
+                        <td>Sunday:</td>
+                        <td>closed</td>
+                    </tr>
+                </table>
+            </div>
 
             <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.5561217302084!2d5.493817312641216!3d51
             .46630567168636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d8d3f3dacee7%3A0x1acd712bb57b8792!2sSte
@@ -34,10 +84,35 @@
                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-            <div class="">
+            <form class="form">
+                <div class="flex">
+                    <label>
+                        <input class="input" type="text" placeholder="" required="">
+                        <span>Firstname</span>
+                    </label>
 
-            </div>
-        </div>
+                    <label>
+                        <input class="input" type="text" placeholder="" required="">
+                        <span>Lastname</span>
+                    </label>
+                </div>
+
+                <label>
+                    <input class="input" type="email" placeholder="" required="">
+                    <span>Email</span>
+                </label>
+
+                <label>
+                    <input class="input" type="" placeholder="" required="">
+                    <span>Phone number</span>
+                </label>
+                <label class="message">
+                    <input class="input" type="" placeholder="" required="">
+                    <span>Message</span>
+                </label>
+                <button class="submit">Submit</button>
+            </form>
+        </main>
 
         <footer class="flex items-center flex-col">
             <div class="card">
@@ -62,7 +137,7 @@
             </div>
 
             <div>
-                <p>@2024 Stonkspizza Alle rechten voorbehouden</p>
+                <p>@2024 Stonkspizza All rights reserved</p>
             </div>
         </footer>
     </body>

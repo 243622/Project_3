@@ -75,3 +75,82 @@
         opacity: 1;
     }
 }
+
+
+.map {
+    height: 60vh;
+}
+
+
+.info {
+    background-color: #333;
+    color: white;
+    height: 60vh;
+    border: 2px solid #d63b1d;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    padding: 20px;
+    position: relative;
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #d63b1d;
+    height: 60vh;
+}
+
+.form label {
+    position: relative;
+}
+
+.form label .input {
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    padding: 20px 05px 05px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+}
+
+.form label .input + span {
+    color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    left: 10px;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+    top: 12.5px;
+    font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+    color: #d63b1d;
+    top: 0px;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+
+.input {
+    font-size: medium;
+}
+
+.submit {
+    border: none;
+    outline: none;
+    padding: 10px;
+    color: #fff;
+    font-size: 16px;
+    background-color: #d63b1d;
+}
+
+.submit:hover {
+    background-color: #aa3333;
+}
