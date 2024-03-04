@@ -7,18 +7,26 @@
     @vite(['resources/css/app.css','resources/css/custom.css', 'resources/js/app.js', 'resources/css/contact.css'])
 </head>
     <body>
-        <header>
-            <nav>
+        <header><img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="
+                position: absolute;
+            ">
+            <nav style="
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                flex-wrap: wrap;
+                align-content: center;
+                align-items: center;
+                justify-content: center;
+            ">
                 <ul>
                     <li><a href="/">Homepage</a></li>
                     <li><a href="order">Order</a></li>
-                    <li><a href="checkout">Checkout</a></li>
                 </ul>
             </nav>
-            <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" >
         </header>
 
-        <div class="flex">
+        <div class=" flex justify-center">
 
             <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.5561217302084!2d5.493817312641216!3d51
             .46630567168636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d8d3f3dacee7%3A0x1acd712bb57b8792!2sSte
@@ -26,6 +34,9 @@
                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
 
+            <div class="">
+
+            </div>
         </div>
 
         <footer class="flex items-center flex-col">
