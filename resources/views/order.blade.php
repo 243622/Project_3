@@ -129,7 +129,7 @@
                 </a>
             </div>
             <div>
-                <p>@2024 Stonkspizza Alle rechten voorbehouden</p>
+                <p>@2024 Stonkspizza Alle rechten voorbehouden </p>
             </div>
   <!-- Shopping cart side panel -->
 <div id="side-panel">
@@ -141,7 +141,7 @@
 </footer>
 
 <script>
-    
+
 function redirectToCheckout() {
     // Assuming checkout.blade.php is in the same directory
     window.location.href = 'checkout';
