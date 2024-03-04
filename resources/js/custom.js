@@ -68,11 +68,6 @@ function updateCartCountDisplay(totalItems) {
     cartCountElement.textContent = totalItems; // Display total items in cart
 }
 
-// Function to remove an item from the cart
-function removeFromCart(index) {
-    cart.splice(index, 1); // Remove item from cart
-    updateCartDisplay(); // Update cart display
-}
 // Function to retrieve cart data from localStorage
 function getCartFromLocalStorage() {
     var cartData = localStorage.getItem('cart');
