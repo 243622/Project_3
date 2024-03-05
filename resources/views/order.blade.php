@@ -35,6 +35,7 @@
 </header>
     <main>
     <h1 class="Top-header">Available Pizzas</h1>
+        <a href="{{route('crudmedewerkers/pizza/index')}}">Medewerkers</a>
     <div class="pizza-container">
         @foreach($pizzas as $index => $pizza)
             @if($index % 4 == 0)
