@@ -14,6 +14,10 @@
     h1{
         color: #333;
     }
+    #HomePageImage{
+        height: 575px;
+        width: 1600px;
+    }
 
 </style>
 <!DOCTYPE html>
@@ -35,50 +39,53 @@
             </ul>
         </nav>
     </header>
+        <div>
+            <p><img id="HomePageImage" src="/PizzaFotos/HomepageImage.png"> </p>
+        </div>
     <br>
-    <h1 class="text-4xl text-center">Most popular pizza's</h1>
+    <h1 class="text-4xl text-center font-semibold">Most popular pizza's</h1>
     <div class="grid grid-rows-3">
         <div id="pizzas" class="flex justify-between gap-8 p-20">
             <div class="text-center">
-                <p><img class="h-60" src="/PizzaFotos/TonijnPizza.png"></p>
+                <p><img class="h-60 rounded-sm" src="/PizzaFotos/TonijnPizza.png"></p>
                 <h1>Tonijn Pizza</h1>
                 <button class="rounded-lg bg-red-600 p-2"><a href="order">More Information</a></button>
             </div>
             <div class="text-center">
-                <p><img class="h-60" src="/PizzaFotos/SalamiPizza.png"></p>
+                <p><img class="h-60 rounded-sm" src="/PizzaFotos/SalamiPizza.png"></p>
                 <h1>Salami Pizza</h1>
                 <button class="rounded-lg bg-red-600 p-2"><a href="order">More Information</a></button>
             </div>
             <div class="text-center">
-                <p><img class="h-60" src="/PizzaFotos/HawaiiPizza.png"></p>
+                <p><img class="h-60 rounded-sm" src="/PizzaFotos/HawaiiPizza.png"></p>
                 <h1 class="">Hawaii Pizza</h1>
                 <button class="rounded-lg bg-red-600 p-2"><a href="order">More Information</a></button>
             </div>
             <div class="text-center">
-                <p><img class="h-60" src="/PizzaFotos/BarbecueChicken.png"></p>
+                <p><img class="h-60 rounded-sm" src="/PizzaFotos/BarbecueChicken.png"></p>
                 <h1>Barbeque Chicken Pizza</h1>
                 <button class="rounded-lg bg-red-600 p-2"><a href="order">More Information</a></button>
             </div>
         </div>
 
-        <div class="grid">
-            <div id="Information" class="grid grid-rows-3 w-3/4 place-items-center place-self-center">
-                <h1 class="text-4xl text-center">The history of Stonks Pizza</h1>
+        <div class="grid p-10">
+            <div id="Information" class="grid grid-rows-3 w-3/4 place-items-center place-self-center mt-[-200px]">
+                <h1 class="text-4xl text-center font-semibold">The history of Stonks Pizza</h1>
                 <div class="m-2">
-                    <h1 class="text-2xl">What is an Stonks Pizza?</h1>
+                    <h1 class="text-2xl font-semibold">What is Stonks Pizza?</h1>
                     <p>🍕You can order the tastiest pizza at Stonks Pizza.
                         You can order the one and only Stonks Style at Stonks Pizza. We have been delivering the real Stonks Pizza to your door since 1993. Pizzas from Stonks are characterized by the medium thick crust that is random but still has a bite. We combine this with efficient tomato sauce, fresh mozzarella and of course the most delicious toppings, from traditional to the best variations. With us you can always order the pizza that perfectly suits your taste and you are assured of the freshest ingredients.
                     </p>
                 </div>
                 <div class="m-2">
-                    <h1 class="text-2xl">Order food from Stonks Pizza</h1>
+                    <h1 class="text-2xl font-semibold">Order food from Stonks Pizza</h1>
                     <p>
                         Order food from Stonks Pizza.
                         From meat pizzas to vegetarian and vegan pizzas. We have a pizza to suit everyone's taste. You can also order other food at Stonks Pizza. You can also come to us for the most delicious pastas and salads. Complete your order with delicious finger foods, such as Garlic Bread or Chicken pops and one of our delicious desserts.
                     </p>
                 </div>
                 <div class="m-2">
-                    <h1 class="text-2xl">Easily order your pizza</h1>
+                    <h1 class="text-2xl font-semibold">Easily order your pizza</h1>
                     <p>
                         Easily order your pizza.
                         We can deliver any pizza you order from Stonks Pizza to your door. We guarantee that you will eat your pizza as fresh and hot as if you got it in our kitchen. Order via the website, the app or give us a call. Wherever you are, whenever you want, we will deliver you the real Stonks style pizza. Of course, it is also possible to pick up your pizza by placing your pizza order in advance via the website, telephone or app. You can of course also visit one of our branches and order on site. We will prepare the pizza for you within a few minutes while you wait.
@@ -89,20 +96,20 @@
 
         <div class="grid grid-cols-3 inline-block p-24 gap-20">
             <div class="text-center">
-                <h1 class="text-xl">Plastic-Free Packaging</h1>
-                <p><img class="h-52 mx-auto" src="/PizzaFotos/pizzabox.png"></p>
+                <h1 class="text-xl font-semibold">Plastic-Free Packaging</h1>
+                <p><img class="h-52 mx-auto rounded-sm" src="/PizzaFotos/pizzabox-removebg-preview.png"></p>
                 <p>We believe it is important to keep our impact on the environment as low as possible. That's why 95% of our packaging is already plastic-free. In addition, our pizza boxes can simply be thrown away with the waste paper. Read more about our vision and the steps we have taken here.</p>
             </div>
 
             <div class="text-center">
-                <h1 class="text-xl">Information About Stonks Pizza</h1>
-                <p><img class="h-52 mx-auto" src="/PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png"></p>
+                <h1 class="text-xl font-semibold">Information About Stonks Pizza</h1>
+                <p><img class="h-52 mx-auto rounded-sm" src="/PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png"></p>
                 <p>We want to do good because it feels good. Doing good for our customers, people, communities, the environment and our food. We call our mission to create a better world for everyone: Stonks For Good.</p>
             </div>
 
             <div class="text-center">
-                <h1 class="text-xl">Stonks Most Recent Pizza</h1>
-                <p><img class="h-52 mx-auto" src="/PizzaFotos/TonijnPizza.png"></p>
+                <h1 class="text-xl font-semibold">Stonks Most Recent Pizza</h1>
+                <p><img class="h-52 mx-auto rounded-sm" src="/PizzaFotos/TonijnPizza.png"></p>
                 <p>Most recent pizza created</p>
             </div>
         </div>
