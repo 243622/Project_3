@@ -79,6 +79,8 @@
 
 .map {
     height: 60vh;
+    border-radius: 20px;
+    border:2px solid #555555;
 }
 
 
@@ -86,7 +88,8 @@
     background-color: #333;
     color: white;
     height: 60vh;
-    border: 2px solid #d63b1d;
+    border: 2px solid #555555;
+    border-radius: 20px;
 }
 
 
@@ -99,8 +102,9 @@
     position: relative;
     background-color: #333;
     color: #fff;
-    border: 2px solid #d63b1d;
+    border: 2px solid #555555;
     height: 60vh;
+    border-radius: 20px;
 }
 
 .form label {
