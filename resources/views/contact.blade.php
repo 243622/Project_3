@@ -7,18 +7,9 @@
     @vite(['resources/css/app.css','resources/css/custom.css', 'resources/js/app.js', 'resources/css/contact.css'])
 </head>
     <body>
-        <header><img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="
-                position: absolute;
-            ">
-            <nav style="
-                display: flex;
-                flex-direction: row;
-                width: 100%;
-                flex-wrap: wrap;
-                align-content: center;
-                align-items: center;
-                justify-content: center;
-            ">
+        <header>
+            <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
+            <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
                 <ul>
                     <li><a href="/">Homepage</a></li>
                     <li><a href="order">Order</a></li>
@@ -27,64 +18,30 @@
         </header>
 
         <main class="content flex items-center justify-center gap-5">
-            <div class="info flex flex-col justify-evenly p-5">
-                <table>
-                    <tr>
-                        <td>Our contacts:</td>
-                    </tr>
-                    <tr class="flex justify-start">
-                        <td>Location: Sterrenlaan 10</td>
-                    </tr>
-                    <tr class="flex justify-start">
-                        <td>Mail: PS238571@edu.summacollege.nl</td>
-                    </tr>
-                    <tr class="flex justify-start">
-                        <td>Phone: 040 269 4444</td>
-                    </tr>
-                </table>
+            <div id="info" class="info flex flex-col justify-evenly p-5">
+                <div class="contact-info">
+                    <h2>Our contacts:</h2>
+                    <p><strong>Location:</strong> Sterrenlaan 10</p>
+                    <p><strong>Mail:</strong> PS238571@edu.summacollege.nl</p>
+                    <p><strong>Phone:</strong> 040 269 4444</p>
+                </div>
 
-                <table>
-                    <tr>
-                        <td>Opening times:</td>
-                    </tr>
-                    <tr class="flex justify-start">
-                        <td>Monday:</td>
-                        <td>closed</td>
-                    </tr>
-                    <tr class="flex justify-start">
-                        <td>Tuesday:</td>
-                        <td>16:00 - 20:00</td>
-                    </tr >
-                    <tr class="flex justify-start">
-                        <td>Wednesday:</td>
-                        <td>16:00 - 20:00</td>
-                    </tr>
-                    <tr class="flex justify-start">
-                        <td>Thursday:</td>
-                        <td>16:00 - 20:00</td>
-                    </tr>
-                    <tr class="flex justify-start">
-                        <td>Friday:</td>
-                        <td>16:00 - 20:00</td>
-                    </tr>
-                    <tr class="flex justify-start">
-                        <td>Saturday:</td>
-                        <td>15:00 - 19:00</td>
-                    </tr>
-                    <tr class="flex justify-start">
-                        <td>Sunday:</td>
-                        <td>closed</td>
-                    </tr>
-                </table>
+                <div class="opening-hours">
+                    <h2>Opening times:</h2>
+                    <ul>
+                        <li><strong>Monday:</strong> Closed</li>
+                        <li><strong>Tuesday - Thursday:</strong> 16:00 - 20:00</li>
+                        <li><strong>Friday:</strong> 16:00 - 22:00</li>
+                        <li><strong>Saturday:</strong> 12:00 - 22:00</li>
+                        <li><strong>Sunday:</strong> 12:00 - 20:00</li>
+                    </ul>
+                    <p>We are closed on public holidays.</p>
+                </div>
             </div>
 
-            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.5561217302084!2d5.493817312641216!3d51
-            .46630567168636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d8d3f3dacee7%3A0x1acd712bb57b8792!2sSte
-            rrenlaan%2010%2C%205631%20KA%20Eindhoven!5e0!3m2!1snl!2snl!4v1709299533187!5m2!1snl!2snl"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe id="map" class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.5561217302084!2d5.493817312641216!3d51.46630567168636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d8d3f3dacee7%3A0x1acd712bb57b8792!2sSterrenlaan%2010%2C%205631%20KA%20Eindhoven!5e0!3m2!1snl!2snl!4v1709299533187!5m2!1snl!2snl" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-            <form class="form">
+            <form id="form" class="form">
                 <div class="flex">
                     <label>
                         <input class="input" type="text" placeholder="" required="">
@@ -123,7 +80,8 @@
 
                 <a href="#" class="socialContainer containerTwo">
                     <svg class="socialSvg twitterSvg" viewBox="0 0 16 16">
-                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path> </svg>              </a>
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path> </svg>
+                </a>
 
                 <a href="#" class="socialContainer containerThree">
                     <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512">

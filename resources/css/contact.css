@@ -10,7 +10,7 @@
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
 }
 
-/* for all social containers*/
+/* Voor alle sociale containers */
 .socialContainer {
     width: 52px;
     height: 52px;
@@ -23,25 +23,25 @@
     border-radius: 20px;
 }
 
-/* instagram*/
+/* Instagram */
 .containerOne:hover {
     background-color: #d62976;
     transition-duration: .3s;
 }
 
-/* twitter*/
+/* Twitter */
 .containerTwo:hover {
     background-color: #00acee;
     transition-duration: .3s;
 }
 
-/* linkdin*/
+/* LinkedIn */
 .containerThree:hover {
     background-color: #0072b1;
     transition-duration: .3s;
 }
 
-/* Whatsapp*/
+/* Whatsapp */
 .containerFour:hover {
     background-color: #128C7E;
     transition-duration: .3s;
@@ -76,30 +76,23 @@
     }
 }
 
-
 .map {
     height: 60vh;
+    border-radius: 20px;
+    border: 2px solid #555555;
 }
 
-
-.info {
+.info,
+.form {
     background-color: #333;
     color: white;
-    height: 60vh;
-    border: 2px solid #d63b1d;
-}
-
-
-.form {
+    border: 2px solid #555555;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 350px;
-    padding: 20px;
-    position: relative;
-    background-color: #333;
-    color: #fff;
-    border: 2px solid #d63b1d;
     height: 60vh;
 }
 
@@ -153,4 +146,28 @@
 
 .submit:hover {
     background-color: #aa3333;
+}
+
+#info,
+#map,
+#form {
+    width: 30%;
+}
+
+/* Mediaquery voor smartphones met een maximale breedte van 480px */
+@media only screen and (max-width: 480px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #info,
+    #map,
+    #form {
+        width: 100%;
+        margin: 10px auto;
+        overflow: hidden;
+        max-height: 60vh;
+        box-sizing: border-box;
+    }
 }
