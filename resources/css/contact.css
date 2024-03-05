@@ -1,3 +1,9 @@
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
 .card {
     margin: 0;
     width: fit-content;
@@ -175,6 +181,15 @@
         grid-column: span 2; /* Span twee kolommen */
         width: 100%;
     }
+
+    .info,
+    .form {
+        height: auto;
+    }
+
+    .map {
+        height: 315px;
+    }
 }
 
 /* Mediaquery voor smartphones met een maximale breedte van 480px */
@@ -195,5 +210,9 @@
     .info,
     .form {
         height: auto;
+    }
+
+    .map {
+        height: 30vh;
     }
 }

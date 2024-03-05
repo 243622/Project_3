@@ -7,12 +7,31 @@
     @vite(['resources/css/app.css','resources/css/custom.css', 'resources/js/app.js', 'resources/css/contact.css'])
 </head>
     <body>
-        <header>
-            <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
-            <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
+        <header><img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="
+                position: absolute;
+            ">
+            <nav style="
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                flex-wrap: wrap;
+                align-content: center;
+                align-items: center;
+                justify-content: center;
+            ">
                 <ul>
                     <li><a href="/">Homepage</a></li>
                     <li><a href="order">Order</a></li>
+                    <?php
+                    $loggedIn = true;
+
+                    if ($loggedIn) {
+                        echo '<li><a href="dashboard">Dashboard</a></li>';
+                    } else {
+                        echo '<li><a href="login">Login</a></li>';
+                        echo '<li><a href="register">Register</a></li>';
+                    }
+                    ?>
                 </ul>
             </nav>
         </header>
