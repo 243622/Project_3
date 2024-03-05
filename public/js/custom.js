@@ -1,3 +1,58 @@
+fetch('your_backend_script.php')
+.then(response => response.json())
+.then(data => {
+    // Generate pizza cards dynamically
+    const pizzaContainer = document.querySelector('.pizza-container');
+    data.forEach(pizza => {
+        const pizzaCard = document.createElement('div');
+        pizzaCard.classList.add('pizza-card');
+        pizzaCard.innerHTML = `
+            <img src="${pizza.image}" alt="${pizza.name}">
+            <h2>${pizza.name}</h2>
+            <p>${pizza.description}</p>
+            <p>Price: $${pizza.price}</p>
+            <div class="order-section">
+                <label for="quantity${pizza.id}">Quantity:</label>
+                <input type="number" id="quantity${pizza.id}" name="quantity" value="1" min="1">
+                <button onclick="addToCart('${pizza.name}', ${pizza.price}, 'quantity${pizza.id}')">Add to Cart</button>
+            </div>
+        `;
+        pizzaContainer.appendChild(pizzaCard);
+    });
+})
+.catch(error => console.error('Error:', error));
+ // Function to update the cart items display
+ function updateCartItemsDisplay() {
+    var cartItemsList = document.getElementById('cart-items-list');
+    cartItemsList.innerHTML = ''; // Clear previous items
+
+    cart.forEach(function(item, index) {
+        var listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <span>${item.name}</span> - <span>${item.quantity} ${item.size}</span>
+            <button onclick="removeFromCart(${index})">Remove</button>
+        `;
+        cartItemsList.appendChild(listItem);
+    });
+}
+
+// Function to remove an item from the cart
+function removeFromCart(index) {
+    cart.splice(index, 1); // Remove the item from the cart array
+    updateCartDisplay(); // Update the cart display
+}
+
+// Function to update the cart display
+function updateCartDisplay() {
+    updateCartCountDisplay(cart.length); // Update cart count display
+    updateCartItemsDisplay(); // Update cart items display
+    saveCartToLocalStorage(cart); // Save updated cart to localStorage
+}
+
+// Call the updateCartDisplay function when the page loads to initialize the cart display
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartDisplay();
+});
 
 function redirectToCheckout() {
     // Assuming checkout.blade.php is in the same directory
@@ -57,11 +112,6 @@ function showModal(pizza) {
         modal.style.display = "none"; // Close modal
     }
 }
-
-
-
-
-
 // Function to update cart count display
 function updateCartCountDisplay(totalItems) {
     var cartCountElement = document.querySelector('.cart-count');
@@ -86,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Function to update cart display and save cart to localStorage
-// Function to update cart display
 function updateCartDisplay() {
     var cartItemsDiv = document.getElementById('cart-items');
     cartItemsDiv.innerHTML = ''; // Clear previous items
@@ -109,7 +158,7 @@ function updateCartDisplay() {
         `;
         cartItemsDiv.appendChild(itemDiv);
     });
-    document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+    document.getElementById('total-price').textContent = totalPrice.toFixed(2); // Update total price display
     updateCartCountDisplay(totalItems); // Update cart count display with total items
 
     saveCartToLocalStorage(cart);

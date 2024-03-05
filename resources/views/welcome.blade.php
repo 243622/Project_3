@@ -204,9 +204,9 @@
                     <button class="Information-button"><a href="order">More Information</a></button>
                 </div>
                 <div class="grid-item">
-                    <img src="/PizzaFotos/HawaiiPizza.png" alt="Hawaii Pizza">
-                    <h2>Hawaii Pizza</h2>
-                    <p>A taste of the tropics</p>
+                    <img src="/PizzaFotos/BBQ_mixed_grill-.png" alt="Hawaii Pizza">
+                    <h2>Mixed BBQ Grill Pizza</h2>
+                    <p>A mixed goody</p>
                     <button class="Information-button"><a href="order">More Information</a></button>
                 </div>
                 <div class="grid-item">
