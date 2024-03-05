@@ -57,11 +57,6 @@ function showModal(pizza) {
         modal.style.display = "none"; // Close modal
     }
 }
-
-
-
-
-
 // Function to update cart count display
 function updateCartCountDisplay(totalItems) {
     var cartCountElement = document.querySelector('.cart-count');

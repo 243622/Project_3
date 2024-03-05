@@ -34,61 +34,29 @@
     </nav>
 </header>
     <main>
-        <h1>Available Pizzas</h1>
-        <h2>Top Four</h2>
-        <div class="pizza-menu">
-            <div class="pizza-card">
-                <img src="/PizzaFotos/BarbecueChicken.png" alt="Barbecue Chicken Pizza">
-                <h2>Barbecue Chicken Pizza</h2>
-                <p>Chicken, barbecue sauce, onions, cheese</p>
-                <p>Price: $10.99</p>
+    <h1 class="Top-header">Available Pizzas</h1>
+    <div class="pizza-container">
+        @foreach($pizzas as $index => $pizza)
+            @if($index % 4 == 0)
+                <div class="pizza-row pizza-menu">
+            @endif
+            <div class="pizza-menu pizza-card">
+                <img src="{{ $pizza->PizzaImage }}" alt="{{ $pizza->PizzaName }}">
+                <h2>{{ $pizza->PizzaName }}</h2>
+                <p>{{ $pizza->PizzaIngrediënts }}</p>
+                <p>Price: ${{ $pizza->PizzaPrice }}</p>
                 <div class="order-section">
-                    <label for="quantity1">Quantity:</label>
-                    <input type="number" id="quantity1" name="quantity" value="1" min="1">
-                    <button onclick="addToCart('Barbecue Chicken', 10.99, 'quantity1')">Add to Cart</button>
+                    <label for="quantity{{ $pizza->PizzaId }}">Quantity:</label>
+                    <input type="number" id="quantity{{ $pizza->PizzaId }}" name="quantity" value="1" min="1">
+                    <button onclick="addToCart('{{ $pizza->PizzaName }}', {{ $pizza->PizzaPrice }}, 'quantity{{ $pizza->PizzaId }}')">Add to Cart</button>
                 </div>
             </div>
-        </div>
-        <div class="pizza-menu">
-            <div class="pizza-card">
-                <img src="/Pizzafotos/HawaiiPizza.png" alt="Hawaii Pizza">
-                <h2>Hawaii Pizza</h2>
-                <p>Ham, pineapple, cheese, tomato sauce</p>
-                <p>Price: $10.99</p>
-                <div class="order-section">
-                    <label for="quantity2">Quantity:</label>
-                    <input type="number" id="quantity2" name="quantity" value="1" min="1">
-                    <button onclick="addToCart('Hawaii Pizza', 10.99, 'quantity2')">Add to Cart</button>
+            @if(($index + 1) % 4 == 0 || $index == count($pizzas) - 1)
                 </div>
-            </div>
-        </div>
-        <div class="pizza-menu">
-            <div class="pizza-card">
-                <img src="/Pizzafotos/SalamiPizza.png" alt="Salami Pizza">
-                <h2>Salami Pizza</h2>
-                <p>Salami, cheese, mushrooms, tomato sauce</p>
-                <p>Price: $10.99</p>
-                <div class="order-section">
-                    <label for="quantity3">Quantity:</label>
-                    <input type="number" id="quantity3" name="quantity" value="1" min="1">
-                    <button onclick="addToCart('Salami Pizza', 10.99, 'quantity3')">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-        <div class="pizza-menu">
-            <div class="pizza-card">
-                <img src="/Pizzafotos/TonijnPizza.png" alt="Tonijn Pizza">
-                <h2>Tonijn Pizza</h2>
-                <p>Tuna, onions, olives, cheese, tomato sauce</p>
-                <p>Price: $10.99</p>
-                <div class="order-section">
-                    <label for="quantity4">Quantity:</label>
-                    <input type="number" id="quantity4" name="quantity" value="1" min="1">
-                    <button onclick="addToCart('Tonijn Pizza', 10.99, 'quantity4')">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-</div>
+            @endif
+        @endforeach
+    </div>
+
 <div id="modal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -96,9 +64,9 @@
         <p>Price: <span id="pizza-price">$0.00</span></p>
         <h3>Select Pizza Size:</h3>
     <select id="pizza-size">
-        <option value="Small">Small</option>
-        <option value="Medium" selected>Medium</option>
-        <option value="Large">Large</option>
+        <option value="Small">Small - (Ø 25cm)</option>
+        <option value="Medium" selected>Medium - (Ø 30cm)</option>
+        <option value="Large">Large - (Ø 35cm)</option>
     </select>
         <h3>Customization:</h3>
         <label for="special-instructions">Whislist:</label><br>
@@ -140,5 +108,33 @@
     <button class="cart-button order-button" onclick="redirectToCheckout()">Place Order</button>
 </div>
 </footer>
+<script>
+    <script>
+    fetch('your_backend_script.php')
+        .then(response => response.json())
+        .then(data => {
+            // Generate pizza cards dynamically
+            const pizzaContainer = document.querySelector('.pizza-container');
+            data.forEach(pizza => {
+                const pizzaCard = document.createElement('div');
+                pizzaCard.classList.add('pizza-card');
+                pizzaCard.innerHTML = `
+                    <img src="${pizza.image}" alt="${pizza.name}">
+                    <h2>${pizza.name}</h2>
+                    <p>${pizza.description}</p>
+                    <p>Price: $${pizza.price}</p>
+                    <div class="order-section">
+                        <label for="quantity${pizza.id}">Quantity:</label>
+                        <input type="number" id="quantity${pizza.id}" name="quantity" value="1" min="1">
+                        <button onclick="addToCart('${pizza.name}', ${pizza.price}, 'quantity${pizza.id}')">Add to Cart</button>
+                    </div>
+                `;
+                pizzaContainer.appendChild(pizzaCard);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+</script>
+
+</script>
 </body>
 </html>
