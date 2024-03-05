@@ -30,6 +30,7 @@ nav ul {
 nav ul li {
     display: inline;
     margin: 0 10px;
+    font-size:18px;
 }
 
 /* Order container styles */
@@ -64,13 +65,20 @@ nav ul li {
             align-items: center;
             justify-content: center;
         ">
-        <ul>
+          <ul>
             <li><a href="/">Homepage</a></li>
             <li><a href="order">Order</a></li>
-            <li class="cart-icon-container">
-                <span class="material-symbols-outlined" onclick="toggleSidePanel()">shopping_basket</span>
-                <div class="cart-count">0</div>
-            </li>
+            <?php
+                $loggedIn = true; 
+
+                if ($loggedIn) {
+                    echo '<li><a href="dashboard">Dashboard</a></li>';
+                } else {
+                    echo '<li><a href="login">Login</a></li>';
+                    echo '<li><a href="register">Register</a></li>';
+                }
+            ?>
+             <li><a href="contact">Contact</a></li>
         </ul>
     </nav>
 </header>

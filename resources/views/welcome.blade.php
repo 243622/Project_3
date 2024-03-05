@@ -181,6 +181,7 @@
                     echo '<li><a href="register">Register</a></li>';
                 }
             ?>
+             <li><a href="contact">Contact</a></li>
         </ul>
     </nav>
 </header>

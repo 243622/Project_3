@@ -1,3 +1,26 @@
+fetch('your_backend_script.php')
+.then(response => response.json())
+.then(data => {
+    // Generate pizza cards dynamically
+    const pizzaContainer = document.querySelector('.pizza-container');
+    data.forEach(pizza => {
+        const pizzaCard = document.createElement('div');
+        pizzaCard.classList.add('pizza-card');
+        pizzaCard.innerHTML = `
+            <img src="${pizza.image}" alt="${pizza.name}">
+            <h2>${pizza.name}</h2>
+            <p>${pizza.description}</p>
+            <p>Price: $${pizza.price}</p>
+            <div class="order-section">
+                <label for="quantity${pizza.id}">Quantity:</label>
+                <input type="number" id="quantity${pizza.id}" name="quantity" value="1" min="1">
+                <button onclick="addToCart('${pizza.name}', ${pizza.price}, 'quantity${pizza.id}')">Add to Cart</button>
+            </div>
+        `;
+        pizzaContainer.appendChild(pizzaCard);
+    });
+})
+.catch(error => console.error('Error:', error));
  // Function to update the cart items display
  function updateCartItemsDisplay() {
     var cartItemsList = document.getElementById('cart-items-list');
@@ -113,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Function to update cart display and save cart to localStorage
-// Function to update cart display
 function updateCartDisplay() {
     var cartItemsDiv = document.getElementById('cart-items');
     cartItemsDiv.innerHTML = ''; // Clear previous items
@@ -136,7 +158,7 @@ function updateCartDisplay() {
         `;
         cartItemsDiv.appendChild(itemDiv);
     });
-    document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+    document.getElementById('total-price').textContent = totalPrice.toFixed(2); // Update total price display
     updateCartCountDisplay(totalItems); // Update cart count display with total items
 
     saveCartToLocalStorage(cart);
