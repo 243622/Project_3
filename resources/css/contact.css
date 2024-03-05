@@ -1,3 +1,9 @@
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
 .card {
     margin: 0;
     width: fit-content;
@@ -148,14 +154,47 @@
     background-color: #aa3333;
 }
 
+.message{
+    height: 100%;
+}
+
 #info,
 #map,
 #form {
     width: 30%;
 }
 
+/* Mediaquery voor schermen groter dan 480px maar niet fullscreen */
+@media only screen and (min-width: 480px) and (max-width: 1024px) {
+    .content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Maak kolommen die zich aanpassen aan de beschikbare ruimte */
+        grid-gap: 20px; /* Ruimte tussen de kolommen */
+    }
+
+    #info,
+    #map {
+        width: 100%; /* Volledige breedte binnen de grid */
+    }
+
+    #form {
+        grid-column: span 2; /* Span twee kolommen */
+        width: 100%;
+    }
+
+    .info,
+    .form {
+        height: auto;
+    }
+
+    .map {
+        height: 315px;
+    }
+}
+
 /* Mediaquery voor smartphones met een maximale breedte van 480px */
 @media only screen and (max-width: 480px) {
+    /* Main content */
     .content {
         flex-direction: column;
         align-items: center;
@@ -164,10 +203,16 @@
     #info,
     #map,
     #form {
-        width: 100%;
+        width: 90%;
         margin: 10px auto;
-        overflow: hidden;
-        max-height: 60vh;
-        box-sizing: border-box;
+    }
+
+    .info,
+    .form {
+        height: auto;
+    }
+
+    .map {
+        height: 30vh;
     }
 }
