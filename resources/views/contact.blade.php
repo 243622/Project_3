@@ -42,17 +42,15 @@
             <iframe id="map" class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.5561217302084!2d5.493817312641216!3d51.46630567168636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d8d3f3dacee7%3A0x1acd712bb57b8792!2sSterrenlaan%2010%2C%205631%20KA%20Eindhoven!5e0!3m2!1snl!2snl!4v1709299533187!5m2!1snl!2snl" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
             <form id="form" class="form">
-                <div class="flex">
-                    <label>
-                        <input class="input" type="text" placeholder="" required="">
-                        <span>Firstname</span>
-                    </label>
+                <label>
+                    <input class="input" type="text" placeholder="" required="">
+                    <span>Firstname</span>
+                </label>
 
-                    <label>
-                        <input class="input" type="text" placeholder="" required="">
-                        <span>Lastname</span>
-                    </label>
-                </div>
+                <label>
+                    <input class="input" type="text" placeholder="" required="">
+                    <span>Lastname</span>
+                </label>
 
                 <label>
                     <input class="input" type="email" placeholder="" required="">
@@ -60,11 +58,12 @@
                 </label>
 
                 <label>
-                    <input class="input" type="" placeholder="" required="">
+                    <input class="input" type="tel" placeholder="" required="">
                     <span>Phone number</span>
                 </label>
+
                 <label class="message">
-                    <input class="input" type="" placeholder="" required="">
+                    <input class="input message" type="text" placeholder="" required="">
                     <span>Message</span>
                 </label>
                 <button class="submit">Submit</button>
