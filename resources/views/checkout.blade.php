@@ -1,13 +1,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Pizza</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <title>Order Pizza</title>
     <script src="js/custom.js"></script>
-    @vite(['resources/css/app.css', 'resources/css/custom.css', 'resources/js/app.js', 'resources/js/custom.js' ])
+    @vite(['resources/css/app.css','resources/css/custom.css', 'resources/js/app.js'])
 </head>
+<style>
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
+/* Header styles */
+header {
+    position: relative;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+/* Order container styles */
+.order-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.order-container h1 {
+    font-size: 24px;
+}
+
+.order-container h1 span {
+    font-weight: bold;
+    color: #333; /* You can adjust the color */
+}
+</style>
 <body>
 <header><img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="
             position: absolute;
@@ -31,9 +74,14 @@
         </ul>
     </nav>
 </header>
+<div class="order-container">
+    <h1>
+        Your Order
+        <span id="logged-in-username"></span>
+    </h1>
 <div id="cart-items-container">
 <div id="cart-items"></div>
-
+</div>
 </div>
 
 <footer class="flex items-center flex-col">
@@ -61,8 +109,6 @@
                 <p>@2024 Stonkspizza Alle rechten voorbehouden </p>
             </div>
     </footer>
-    <script>
-       
-    </script>
+
 </body>
 </html>

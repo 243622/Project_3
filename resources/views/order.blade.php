@@ -35,7 +35,7 @@
 </header>
     <main>
     <h1 class="Top-header">Available Pizzas</h1>
-        <a href="{{route('crudmedewerkers/pizza/index')}}">Medewerkers</a>
+    <a href="{{route('crudmedewerkers/pizza/index')}}">Medewerkers</a>
     <div class="pizza-container">
         @foreach($pizzas as $index => $pizza)
             @if($index % 4 == 0)
@@ -101,13 +101,14 @@
             <div>
                 <p>@2024 Stonkspizza Alle rechten voorbehouden </p>
             </div>
-  <!-- Shopping cart side panel -->
-<div id="side-panel">
-    <div id="cart-items"></div>
-    <div id="total-price"></div>
-    <button class="cart-button" onclick="toggleSidePanel()">Close</button>
-    <button class="cart-button order-button" onclick="redirectToCheckout()">Place Order</button>
-</div>
+            <div id="side-panel">
+                <div id="cart-items"></div>
+                <div id="total-price"></div>
+                <div class="order-button-container">
+                    <div class="total-price-label">Total Price:</div>
+                    <button class="cart-button order-button" onclick="redirectToCheckout()">Place Order</button>
+                </div>
+            </div>
 </footer>
 <script>
     <script>
