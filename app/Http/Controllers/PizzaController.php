@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Models\Pizza;
 use Illuminate\Http\Request;
 
 class PizzaController extends Controller
@@ -11,10 +13,8 @@ class PizzaController extends Controller
      */
     public function index()
     {
-        // Sample cart data for demonstration
-        $cart = [];
-
-        return view('app', compact('cart'));
+        $pizzas = Pizza::all();
+        return view('order', ['pizzas' => $pizzas]);
     }
 
     /**

@@ -39,6 +39,30 @@ class PizzaTableSeeder extends Seeder
                 'PizzaImage' => 'PizzaFotos/TonijnPizza.png',
                 'PizzaIngrediënts' => 'Tuna, onions, olives, cheese, tomato sauce'
             ],
+            [
+                'PizzaName' => 'Doner Pizza',
+                'PizzaPrice' => 10.99,
+                'PizzaImage' => 'PizzaFotos/doner.png',
+                'PizzaIngrediënts' => 'Doner meat, onions, tomatoes, cheese, garlic sauce'
+            ],
+            [
+                'PizzaName' => 'Mixed BBQ Grill Pizza',
+                'PizzaPrice' => 10.99,
+                'PizzaImage' => 'PizzaFotos/BBQ_mixed_grill-.png',
+                'PizzaIngrediënts' => 'Mixed grill meats, barbecue sauce, peppers, cheese'
+            ],
+            [
+                'PizzaName' => 'Californian Veggie Pizza',
+                'PizzaPrice' => 10.99,
+                'PizzaImage' => 'PizzaFotos/californian_veggie.png',
+                'PizzaIngrediënts' => 'Bell peppers, mushrooms, onions, olives, cheese, tomato sauce'
+            ],
+            [
+                'PizzaName' => 'Vierkaas Pizza',
+                'PizzaPrice' => 10.99,
+                'PizzaImage' => 'PizzaFotos/VierKaasPizza.png',
+                'PizzaIngrediënts' => 'Mozzarella, cheddar, gouda, blue cheese, tomato sauce'
+            ],
         ];
 
         foreach ($pizzas as $pizza) {
