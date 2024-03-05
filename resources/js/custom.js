@@ -1,3 +1,35 @@
+ // Function to update the cart items display
+ function updateCartItemsDisplay() {
+    var cartItemsList = document.getElementById('cart-items-list');
+    cartItemsList.innerHTML = ''; // Clear previous items
+
+    cart.forEach(function(item, index) {
+        var listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <span>${item.name}</span> - <span>${item.quantity} ${item.size}</span>
+            <button onclick="removeFromCart(${index})">Remove</button>
+        `;
+        cartItemsList.appendChild(listItem);
+    });
+}
+
+// Function to remove an item from the cart
+function removeFromCart(index) {
+    cart.splice(index, 1); // Remove the item from the cart array
+    updateCartDisplay(); // Update the cart display
+}
+
+// Function to update the cart display
+function updateCartDisplay() {
+    updateCartCountDisplay(cart.length); // Update cart count display
+    updateCartItemsDisplay(); // Update cart items display
+    saveCartToLocalStorage(cart); // Save updated cart to localStorage
+}
+
+// Call the updateCartDisplay function when the page loads to initialize the cart display
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartDisplay();
+});
 
 function redirectToCheckout() {
     // Assuming checkout.blade.php is in the same directory

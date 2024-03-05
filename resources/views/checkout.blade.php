@@ -1,11 +1,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Pizza</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <title>Order Pizza</title>
     <script src="js/custom.js"></script>
-    @vite(['resources/css/app.css','resources/css/custom.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/css/custom.css', 'resources/js/app.js', 'resources/js/custom.js' ])
 </head>
 
 <body>
@@ -31,6 +31,10 @@
         </ul>
     </nav>
 </header>
+<div id="cart-items-container">
+<div id="cart-items"></div>
+
+</div>
 
 <footer class="flex items-center flex-col">
     <div class="card">
@@ -57,5 +61,8 @@
                 <p>@2024 Stonkspizza Alle rechten voorbehouden </p>
             </div>
     </footer>
+    <script>
+       
+    </script>
 </body>
 </html>

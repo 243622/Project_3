@@ -21,15 +21,13 @@ header {
     text-align: center;
     height: 120px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Distribute items evenly */
     align-items: center;
 }
 input{
     width: 50px;
 }
-.overflow{
-    color: #000000;
-}
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -296,7 +294,7 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 10px; /* Add space above the button */
+    margin-top: 10px; 
 }
 
 #add-to-cart-modal:hover {
@@ -335,30 +333,6 @@ select[multiple] {
 /* Style for select element options */
 option {
     font-size: 16px;
-}
-/* Style for topping buttons */
-.topping-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.topping-item span {
-    margin-right: 10px;
-}
-
-.topping-button {
-    background-color: #d63b1d;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.topping-button:hover {
-    background-color: #aa3333;
 }
 
 
