@@ -3,55 +3,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <title>Order Pizza</title>
-    <script src="js/custom.js"></script>
+    <title>Checkout Pizza</title>
+    <script src="js/checkout.js"></script>
     @vite(['resources/css/app.css','resources/css/custom.css', 'resources/js/app.js'])
 </head>
 <style>
-/* Global styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
+    /* Global styles */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
 
-/* Header styles */
-header {
-    position: relative;
-    text-align: center;
-}
+    /* Header styles */
+    header {
+        position: relative;
+        text-align: center;
+    }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
 
-nav ul li {
-    display: inline;
-    margin: 0 10px;
-    font-size:18px;
-}
+    nav ul li {
+        display: inline;
+        margin: 0 10px;
+        font-size: 18px;
+    }
 
-/* Order container styles */
-.order-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    text-align: center;
-}
+    /* Order container styles */
+    .order-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        text-align: center;
+    }
 
-.order-container h1 {
-    font-size: 24px;
-}
+    .order-container h1 {
+        font-size: 24px;
+    }
 
-.order-container h1 span {
-    font-weight: bold;
-    color: #333; /* You can adjust the color */
-}
-</style>
+    .order-container h1 span {
+        font-weight: bold;
+        color: #333; /* You can adjust the color */
+    }
+
+    </style>
 <body>
 <header><img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="
             position: absolute;
@@ -90,8 +94,7 @@ nav ul li {
 <div id="cart-items-container">
 <div id="cart-items"></div>
 </div>
-</div>
-
+</div>    
 <footer class="flex items-center flex-col">
     <div class="card">
                 <a href="https://www.instagram.com/stonkspizza/ " class="socialContainer containerOne">
