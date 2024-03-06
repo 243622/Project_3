@@ -11,7 +11,7 @@ class MPizzaController extends Controller
      */
     public function index()
     {
-        //
+        return view('crudmedewerkers.pizza.index');
     }
 
     /**

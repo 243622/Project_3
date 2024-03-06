@@ -11,7 +11,7 @@ class MIngredientsController extends Controller
      */
     public function index()
     {
-        //
+        return view('crudmedewerkers.ingredients.index');
     }
 
     /**

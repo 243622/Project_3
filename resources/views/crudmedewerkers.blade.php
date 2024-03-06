@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avalible pizza's</title>
+    <title>Medewerker pagina</title>
     @vite(['resources/css/app.css','resources/css/custom.css', 'resources/js/app.js', 'resources/css/contact.css'])
 </head>
 <body>
@@ -11,10 +11,10 @@
     <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
     <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
         <ul>
-            <li><a href="/crudmedewerkers/index">Return</a></li>
-            <li><a href="/crudmedewerkers/pizza/edit">Edit Pizza's</a></li>
-            <li><a href="/crudmedewerkers/pizza/create">Creat Pizza's</a></li>
-            <li><a href="/crudmedewerkers/pizza/index">Delete Pizza's</a></li>
+            <li><a href="order">Return</a></li>
+            <li><a href="crudmedewerkers/pizza">Pizza's</a></li>
+            <li><a href="crudmedewerkers/items/index">Items</a></li>
+            <li><a href="crudmedewerkers/ingredients/index">Ingredients</a></li>
         </ul>
     </nav>
 </header>
