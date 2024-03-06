@@ -11,7 +11,7 @@ class MItemsController extends Controller
      */
     public function index()
     {
-        //
+        return view('crudmedewerkers.items.index');
     }
 
     /**
