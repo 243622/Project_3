@@ -31,6 +31,8 @@ function toggleSidePanel() {
 
 // Function to show modal for pizza customization
 function showModal(pizza) {
+
+    
     var modal = document.getElementById('modal');
     modal.style.display = "block";
 

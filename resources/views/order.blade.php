@@ -72,7 +72,7 @@
         <h3>Customization:</h3>
         <label for="special-instructions">Whislist:</label><br>
         <textarea id="special-instructions" name="special-instructions" rows="4" cols="50"></textarea><br>
-        <button onclick="addToCart()" id="add-to-cart-modal">Add to Cart</button>
+        <button  id="add-to-cart-modal">Add to Cart</button>
 
     </div>
 </div>
