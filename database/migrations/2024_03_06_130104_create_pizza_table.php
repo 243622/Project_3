@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('pizza', function (Blueprint $table) {
             $table->id('pizza_id');
-            $table->string('name', 40);
-            $table->integer('price')->lenght(4);
-            $table->string('size', 25);
-            $table->string('pizza_image', 200);
-            $table->foreignId('ingrediënt_id');
+            $table->string('pizzaName', 40);
+            $table->integer('pizzaPrice')->lenght(4);
+            $table->string('pizzaSize', 25);
+            $table->string('pizzaImage', 200);
+            $table->foreignId('pizzaIngrediënts_id');
             $table->timestamps();
         });
     }
