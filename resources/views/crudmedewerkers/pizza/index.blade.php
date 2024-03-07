@@ -20,6 +20,12 @@
 </header>
 
 
+@foreach($pizzas as $index => $pizza)
+    <div>
+        <img src="{{$pizza->pizzaImage}}" alt="{{ $pizza->pizzaName}}">
+    </div>
+@endforeach
+
 
 <footer class="flex items-center flex-col">
     <div class="card">

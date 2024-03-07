@@ -35,7 +35,7 @@
 </header>
     <main>
     <h1 class="Top-header">Available Pizzas</h1>
- 
+
     <div class="pizza-container">
         @foreach($pizzas as $index => $pizza)
             @if($index % 4 == 0)
@@ -111,7 +111,7 @@
 </footer>
 <script>
     <script>
-  
+
 </script>
 
 </script>

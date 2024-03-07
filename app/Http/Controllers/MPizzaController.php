@@ -12,7 +12,8 @@ class MPizzaController extends Controller
      */
     public function index()
     {
-        return view('crudmedewerkers.pizza.index');
+        $pizzas = Pizza::all();
+        return view('crudmedewerkers.pizza.index', ['pizzas' => $pizzas]);
     }
 
     /**
