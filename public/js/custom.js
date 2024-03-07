@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to update cart display and save cart to localStorage
 // Function to update cart display
 function updateCartDisplay() {
-    var cartItemsDiv = document.getElementById('cart-item');
-    cartItemsDiv.innerHTML = ''; // Clear previous item
+    var cartItemsDiv = document.getElementById('cart-items');
+    cartItemsDiv.innerHTML = ''; 
     var totalItems = 0;
     var totalPrice = 0;
     cart.forEach(function(item, index) {
