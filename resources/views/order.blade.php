@@ -42,14 +42,14 @@
                 <div class="pizza-row pizza-menu">
             @endif
             <div class="pizza-menu pizza-card">
-                <img src="{{ $pizza->PizzaImage }}" alt="{{ $pizza->PizzaName }}">
-                <h2>{{ $pizza->PizzaName }}</h2>
-                <p>{{ $pizza->PizzaIngrediënts }}</p>
-                <p>Price: ${{ $pizza->PizzaPrice }}</p>
+                <img src="{{ $pizza->pizzaImage }}" alt="{{ $pizza->pizzaName }}">
+                <h2>{{ $pizza->pizzaName }}</h2>
+                <p>{{ $pizza->pizzaIngrediënts_id }}</p>
+                <p>Price: ${{ $pizza->pizzaPrice }}</p>
                 <div class="order-section">
-                    <label for="quantity{{ $pizza->PizzaId }}">Quantity:</label>
-                    <input type="number" id="quantity{{ $pizza->PizzaId }}" name="quantity" value="1" min="1">
-                    <button onclick="addToCart('{{ $pizza->PizzaName }}', {{ $pizza->PizzaPrice }}, 'quantity{{ $pizza->PizzaId }}')">Add to Cart</button>
+                    <label for="quantity{{ $pizza->pizzaId }}">Quantity:</label>
+                    <input type="number" id="quantity{{ $pizza->pizzaId }}" name="quantity" value="1" min="1">
+                    <button onclick="addToCart('{{ $pizza->pizzaName }}', {{ $pizza->pizzaPrice }}, 'quantity{{ $pizza->pizzaId }}')">Add to Cart</button>
                 </div>
             </div>
             @if(($index + 1) % 4 == 0 || $index == count($pizzas) - 1)
