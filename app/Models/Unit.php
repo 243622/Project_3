@@ -10,4 +10,9 @@ class Unit extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+
+    public function Ingredient()
+    {
+        return $this->belongsToMany(Ingredient::class, 'unit_id');
+    }
 }
