@@ -6,7 +6,7 @@ function redirectToCheckout() {
     // Function to add a pizza to the cart and open customization modal
 function addToCart(name, price, quantityInputId) {
     var quantity = parseInt(document.getElementById(quantityInputId).value);
-    
+
     // Create a pizza object with default values
     var pizza = {
         name: name,
@@ -16,12 +16,12 @@ function addToCart(name, price, quantityInputId) {
         size: "Medium", // Default size
         wishlist: "No" // Default wishlist status
     };
-    
+
     // Show modal for pizza customization
     showModal(pizza);
 }
 
-   var cart = []; // Array to store cart items
+   var cart = []; // Array to store cart item
 
 // Function to toggle the side panel
 function toggleSidePanel() {
@@ -65,7 +65,7 @@ function showModal(pizza) {
 // Function to update cart count display
 function updateCartCountDisplay(totalItems) {
     var cartCountElement = document.querySelector('.cart-count');
-    cartCountElement.textContent = totalItems; // Display total items in cart
+    cartCountElement.textContent = totalItems; // Display total item in cart
 }
 
 // Function to retrieve cart data from localStorage
@@ -82,14 +82,14 @@ function saveCartToLocalStorage(cart) {
 // Initialize cart from localStorage when the page loads
 document.addEventListener('DOMContentLoaded', function() {
     cart = getCartFromLocalStorage();
-    updateCartDisplay(); // Update cart display with items from localStorage
+    updateCartDisplay(); // Update cart display with item from localStorage
 });
 
 // Function to update cart display and save cart to localStorage
 // Function to update cart display
 function updateCartDisplay() {
-    var cartItemsDiv = document.getElementById('cart-items');
-    cartItemsDiv.innerHTML = ''; // Clear previous items
+    var cartItemsDiv = document.getElementById('cart-item');
+    cartItemsDiv.innerHTML = ''; // Clear previous item
     var totalItems = 0;
     var totalPrice = 0;
     cart.forEach(function(item, index) {
@@ -110,7 +110,7 @@ function updateCartDisplay() {
         cartItemsDiv.appendChild(itemDiv);
     });
     document.getElementById('total-price').textContent = totalPrice.toFixed(2);
-    updateCartCountDisplay(totalItems); // Update cart count display with total items
+    updateCartCountDisplay(totalItems); // Update cart count display with total item
 
     saveCartToLocalStorage(cart);
 }

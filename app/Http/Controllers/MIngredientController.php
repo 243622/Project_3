@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
-class MIngredientsController extends Controller
+class MIngredientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('crudmedewerkers.ingredients.index');
+        return view('crudmedewerkers.ingredient.index');
     }
 
     /**
@@ -33,7 +34,7 @@ class MIngredientsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Ingredient $ingredient)
     {
         //
     }
@@ -41,7 +42,7 @@ class MIngredientsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Ingredient $ingredient)
     {
         //
     }
@@ -49,7 +50,7 @@ class MIngredientsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Ingredient $ingredient)
     {
         //
     }
@@ -57,7 +58,7 @@ class MIngredientsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Ingredient $ingredient)
     {
         //
     }

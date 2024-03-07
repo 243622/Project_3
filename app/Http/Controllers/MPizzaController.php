@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pizza;
 use Illuminate\Http\Request;
 
 class MPizzaController extends Controller
@@ -27,21 +28,29 @@ class MPizzaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validData = $request->validate([
+            'PizzaName' => 'required | max:255',
+            'PizzaPrice' => 'required | max:255',
+            'PizzaImage' => 'required | max:255',
+            'PizzaIngrediënts' => 'required | max:255'
+        ]);
+        Pizza::create($validData);
+
+        return redirect()->route('crudmedewerkers.pizza.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Pizza $pizza)
     {
-        //
+        return view('crudmedewerkers.pizza.show', ['pizza' => Pizza::findOrFail($pizza)]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Pizza $pizza)
     {
         //
     }
@@ -49,7 +58,7 @@ class MPizzaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Pizza $pizza)
     {
         //
     }
@@ -57,8 +66,9 @@ class MPizzaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Pizza $pizza)
     {
-        //
+        Pizza::destroy($pizza);
+        return redirect()->route('crudmedewerkers.pizza.index');
     }
 }

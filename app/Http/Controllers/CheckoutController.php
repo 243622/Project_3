@@ -10,8 +10,8 @@ class CheckoutController extends Controller
      * Display a listing of the resource.
      */    public function index()
     {
-        // Assuming $cartItems contains the items added to the cart
-        $cartitems = []; // Retrieve cart items from your storage (session, database, etc.)
+        // Assuming $cartItems contains the item added to the cart
+        $cartitems = []; // Retrieve cart item from your storage (session, database, etc.)
 
         return view('checkout', compact('cartItems'));
     }

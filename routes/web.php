@@ -2,8 +2,8 @@
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MPizzaController;
-use App\Http\Controllers\MItemsController;
-use App\Http\Controllers\MIngredientsController;
+use App\Http\Controllers\MUnitController;
+use App\Http\Controllers\MIngredientController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -54,8 +54,8 @@ Route::get('/crudmedewerkers', function () {
 });
 
 Route::resource('/crudmedewerkers/pizza', MPizzaController::class);
-Route::resource('/crudmedewerkers/items', MItemsController::class);
-Route::resource('/crudmedewerkers/ingredients', MIngredientsController::class);
+Route::resource('/crudmedewerkers/item', MUnitController::class);
+Route::resource('/crudmedewerkers/ingredient', MIngredientController::class);
 
 
 //Route::get('/crudmedewerkers/pizza', [MPizzaController::class, 'index'])->name('pizza.index');
@@ -68,21 +68,21 @@ Route::resource('/crudmedewerkers/ingredients', MIngredientsController::class);
 
 
 
-//Route::get('/crudmedewerkers/items', [MItemsController::class, 'index'])->name('items.index');
-//Route::get('/crudmedewerkers/items/create', [MItemsController::class, 'create'])->name('items.create');
-//oute::get('/crudmedewerkers/items/{idnummer}', [MItemsController::class, 'show'])->name('items.show');
-//Route::delete('/crudmedewerkers/items/{idnummer}', [MItemsController::class, 'destroy'])->name('items.destroy');
-//Route::put('/crudmedewerkers/items/{idnummer}', [MItemsController::class, 'update'])->name('items.update');
-//Route::get('/crudmedewerkers/items/{idnummer}/edit', [MItemsController::class, 'edit'])->name('items.edit');
-//Route::post('/crudmedewerkers/items', [MItemsController::class, 'store'])->name('items.store');
+//Route::get('/crudmedewerkers/item', [MItemsController::class, 'index'])->name('item.index');
+//Route::get('/crudmedewerkers/item/create', [MItemsController::class, 'create'])->name('item.create');
+//oute::get('/crudmedewerkers/item/{idnummer}', [MItemsController::class, 'show'])->name('item.show');
+//Route::delete('/crudmedewerkers/item/{idnummer}', [MItemsController::class, 'destroy'])->name('item.destroy');
+//Route::put('/crudmedewerkers/item/{idnummer}', [MItemsController::class, 'update'])->name('item.update');
+//Route::get('/crudmedewerkers/item/{idnummer}/edit', [MItemsController::class, 'edit'])->name('item.edit');
+//Route::post('/crudmedewerkers/item', [MItemsController::class, 'store'])->name('item.store');
 
 
 
 
-//Route::get('/crudmedewerkers/ingredients', [MIngredientsController::class, 'index'])->name('ingredients.index');
-//Route::get('/crudmedewerkers/ingredients/create', [MIngredientsController::class, 'create'])->name('ingredients.create');
-//Route::get('/crudmedewerkers/ingredients/{idnummer}', [MIngredientsController::class, 'show'])->name('ingredients.show');
-//Route::delete('/crudmedewerkers/ingredients/{idnummer}', [MIngredientsController::class, 'destroy'])->name('ingredients.destroy');
-//Route::put('/crudmedewerkers/ingredients/{idnummer}', [MIngredientsController::class, 'update'])->name('ingredients.update');
-//Route::get('/crudmedewerkers/ingredients/{idnummer}/edit', [MIngredientsController::class, 'edit'])->name('ingredients.edit');
-//Route::post('/crudmedewerkers/ingredients', [MIngredientsController::class, 'store'])->name('ingredients.store');
+//Route::get('/crudmedewerkers/ingredient', [MIngredientsController::class, 'index'])->name('ingredient.index');
+//Route::get('/crudmedewerkers/ingredient/create', [MIngredientsController::class, 'create'])->name('ingredient.create');
+//Route::get('/crudmedewerkers/ingredient/{idnummer}', [MIngredientsController::class, 'show'])->name('ingredient.show');
+//Route::delete('/crudmedewerkers/ingredient/{idnummer}', [MIngredientsController::class, 'destroy'])->name('ingredient.destroy');
+//Route::put('/crudmedewerkers/ingredient/{idnummer}', [MIngredientsController::class, 'update'])->name('ingredient.update');
+//Route::get('/crudmedewerkers/ingredient/{idnummer}/edit', [MIngredientsController::class, 'edit'])->name('ingredient.edit');
+//Route::post('/crudmedewerkers/ingredient', [MIngredientsController::class, 'store'])->name('ingredient.store');

@@ -13,13 +13,16 @@
         <ul>
             <li><a href="order">Return</a></li>
             <li><a href="crudmedewerkers/pizza">Pizza's</a></li>
-            <li><a href="crudmedewerkers/items/index">Items</a></li>
-            <li><a href="crudmedewerkers/ingredients/index">Ingredients</a></li>
+            <li><a href="crudmedewerkers/item">Items</a></li>
+            <li><a href="crudmedewerkers/ingredient">Ingredients</a></li>
         </ul>
     </nav>
 </header>
 
-
+<h1>Welcome medewerkername</h1>
+<?php
+    //{{$medewerker -> name}}
+    ?>
 
 <footer class="flex items-center flex-col">
     <div class="card">
