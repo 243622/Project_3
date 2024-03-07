@@ -54,6 +54,12 @@
         font-weight: bold;
         color: #333; /* You can adjust the color */
     }
+    .total-price-label{
+    margin-top: auto; 
+    background-color: #d63b1d; 
+    padding: 10px;
+    border-radius: 5px;
+}
 
     </style>
 <body>
@@ -93,6 +99,7 @@
     </h1>
 <div id="cart-items-container">
 <div id="cart-items"></div>
+<div class="total-price-label">Total Price: <span id="total-price"></span></div>
 </div>
 </div>    
 <footer class="flex items-center flex-col">
