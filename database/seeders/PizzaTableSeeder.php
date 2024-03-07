@@ -16,15 +16,10 @@ class PizzaTableSeeder extends Seeder
     {
         $pizzas = [
             [
-                'pizza_id' => '1',
                 'PizzaName' => 'Barbecue Chicken Pizza',
                 'PizzaPrice' => 10.99,
                 'PizzaImage' => 'PizzaFotos/BarbecueChicken.png',
                 'PizzaIngrediënts_id' => '4'
-            ],
-            [
-                'pizza_id' => '1',
-                'PizzaIngrediënts_id' => '5'
             ],
             [
                 'PizzaName' => 'Hawaii Pizza',

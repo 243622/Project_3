@@ -21,7 +21,7 @@ class MPizzaController extends Controller
      */
     public function create()
     {
-        //
+        return view('crudmedewerkers.pizza.create');
     }
 
     /**

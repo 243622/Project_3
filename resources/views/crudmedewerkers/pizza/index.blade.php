@@ -11,9 +11,8 @@
     <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
     <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
         <ul>
-            <li><a href="/crudmedewerkers">Return</a></li>
-            <li><a href="/crudmedewerkers/pizza/edit">Edit Pizza's</a></li>
-            <li><a href="/crudmedewerkers/pizza/create">Creat Pizza's</a></li>
+            <li><a href="">Return</a></li>
+            <li><a href="{{route('pizza.create')}}">Creat Pizza's</a></li>
             <li><a href="/crudmedewerkers/pizza/index">Remove Pizza's</a></li>
         </ul>
     </nav>
@@ -21,9 +20,15 @@
 
 
 @foreach($pizzas as $index => $pizza)
-    <div>
-        <img src="{{$pizza->pizzaImage}}" alt="{{ $pizza->pizzaName}}">
-    </div>
+    <a class="">{{ $pizza->pizzaName }}</a>
+    <a><img src="{{ $pizza->pizzaImage }}"></a>
+    <a href="{{route('pizza.edit', ['pizza' => $pizza->pizza_id])}}">Edit Pizza's</a>
+    <form method="post" action="{{route('pizza.destroy', ['pizza' => $pizza->pizza_id])}}">
+        @csrf
+        @method('DELETE')
+        <input class="text-red-700 font-extrabold" type="submit" value="destroy" href="{{route('pizza.destroy', ['pizza' => $pizza->pizza_id])}} ">
+    </form>
+    <br>
 @endforeach
 
 
