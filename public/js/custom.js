@@ -60,10 +60,6 @@ function showModal(pizza) {
     }
 }
 
-
-
-
-
 // Function to update cart count display
 function updateCartCountDisplay(totalItems) {
     var cartCountElement = document.querySelector('.cart-count');
@@ -91,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to update cart display
 function updateCartDisplay() {
     var cartItemsDiv = document.getElementById('cart-items');
-    cartItemsDiv.innerHTML = ''; 
+    cartItemsDiv.innerHTML = ''; // Clear previous item
     var totalItems = 0;
     var totalPrice = 0;
     cart.forEach(function(item, index) {
@@ -102,8 +98,7 @@ function updateCartDisplay() {
         itemDiv.innerHTML = `
             <p>Name: ${item.name}</p>
             <p>Quantity: ${item.quantity}</p>
-            <p>Price: $${item.price.toFixed(2)}</p>
-            <p>Total: $${item.totalPrice.toFixed(2)}</p>
+            <p>Price: $${item.price}</p>
             <p>Wishlist: ${item.wishlist}</p>
             <button class="cart-button" onclick="removeFromCart(${index})">Remove</button>
             <button class="cart-button" onclick="changeQuantity(${index}, -1)">-</button>
