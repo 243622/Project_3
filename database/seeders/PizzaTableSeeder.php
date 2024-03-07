@@ -23,10 +23,6 @@ class PizzaTableSeeder extends Seeder
                 'PizzaIngrediënts_id' => '4'
             ],
             [
-                'pizza_id' => '1',
-                'PizzaIngrediënts_id' => '5'
-            ],
-            [
                 'PizzaName' => 'Hawaii Pizza',
                 'PizzaPrice' => 10.99,
                 'PizzaImage' => 'PizzaFotos/HawaiiPizza.png',
