@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('pizza', function (Blueprint $table) {
             $table->id('pizza_id');
             $table->string('pizzaName', 40);
-            $table->integer('pizzaPrice')->lenght(4);
-            $table->string('pizzaSize', 25);
+            $table->double('pizzaPrice')->lenght(4);
+            $table->string('pizzaSize', 25)->default('Medium');
             $table->string('pizzaImage', 200);
             $table->foreignId('pizzaIngrediënts_id');
             $table->timestamps();
