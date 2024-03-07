@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('ingrediënts', function (Blueprint $table) {
             $table->id('ingrediént_id');
             $table->string('name', 40);
-            $table->integer('price')->lenght(4);
-            $table->foreignId('unit_id')->references('unit_id')->on('units')->cascadeOnDelete();
+            $table->integer('price')->length(4);
+            $table->foreignId('unit_id');
             $table->timestamps();
         });
     }

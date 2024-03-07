@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('price')->lenght(4);
             $table->string('size', 25);
             $table->string('pizza_image', 200);
-            $table->foreignId('ingrediënt_id')->references('ingrediënt_id')->on('units')->cascadeOnDelete();
+            $table->foreignId('ingrediënt_id');
             $table->timestamps();
         });
     }

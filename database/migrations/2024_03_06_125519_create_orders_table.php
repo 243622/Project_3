@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id('order_id');
-            $table->foreignId('customer_id')->references('customer_id')->on('customers')->cascadeOnDelete();
-            $table->foreignId('pizza_id')->references('pizza_id')->on('pizza')->cascadeOnDelete();
-            $table->integer('total_price')->lenght(4);
+            $table->foreignId('customer_id');
+            $table->foreignId('pizza_id');
+            $table->integer('total_price')->length(4);
             $table->string('message', 250)->nullable();
             $table->string('status_pizza', 40);
             $table->string('status_order', 40);
