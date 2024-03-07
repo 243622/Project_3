@@ -2,26 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Pizza;
 use Illuminate\Http\Request;
 
-class PizzaController extends Controller
+class MedewerkerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $pizzas = Pizza::all();
-        return view('order', ['pizzas' => $pizzas]);
+
     }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-
+        return view('crudpizza.create');
     }
 
     /**
@@ -29,7 +28,15 @@ class PizzaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validData = $request->validate([
+            'PizzaName' => 'required | max:255',
+            'PizzaPrice' => 'required | max:255',
+            'PizzaImage' => 'required',
+            'PizzaIngrediënts' => 'required | max:250'
+        ]);
+        Pizza::create($validData);
+
+        return redirect()->route('crudpizza.create');
     }
 
     /**
