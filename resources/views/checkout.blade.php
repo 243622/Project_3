@@ -29,33 +29,54 @@
     ::-webkit-scrollbar-thumb:hover {
     background: #555;
     }
-    /* Global styles */
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-    /* Header styles */
-    header {
-        position: relative;
-        text-align: center;
-    }
+header {
+    position: relative;
+    text-align: center;
+}
 
-    nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
-    nav ul li {
-        display: inline;
-        margin: 0 10px;
-        font-size: 18px;
-    }
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.order-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+.contact-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+
 
     /* Order container styles */
     .order-container {
@@ -73,7 +94,7 @@
 
     .order-container h1 span {
         font-weight: bold;
-        color: #333; /* You can adjust the color */
+        color: #333;
     }
     .total-price-label{
     margin-top: auto; 
@@ -113,16 +134,25 @@
         </ul>
     </nav>
 </header>
-<div class="order-container">
-    <h1>
-        Your Order
-        <span id="logged-in-username"></span>
-    </h1>
-<div id="cart-items-container">
-<div id="cart-items"></div>
-<div class="total-price-label">Total Price: <span id="total-price"></span></div>
-</div>
-</div>    
+<div class="flex-container">
+    <div class="order-container">
+        <h1>Your Order <span id="logged-in-username"></span></h1>
+        <div id="cart-items-container">
+            <div id="cart-items"></div>
+            <div class="total-price-label">Total Price: <span id="total-price"></span></div>
+        </div>
+    </div>
+
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <form action="contact.php" method="POST">
+            <input type="text" name="name" placeholder="Your Name">
+            <input type="email" name="email" placeholder="Your Email">
+            <textarea name="message" placeholder="Your Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>   
 <footer class="flex items-center flex-col">
     <div class="card">
                 <a href="https://www.instagram.com/stonkspizza/ " class="socialContainer containerOne">
