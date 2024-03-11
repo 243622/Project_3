@@ -19,7 +19,7 @@
     </nav>
 </header>
 
-
+{{ $pizza->pizzaName }}
 
 <footer class="flex items-center flex-col">
     <div class="card">

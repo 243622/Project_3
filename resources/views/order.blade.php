@@ -42,10 +42,10 @@
                 <div class="pizza-row pizza-menu">
             @endif
             <div class="pizza-menu pizza-card">
-                <img src="{{ $pizza->pizzaImage }}" alt="{{ $pizza->pizzaName }}">
-                <h2>{{ $pizza->pizzaName }}</h2>
-                <p>{{ $pizza->pizzaIngrediënts_id }}</p>
-                <p>Price: ${{ $pizza->pizzaPrice }}</p>
+                <img src="{{ $pizza->PizzaImage }}" alt="{{ $pizza->PizzaName }}">
+                <h2 class="">{{ $pizza->PizzaName }}</h2>
+                <p>{{ $pizza->PizzaIngrediënts }}</p>
+                <p>Price: ${{ $pizza->PizzaPrice }}</p>
                 <div class="order-section">
                     <label for="quantity{{ $pizza->id }}">Quantity:</label>
                     <input type="number" id="quantity{{ $pizza->id }}" name="quantity" value="1" min="1">
@@ -72,7 +72,7 @@
         <h3>Customization:</h3>
         <label for="special-instructions">Whislist:</label><br>
         <textarea id="special-instructions" name="special-instructions" rows="4" cols="50"></textarea><br>
-        <button onclick="addToCart()" id="add-to-cart-modal">Add to Cart</button>
+        <button  id="add-to-cart-modal">Add to Cart</button>
 
     </div>
 </div>
@@ -109,5 +109,11 @@
         </div>
     </div>
 </footer>
+<script>
+    <script>
+
+</script>
+
+</script>
 </body>
 </html>

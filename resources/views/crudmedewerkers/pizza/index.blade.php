@@ -4,32 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avalible pizza's</title>
-    @vite(['resources/css/app.css','resources/css/custom.css', 'resources/js/app.js', 'resources/css/contact.css'])
+    @vite(['resources/css/app.css','resources/css/custom.css', 'resources/css/crud.css' ,'resources/js/app.js', 'resources/css/contact.css'])
 </head>
 <body>
 <header>
-    <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
+    <img src="../PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
     <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
         <ul>
-            <li><a href="">Return</a></li>
-            <li><a href="{{route('pizza.create')}}">Creat Pizza's</a></li>
-            <li><a href="/crudmedewerkers/pizza/index">Remove Pizza's</a></li>
+            <li><a href="{{route('crudmedewerkers.index')}}">Return</a></li>
+            <li><a href="{{route('pizza.create')}}">Create a new Pizza</a></li>
         </ul>
     </nav>
 </header>
 
+<div id="pizza-container" class="text-center">
+    @foreach($pizzas as $index => $pizza)
+        <div id="pizza-menu pizza-card">
+        <a class="">{{ $pizza->pizzaName }}</a>
+        <img class="h-56 w-56" src="../{{ $pizza->pizzaImage }}">
+        <a href="{{route('pizza.edit', ['pizza' => $pizza->pizza_id])}}">Edit Pizza's</a>
+        <form method="post" action="{{route('pizza.destroy', ['pizza' => $pizza->pizza_id])}}">
+            @csrf
+            @method('DELETE')
+            <input class="text-red-700" type="submit" value="destroy" href="{{route('pizza.destroy', ['pizza' => $pizza->pizza_id])}} ">
+        </form>
+        </div>
+        <br>
+    @endforeach
+</div>
 
-@foreach($pizzas as $index => $pizza)
-    <a class="">{{ $pizza->pizzaName }}</a>
-    <a><img src="{{ $pizza->pizzaImage }}"></a>
-    <a href="{{route('pizza.edit', ['pizza' => $pizza->pizza_id])}}">Edit Pizza's</a>
-    <form method="post" action="{{route('pizza.destroy', ['pizza' => $pizza->pizza_id])}}">
-        @csrf
-        @method('DELETE')
-        <input class="text-red-700 font-extrabold" type="submit" value="destroy" href="{{route('pizza.destroy', ['pizza' => $pizza->pizza_id])}} ">
-    </form>
-    <br>
-@endforeach
 
 
 <footer class="flex items-center flex-col">

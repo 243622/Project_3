@@ -53,7 +53,7 @@ class MPizzaController extends Controller
      */
     public function edit(Pizza $pizza)
     {
-        //
+        return view('crudmedewerkers.pizza.edit', ['pizza' => $pizza]);
     }
 
     /**
@@ -70,6 +70,6 @@ class MPizzaController extends Controller
     public function destroy(Pizza $pizza)
     {
         Pizza::destroy($pizza);
-        return redirect()->route('crudmedewerkers.pizza.index');
+        return redirect()->route('crudmedewerkers.pizza.index', ['pizzas' => $pizza ]);
     }
 }
