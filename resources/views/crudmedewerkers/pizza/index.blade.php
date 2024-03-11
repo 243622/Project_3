@@ -17,16 +17,16 @@
     </nav>
 </header>
 
-<div id="pizza-container" class="text-center">
+<div id="" class="flex flex-wrap justify-center gap-14 text-center">
     @foreach($pizzas as $index => $pizza)
-        <div id="pizza-menu pizza-card">
+        <div class="inline-block m-2.5">
         <a class="">{{ $pizza->pizzaName }}</a>
-        <img class="h-56 w-56" src="../{{ $pizza->pizzaImage }}">
-        <a href="{{route('pizza.edit', ['pizza' => $pizza->pizza_id])}}">Edit Pizza's</a>
-        <form method="post" action="{{route('pizza.destroy', ['pizza' => $pizza->pizza_id])}}">
+        <img class="h-56 w-56 rounded-l" src="../{{ $pizza->pizzaImage }}">
+        <a href="{{route('pizza.edit', ['pizza' => $pizza->id])}}">Edit Pizza's</a>
+        <form class="bg-red-600 rounded-l" method="post" action="{{route('pizza.destroy', $pizza->id)}}">
             @csrf
             @method('DELETE')
-            <input class="text-red-700" type="submit" value="destroy" href="{{route('pizza.destroy', ['pizza' => $pizza->pizza_id])}} ">
+            <input class="text-white" type="submit" value="destroy">
         </form>
         </div>
         <br>

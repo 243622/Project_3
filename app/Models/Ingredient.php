@@ -13,7 +13,7 @@ class Ingredient extends Model
 
     public function Unit()
     {
-        return $this->hasMany(Unit::class, 'unit_id');
+        return $this->hasOne(Unit::class, 'unit_id');
     }
 
     public function Pizza()

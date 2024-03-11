@@ -70,6 +70,6 @@ class MPizzaController extends Controller
     public function destroy(Pizza $pizza)
     {
         Pizza::destroy($pizza);
-        return redirect()->route('crudmedewerkers.pizza.index', ['pizzas' => $pizza ]);
+        return redirect()->route('pizza.index');
     }
 }
