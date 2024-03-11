@@ -47,9 +47,9 @@
                 <p>{{ $pizza->PizzaIngrediënts }}</p>
                 <p>Price: ${{ $pizza->PizzaPrice }}</p>
                 <div class="order-section">
-                    <label for="quantity{{ $pizza->id }}">Quantity:</label>
-                    <input type="number" id="quantity{{ $pizza->id }}" name="quantity" value="1" min="1">
-                    <button onclick="addToCart('{{ $pizza->pizzaName }}', {{ $pizza->pizzaPrice }}, 'quantity{{ $pizza->id }}')">Add to Cart</button>
+                    <label for="quantity{{ $pizza->PizzaId }}">Quantity:</label>
+                    <input type="number" id="quantity{{ $pizza->PizzaId }}" name="quantity" value="1" min="1">
+                    <button onclick="addToCart('{{ $pizza->pizzaName }}', {{ $pizza->pizzaPrice }}, 'quantity{{ $pizza->PizzaId }}')">Add to Cart</button>
                 </div>
             </div>
             @if(($index + 1) % 4 == 0 || $index == count($pizzas) - 1)
