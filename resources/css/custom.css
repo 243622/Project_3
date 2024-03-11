@@ -24,7 +24,7 @@ header {
     align-items: center;
 }
 input{
-    width: 50px;
+    width: 100px;
 }
 
 nav ul {
@@ -268,12 +268,14 @@ h1 {
     background-color: #cc0000;
 }
 
+
 .order-button {
-    background-color: #d63b1d !important;
+    background-color: #d63b1d;
     margin-top: auto;
     width: 100%;
 
 }
+
 
 #side-panel.open {
     right: 0;
@@ -379,10 +381,6 @@ option {
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 3px;
-}
-
-.cart-button:hover {
-    background-color: #555;
 }
 
 footer {
