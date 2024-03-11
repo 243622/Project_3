@@ -42,10 +42,10 @@
                 <div class="pizza-row pizza-menu">
             @endif
             <div class="pizza-menu pizza-card">
-                <img src="{{ $pizza->PizzaImage }}" alt="{{ $pizza->PizzaName }}">
-                <h2 class="">{{ $pizza->PizzaName }}</h2>
-                <p>{{ $pizza->PizzaIngrediënts }}</p>
-                <p>Price: ${{ $pizza->PizzaPrice }}</p>
+                <img src="{{ $pizza->pizzaImage }}" alt="{{ $pizza->pizzaName }}">
+                <h2 class="">{{ $pizza->pizzaName }}</h2>
+                <p>{{ $pizza->pizzaIngrediënts }}</p>
+                <p>Price: ${{ $pizza->pizzaPrice }}</p>
                 <div class="order-section">
                     <label for="quantity{{ $pizza->PizzaId }}">Quantity:</label>
                     <input type="number" id="quantity{{ $pizza->PizzaId }}" name="quantity" value="1" min="1">
