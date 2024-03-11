@@ -13,7 +13,7 @@
         <ul>
             <li><a href="/crudmedewerkers">Return</a></li>
             <li><a href="/crudmedewerkers/pizza/edit">Edit Pizza's</a></li>
-            <li><a href="/crudmedewerkers/pizza/create">Creat Pizza's</a></li>
+            <li><a href="/crudmedewerkers/pizza/create">Create Pizza's</a></li>
             <li><a href="/crudmedewerkers/pizza/index">Remove Pizza's</a></li>
         </ul>
     </nav>

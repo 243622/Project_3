@@ -51,7 +51,7 @@ Route::get('/contact', function () {
 
 Route::get('/crudmedewerkers', function () {
     return view('crudmedewerkers');
-});
+})->name('crudmedewerkers.index');
 
 Route::resource('/crudmedewerkers/pizza', MPizzaController::class);
 Route::resource('/crudmedewerkers/item', MUnitController::class);

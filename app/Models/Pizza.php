@@ -9,6 +9,8 @@ class Pizza extends Model
 {
     use HasFactory;
     protected $table = 'Pizza';
+
+    public $primaryKey = 'pizza_id';
     protected $fillable = ['PizzaName', 'PizzaPrice', 'pizzaSize', 'PizzaImage', 'PizzaIngrediënts_id'];
 
     public function Ingredient()
