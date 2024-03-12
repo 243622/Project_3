@@ -49,6 +49,10 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/bestelling', function () {
+    return view('bestelling');
+});
+
 Route::get('/crudmedewerkers', function () {
     return view('crudmedewerkers');
 })->name('crudmedewerkers.index');
