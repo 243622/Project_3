@@ -141,7 +141,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
-            margin-top: 10px; 
+            margin-top: 10px;
         }
         .information-button:hover{
             background-color: #aa3333;
@@ -153,7 +153,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    @vite(['resources/css/app.css','resources/css/custom.css', 'resources/css/contact.css'])
+    @vite(['resources/css/app.css', 'resources/css/custom.css', 'resources/css/contact.css'])
 </head>
 <body class="">
 <header><img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="
@@ -172,7 +172,7 @@
             <li><a href="/">Homepage</a></li>
             <li><a href="order">Order</a></li>
             <?php
-                $loggedIn = true; 
+                $loggedIn = true;
 
                 if ($loggedIn) {
                     echo '<li><a href="dashboard">Dashboard</a></li>';
