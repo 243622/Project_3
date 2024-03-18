@@ -26,10 +26,11 @@
         <ul>
             <li><a href="/">Homepage</a></li>
             <li><a href="order">Order</a></li>
+            <li><a href="contact">Contact</a></li>  
             <li class="cart-icon-container">
                 <span class="material-symbols-outlined" onclick="toggleSidePanel()">shopping_basket</span>
                 <div class="cart-count">0</div>
-            </li>
+            </li> 
         </ul>
     </nav>
 </header>

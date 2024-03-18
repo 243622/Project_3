@@ -6,7 +6,6 @@ use App\Http\Controllers\MUnitController;
 use App\Http\Controllers\MIngredientController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +19,15 @@ use Inertia\Inertia;
 */
 
 Route::get('/log', function () {
-    return Inertia::render('Welcome', [
+    return view ('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+require __DIR__.'/auth.php';
 
 Route::get('/dashboard', function () {
     return ('Dashboard');
