@@ -22,8 +22,8 @@
         <div class="inline-block m-2.5">
         <a class="">{{ $pizza->pizzaName }}</a>
         <img class="h-56 w-56 rounded-l" src="../{{ $pizza->pizzaImage }}">
-        <a href="{{route('pizza.edit', ['pizza' => $pizza->id])}}">Edit Pizza's</a>
-        <form class="bg-red-600 rounded-l" method="post" action="{{route('pizza.destroy', $pizza->id)}}">
+        <a href="{{route('pizza.edit', ['pizza' => $pizza->PizzaId])}}">Edit Pizza's</a>
+        <form class="bg-red-600 rounded-l" method="post" action="{{route('pizza.destroy', $pizza->PizzaId)}}">
             @csrf
             @method('DELETE')
             <input class="text-white" type="submit" value="destroy">

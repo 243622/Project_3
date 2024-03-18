@@ -19,7 +19,35 @@
     </nav>
 </header>
 
-{{ $pizza->pizzaName }}
+    <div>
+        <form method="POST" action="{{route('pizza.update', [$pizza->PizzaId])}}">
+            @csrf
+            @method('PUT')
+            Pizza Name:
+            <input class="outline-double rounded-lg" type="text" id="PizzaName" name="PizzaName" required value="{{$pizza->PizzaName}}">
+            <br>
+            <br>
+            Pizza Price:
+            <input class="outline-double rounded-lg" type="text" id="PizzaPrice" name="PizzaPrice" value="{{$pizza->PizzaPrice}}">
+            <br>
+            <br>
+            pizza Size:
+            <input class="outline-double rounded-lg" type="text" id="PizzaPrice" name="PizzaPrice" value="{{$pizza->PizzaPrice}}">
+            <br>
+            <br>
+            Pizza Image:
+            <input class="outline-double rounded-lg" type="text" id="PizzaPrice" name="PizzaPrice" value="{{$pizza->PizzaPrice}}">
+            <br>
+            <br>
+            PizzaIngrediënts id:
+            <input class="outline-double rounded-lg" type="text" id="PizzaPrice" name="PizzaPrice" value="{{$pizza->PizzaPrice}}">
+            <br>
+            <br>
+            <input type="submit" value="Change">
+        </form>
+
+        <a href="{{route('songs.index')}}">Return to home page</a>
+    </div>
 
 <footer class="flex items-center flex-col">
     <div class="card">
