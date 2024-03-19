@@ -74,6 +74,7 @@ nav ul li {
     padding: 20px;
     border: 2px solid #ccc;
     border-radius: 10px;
+    max-height: 400px;
 }
 
 
@@ -102,6 +103,55 @@ nav ul li {
     padding: 10px;
     border-radius: 5px;
 }
+/* Form styles */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input[type="text"],
+input[type="adres"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="adres"]:focus,
+textarea:focus {
+    border-color: #d63b1d; /* Red on focus */
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-button {
+    width: 100%;
+    background-color: #d63b1d; /* Red */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+    background-color: #c23318; /* Darker red on hover */
+}
+
+/* Error message */
+.error-message {
+    color: #d63b1d; /* Red */
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 
     </style>
 <body>
@@ -139,20 +189,31 @@ nav ul li {
         <h1>Your Order <span id="logged-in-username"></span></h1>
         <div id="cart-items-container">
             <div id="cart-items"></div>
+            <p>Your cart is empty</p> 
             <div class="total-price-label">Total Price: <span id="total-price"></span></div>
         </div>
     </div>
 
     <div class="contact-container">
-        <h1>Contact Us</h1>
-        <form action="contact.php" method="POST">
+        <h1>Your Information</h1>
+        <form action="" method="POST">
             <input type="text" name="name" placeholder="Your Name">
-            <input type="email" name="email" placeholder="Your Email">
+            <input type="adres" name="adres" placeholder="Your Adres">
             <textarea name="message" placeholder="Your Message"></textarea>
-            <button type="submit">Send</button>
+            <button class="form-button" type="submit">Send</button>
         </form>
     </div>
 </div>   
+<div id="pizza-details-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="pizza-name"></h2>
+    <p id="pizza-size"></p>
+    <p id="pizza-quantity"></p>
+    <p id="pizza-price"></p>
+    <button id="add-to-wishlist">Add to Wishlist</button>
+  </div>
+</div>
 <footer class="flex items-center flex-col">
     <div class="card">
                 <a href="https://www.instagram.com/stonkspizza/ " class="socialContainer containerOne">
