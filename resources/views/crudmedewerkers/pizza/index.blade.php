@@ -12,17 +12,17 @@
     <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
         <ul>
             <li><a href="{{route('crudmedewerkers.index')}}">Return</a></li>
-            <li><a href="{{route('pizza.create')}}">Create a new Pizza</a></li>
+            <li><a href="{{route('pizza.create')}}">Create Pizza's</a></li>
         </ul>
     </nav>
 </header>
 
 <div id="" class="flex flex-wrap justify-center gap-14 text-center">
-    @foreach($pizzas as $index => $pizza)
+    @foreach($pizzas as $pizza)
         <div class="inline-block m-2.5">
         <a class="">{{ $pizza->pizzaName }}</a>
         <img class="h-56 w-56 rounded-l" src="../{{ $pizza->pizzaImage }}">
-        <a href="{{route('pizza.edit', ['pizza' => $pizza->PizzaId])}}">Edit Pizza's</a>
+            <p class="bg-blue-600 rounded-l"><a class="text-white" href="{{route('pizza.edit', ['pizza' => $pizza->PizzaId])}}">Edit Pizza's</a></p>
         <form class="bg-red-600 rounded-l" method="post" action="{{route('pizza.destroy', $pizza->PizzaId)}}">
             @csrf
             @method('DELETE')

@@ -32,20 +32,19 @@ class MPizzaController extends Controller
         $validData = $request->validate([
             'PizzaName' => 'required | max:255',
             'PizzaPrice' => 'required | max:255',
-            'PizzaImage' => 'required | max:255',
+            'pizzaSize' => 'required | max:255',
             'PizzaIngrediënts' => 'required | max:255'
         ]);
         Pizza::create($validData);
 
         return redirect()->route('crudmedewerkers.pizza.index');
     }
-
     /**
      * Display the specified resource.
      */
     public function show(Pizza $pizza)
     {
-        return view('crudmedewerkers.pizza.show', ['pizza' => Pizza::findOrFail($pizza)]);
+        return view('crudmedewerkers.pizza.index', ['pizza' => Pizza::findOrFail($pizza)]);
     }
 
     /**
@@ -61,7 +60,15 @@ class MPizzaController extends Controller
      */
     public function update(Request $request, Pizza $pizza)
     {
-        //
+        $validData = $request->validate([
+            'PizzaName' => 'required | max:255',
+            'PizzaPrice' => 'required | max:255',
+            'pizzaSize' => 'required | max:255',
+            'PizzaIngrediënts' => 'required | max:255'
+        ]);
+        Pizza::create($pizza)->update($validData);
+
+        return redirect()->route('crudmedewerkers.pizza.index');
     }
 
     /**
@@ -69,7 +76,7 @@ class MPizzaController extends Controller
      */
     public function destroy(Pizza $pizza)
     {
-        Pizza::destroy($pizza);
+        $pizza->delete();
         return redirect()->route('pizza.index');
     }
 }

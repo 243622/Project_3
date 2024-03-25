@@ -8,45 +8,38 @@
 </head>
 <body>
 <header>
-    <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
+    <img src="/PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
     <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
         <ul>
             <li><a href="/crudmedewerkers">Return</a></li>
-            <li><a href="/crudmedewerkers/pizza/edit">Edit Pizza's</a></li>
             <li><a href="/crudmedewerkers/pizza/create">Creat Pizza's</a></li>
-            <li><a href="/crudmedewerkers/pizza/index">Remove Pizza's</a></li>
         </ul>
     </nav>
 </header>
-
     <div>
         <form method="POST" action="{{route('pizza.update', [$pizza->PizzaId])}}">
             @csrf
             @method('PUT')
             Pizza Name:
-            <input class="outline-double rounded-lg" type="text" id="PizzaName" name="PizzaName" required value="{{$pizza->PizzaName}}">
+            <input class="outline-double rounded-lg" type="text" id="PizzaName" name="PizzaName" required value="{{$pizza->pizzaName}}">
             <br>
             <br>
             Pizza Price:
-            <input class="outline-double rounded-lg" type="text" id="PizzaPrice" name="PizzaPrice" value="{{$pizza->PizzaPrice}}">
+            <input class="outline-double rounded-lg" type="text" id="PizzaPrice" name="PizzaPrice" value="{{$pizza->pizzaPrice}}">
             <br>
             <br>
             pizza Size:
-            <input class="outline-double rounded-lg" type="text" id="PizzaPrice" name="PizzaPrice" value="{{$pizza->PizzaPrice}}">
+            <input class="outline-double rounded-lg" type="text" id="pizzaSize" name="PizzaPrice" value="{{$pizza->pizzaSize}}">
             <br>
             <br>
-            Pizza Image:
-            <input class="outline-double rounded-lg" type="text" id="PizzaPrice" name="PizzaPrice" value="{{$pizza->PizzaPrice}}">
-            <br>
-            <br>
-            PizzaIngrediënts id:
-            <input class="outline-double rounded-lg" type="text" id="PizzaPrice" name="PizzaPrice" value="{{$pizza->PizzaPrice}}">
+            Pizza Ingrediënts:
+            <input class="outline-double rounded-lg" type="text" id="PizzaIngrediënts_id" name="PizzaIngrediënts_id" value="{{$pizza->pizzaIngrediënts_id}}">
             <br>
             <br>
             <input type="submit" value="Change">
         </form>
 
-        <a href="{{route('songs.index')}}">Return to home page</a>
+        <a href="{{route('pizza.index')}}">Return to home page</a>
     </div>
 
 <footer class="flex items-center flex-col">
