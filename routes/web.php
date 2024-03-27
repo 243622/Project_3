@@ -30,7 +30,7 @@ Route::get('/log', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/dashboard', function () {
-    return ('Dashboard');
+    return view('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
