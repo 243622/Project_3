@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-    <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
+    <img src="/PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
     <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
         <ul>
             <li><a href="/crudmedewerkers">Return</a></li>
@@ -19,7 +19,30 @@
     </nav>
 </header>
 
+<div>
+    <form id="Form" method="post" action="{{route('pizza.store')}}">
+        @csrf
+        Pizza Name:
+        <input class="outline-double rounded-lg" type="text" id="PizzaName" name="PizzaName" required>
+        <br>
+        <br>
+        Pizza Price:
+        <input class="outline-double rounded-lg" type="text" id="PizzaPrice" name="PizzaPrice" required>
+        <br>
+        <br>
+        pizza Size:
+        <input class="outline-double rounded-lg" type="text" id="pizzaSize" name="PizzaPrice" required>
+        <br>
+        <br>
+        Pizza Ingrediënts:
+        <input class="outline-double rounded-lg" type="text" id="PizzaIngrediënts_id" name="PizzaIngrediënts_id" required>
+        <br>
+        <br>
+        <button type="submit" name="CreatePizza">Create Pizza</button>
+    </form>
 
+    <a href="{{route('pizza.index')}}">Return to home page</a>
+</div>
 
 <footer class="flex items-center flex-col">
     <div class="card">

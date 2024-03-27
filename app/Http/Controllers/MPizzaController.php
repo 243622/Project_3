@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pizza;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MPizzaController extends Controller
 {
@@ -33,11 +34,14 @@ class MPizzaController extends Controller
             'PizzaName' => 'required | max:255',
             'PizzaPrice' => 'required | max:255',
             'pizzaSize' => 'required | max:255',
+            'pizzaImage' => 'required | max:255',
             'PizzaIngrediënts' => 'required | max:255'
         ]);
         Pizza::create($validData);
 
         return redirect()->route('crudmedewerkers.pizza.index');
+
+
     }
     /**
      * Display the specified resource.
@@ -61,14 +65,13 @@ class MPizzaController extends Controller
     public function update(Request $request, Pizza $pizza)
     {
         $validData = $request->validate([
-            'PizzaName' => 'required | max:255',
-            'PizzaPrice' => 'required | max:255',
+            'pizzaName' => 'required | max:255',
+            'pizzaPrice' => 'required | max:255',
             'pizzaSize' => 'required | max:255',
-            'PizzaIngrediënts' => 'required | max:255'
+            'pizzaIngrediënts_id' => 'required | max:255'
         ]);
-        Pizza::create($pizza)->update($validData);
-
-        return redirect()->route('crudmedewerkers.pizza.index');
+        $pizza->update($validData);
+        return redirect()->route('pizza.index');
     }
 
     /**

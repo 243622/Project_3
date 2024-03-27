@@ -21,19 +21,19 @@
             @csrf
             @method('PUT')
             Pizza Name:
-            <input class="outline-double rounded-lg" type="text" id="PizzaName" name="PizzaName" required value="{{$pizza->pizzaName}}">
+            <input class="outline-double rounded-lg" type="text" id="pizzaName" name="pizzaName" required value="{{$pizza->pizzaName}}">
             <br>
             <br>
             Pizza Price:
-            <input class="outline-double rounded-lg" type="text" id="PizzaPrice" name="PizzaPrice" value="{{$pizza->pizzaPrice}}">
+            <input class="outline-double rounded-lg" type="text" id="pizzaPrice" name="pizzaPrice" value="{{$pizza->pizzaPrice}}">
             <br>
             <br>
             pizza Size:
-            <input class="outline-double rounded-lg" type="text" id="pizzaSize" name="PizzaPrice" value="{{$pizza->pizzaSize}}">
+            <input class="outline-double rounded-lg" type="text" id="pizzaSize" name="pizzaSize" value="{{$pizza->pizzaSize}}">
             <br>
             <br>
             Pizza Ingrediënts:
-            <input class="outline-double rounded-lg" type="text" id="PizzaIngrediënts_id" name="PizzaIngrediënts_id" value="{{$pizza->pizzaIngrediënts_id}}">
+            <input class="outline-double rounded-lg" type="text" id="pizzaIngrediënts_id" name="pizzaIngrediënts_id" value="{{$pizza->pizzaIngrediënts_id}}">
             <br>
             <br>
             <input type="submit" value="Change">
