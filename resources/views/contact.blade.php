@@ -83,7 +83,7 @@
                 </label>
 
                 <label class="message">
-                    <input class="input message" type="text" placeholder="" required="">
+                    <textarea class="input message" placeholder="" required=""></textarea>
                     <span>Message</span>
                 </label>
                 <button class="submit">Submit</button>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Customer;
 
 class CheckoutController extends Controller
 {
@@ -20,7 +21,7 @@ class CheckoutController extends Controller
      */
     public function create()
     {
-        //
+        return view('checkout/create');
     }
 
     /**
@@ -28,7 +29,19 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validatedData = $request->validate([
+            'firstname' => 'required|string|max:100',
+            'lastname' => 'string|max:100',
+            'e-mail' => 'string',
+            'phone-number' => 'string',
+            'address' => 'string',
+            'city' => 'string'
+        ]);
+
+        Customer::create($validatedData);
+
+        return view('checkout');
     }
 
     /**
