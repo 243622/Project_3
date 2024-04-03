@@ -106,7 +106,7 @@ function updateCartDisplay() {
         `;
         cartItemsDiv.appendChild(itemDiv);
     });
-    document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+    document.getElementById('total-price').textContent= "$" + totalPrice.toFixed(2);
     updateCartCountDisplay(totalItems); // Update cart count display with total item
 
     saveCartToLocalStorage(cart);
