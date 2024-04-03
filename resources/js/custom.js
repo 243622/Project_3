@@ -121,6 +121,9 @@ function updateCartDisplay() {
             <p>Price: $${item.price.toFixed(2)}</p>
             <p>Total: $${item.totalPrice.toFixed(2)}</p>
             <p>Wishlist: ${item.wishlist}</p>
+            <button class="cart-button" onclick="removeFromCart(${index})">Remove</button>
+            <button class="cart-button" onclick="changeQuantity(${index}, -1)">-</button>
+            <button class="cart-button" onclick="changeQuantity(${index}, 1)">+</button>
             <br>
         `;
         cartItemsDiv.appendChild(itemDiv);
