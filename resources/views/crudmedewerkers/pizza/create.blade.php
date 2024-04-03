@@ -23,19 +23,23 @@
     <form id="Form" method="post" action="{{route('pizza.store')}}">
         @csrf
         Pizza Name:
-        <input class="outline-double rounded-lg" type="text" id="PizzaName" name="PizzaName" required>
+        <input class="outline-double rounded-lg" type="text" id="pizzaName" name="pizzaName" required>
         <br>
         <br>
         Pizza Price:
-        <input class="outline-double rounded-lg" type="text" id="PizzaPrice" name="PizzaPrice" required>
+        <input class="outline-double rounded-lg" type="text" id="pizzaPrice" name="pizzaPrice" required>
         <br>
         <br>
         pizza Size:
-        <input class="outline-double rounded-lg" type="text" id="pizzaSize" name="PizzaPrice" required>
+        <input class="outline-double rounded-lg" type="text" id="pizzaSize" name="pizzaSize" required>
+        <br>
+        <br>
+        pizza Image:
+        <input class="outline-double rounded-lg" type="text" id="pizzaImage" name="pizzaImage" required>
         <br>
         <br>
         Pizza Ingrediënts:
-        <input class="outline-double rounded-lg" type="text" id="PizzaIngrediënts_id" name="PizzaIngrediënts_id" required>
+        <input class="outline-double rounded-lg" type="text" id="pizzaIngrediënts_id" name="pizzaIngrediënts_id" required>
         <br>
         <br>
         <button type="submit" name="CreatePizza">Create Pizza</button>
