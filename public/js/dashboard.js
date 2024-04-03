@@ -1,32 +1,10 @@
-fetch('')
-    .then(response => response.json())
-    .then(data => {
-        // Generate pizza cards dynamically
-        const pizzaContainer = document.querySelector('.pizza-container');
-        data.forEach(pizza => {
-            const pizzaCard = document.createElement('div');
-            pizzaCard.classList.add('pizza-card');
-            pizzaCard.innerHTML = `
-                    <img src="${pizza.image}" alt="${pizza.name}">
-                    <h2>${pizza.name}</h2>
-                    <p>${pizza.description}</p>
-                    <p>Price: $${pizza.price}</p>
-                    <div class="order-section">
-                        <label for="quantity${pizza.id}">Quantity:</label>
-                        <input type="number" id="quantity${pizza.id}" name="quantity" value="1" min="1">
-                        <button onclick="addToCart('${pizza.name}', ${pizza.price}, 'quantity${pizza.id}')">Add to Cart</button>
-                    </div>
-                `;
-            pizzaContainer.appendChild(pizzaCard);
-        });
-    })
-    .catch(error => console.error('Error:', error));
+
 function redirectToCheckout() {
     // Assuming checkout.blade.php is in the same directory
     window.location.href = 'checkout';
 }
     // Function to add a pizza to the cart and open customization modal
-function addToCart(name, price, quantityInputId, pizzaId) {
+function addToCart(name, price, quantityInputId) {
     var quantity = parseInt(document.getElementById(quantityInputId).value);
 
     // Create a pizza object with default values
@@ -36,15 +14,14 @@ function addToCart(name, price, quantityInputId, pizzaId) {
         quantity: quantity,
         totalPrice: price * quantity,
         size: "Medium", // Default size
-        wishlist: "No", // Default wishlist status
-        id: pizzaId // Add pizza ID
+        wishlist: "No" // Default wishlist status
     };
 
     // Show modal for pizza customization
     showModal(pizza);
 }
 
-   var cart = []; // Array to store cart items
+   var cart = []; // Array to store cart item
 
 // Function to toggle the side panel
 function toggleSidePanel() {
@@ -54,6 +31,8 @@ function toggleSidePanel() {
 
 // Function to show modal for pizza customization
 function showModal(pizza) {
+
+    
     var modal = document.getElementById('modal');
     modal.style.display = "block";
 
@@ -80,10 +59,11 @@ function showModal(pizza) {
         modal.style.display = "none"; // Close modal
     }
 }
+
 // Function to update cart count display
 function updateCartCountDisplay(totalItems) {
     var cartCountElement = document.querySelector('.cart-count');
-    cartCountElement.textContent = totalItems; // Display total items in cart
+    cartCountElement.textContent = totalItems; // Display total item in cart
 }
 
 // Function to retrieve cart data from localStorage
@@ -100,14 +80,14 @@ function saveCartToLocalStorage(cart) {
 // Initialize cart from localStorage when the page loads
 document.addEventListener('DOMContentLoaded', function() {
     cart = getCartFromLocalStorage();
-    updateCartDisplay(); // Update cart display with items from localStorage
+    updateCartDisplay(); // Update cart display with item from localStorage
 });
 
 // Function to update cart display and save cart to localStorage
 // Function to update cart display
 function updateCartDisplay() {
     var cartItemsDiv = document.getElementById('cart-items');
-    cartItemsDiv.innerHTML = ''; // Clear previous items
+    cartItemsDiv.innerHTML = ''; // Clear previous item
     var totalItems = 0;
     var totalPrice = 0;
     cart.forEach(function(item, index) {
@@ -118,15 +98,13 @@ function updateCartDisplay() {
         itemDiv.innerHTML = `
             <p>Name: ${item.name}</p>
             <p>Quantity: ${item.quantity}</p>
-            <p>Price: $${item.price.toFixed(2)}</p>
-            <p>Total: $${item.totalPrice.toFixed(2)}</p>
+            <p>Price: $${item.price}</p>
             <p>Wishlist: ${item.wishlist}</p>
-            <br>
-        `;
+        ` ;
         cartItemsDiv.appendChild(itemDiv);
     });
     document.getElementById('total-price').textContent = totalPrice.toFixed(2);
-    updateCartCountDisplay(totalItems); // Update cart count display with total items
+    updateCartCountDisplay(totalItems); // Update cart count display with total item
 
     saveCartToLocalStorage(cart);
 }
