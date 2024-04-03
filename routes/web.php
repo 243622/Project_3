@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MPizzaController;
 use App\Http\Controllers\MUnitController;
 use App\Http\Controllers\MIngredientController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 
@@ -43,15 +44,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/order',[PizzaController::class, 'index'])->name('pizzas.index');
-Route::get('/checkout', function () {
-    return view('checkout');
-});
+
+Route::get('/checkout', function () {return view('checkout'); });
+Route::get('/checkout/create', [CheckoutController::class, 'create'])->name('checkout.create');
+Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+
 Route::get('/contact', function () {
     return view('contact');
-});
-
-Route::get('/bestelling', function () {
-    return view('bestelling');
 });
 
 Route::get('/crudmedewerkers', function () {

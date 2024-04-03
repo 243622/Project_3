@@ -6,8 +6,14 @@ export default {
         "./resources/**/*.vue",
         "./src/**/*.{html,js}"
     ],
+
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                'stonks-red':'#d63b1d',
+              }
+        },
     },
     plugins: [],
 }
+
