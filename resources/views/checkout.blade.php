@@ -84,10 +84,12 @@
             <span>City</span>
         </label>
 
-        {{--<label class="message">
+        <input type="hidden" name="additional_data" id="additional-data">
+
+        <label class="message">
             <textarea class="input message" placeholder="" required></textarea>
             <span>Message</span>
-        </label>--}}
+        </label>
         <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
             Complete Purchase
         </button>

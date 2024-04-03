@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\Order;
 
 class CheckoutController extends Controller
 {
@@ -29,7 +30,7 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-
+        // Valideer de invoer
         $validatedData = $request->validate([
             'firstname' => 'required|string|max:100',
             'lastname' => 'string|max:100',
