@@ -31,15 +31,15 @@ class MPizzaController extends Controller
     public function store(Request $request)
     {
         $validData = $request->validate([
-            'PizzaName' => 'required | max:255',
-            'PizzaPrice' => 'required | max:255',
+            'pizzaName' => 'required | max:255',
+            'pizzaPrice' => 'required | max:255',
             'pizzaSize' => 'required | max:255',
             'pizzaImage' => 'required | max:255',
-            'PizzaIngrediënts' => 'required | max:255'
+            'pizzaIngrediënts_id' => 'required | max:255'
         ]);
         Pizza::create($validData);
 
-        return redirect()->route('crudmedewerkers.pizza.index');
+        return redirect()->route('pizza.index');
 
 
     }
