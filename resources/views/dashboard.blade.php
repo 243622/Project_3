@@ -26,5 +26,3 @@
         </div>
     </div>
 </x-app-layout>
-
-C:\xampp\Project_3\resources\js\custom.js
