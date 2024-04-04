@@ -1,10 +1,32 @@
-
+fetch('')
+    .then(response => response.json())
+    .then(data => {
+        // Generate pizza cards dynamically
+        const pizzaContainer = document.querySelector('.pizza-container');
+        data.forEach(pizza => {
+            const pizzaCard = document.createElement('div');
+            pizzaCard.classList.add('pizza-card');
+            pizzaCard.innerHTML = `
+                    <img src="${pizza.image}" alt="${pizza.name}">
+                    <h2>${pizza.name}</h2>
+                    <p>${pizza.description}</p>
+                    <p>Price: $${pizza.price}</p>
+                    <div class="order-section">
+                        <label for="quantity${pizza.id}">Quantity:</label>
+                        <input type="number" id="quantity${pizza.id}" name="quantity" value="1" min="1">
+                        <button onclick="addToCart('${pizza.name}', ${pizza.price}, 'quantity${pizza.id}')">Add to Cart</button>
+                    </div>
+                `;
+            pizzaContainer.appendChild(pizzaCard);
+        });
+    })
+    .catch(error => console.error('Error:', error));
 function redirectToCheckout() {
     // Assuming checkout.blade.php is in the same directory
     window.location.href = 'checkout';
 }
     // Function to add a pizza to the cart and open customization modal
-function addToCart(name, price, quantityInputId) {
+function addToCart(name, price, quantityInputId, pizzaId) {
     var quantity = parseInt(document.getElementById(quantityInputId).value);
 
     // Create a pizza object with default values
@@ -14,14 +36,15 @@ function addToCart(name, price, quantityInputId) {
         quantity: quantity,
         totalPrice: price * quantity,
         size: "Medium", // Default size
-        wishlist: "No" // Default wishlist status
+        wishlist: "No", // Default wishlist status
+        id: pizzaId // Add pizza ID
     };
 
     // Show modal for pizza customization
     showModal(pizza);
 }
 
-   var cart = []; // Array to store cart item
+   var cart = []; // Array to store cart items
 
 // Function to toggle the side panel
 function toggleSidePanel() {
@@ -31,8 +54,6 @@ function toggleSidePanel() {
 
 // Function to show modal for pizza customization
 function showModal(pizza) {
-
-    
     var modal = document.getElementById('modal');
     modal.style.display = "block";
 
@@ -59,11 +80,10 @@ function showModal(pizza) {
         modal.style.display = "none"; // Close modal
     }
 }
-
 // Function to update cart count display
 function updateCartCountDisplay(totalItems) {
     var cartCountElement = document.querySelector('.cart-count');
-    cartCountElement.textContent = totalItems; // Display total item in cart
+    cartCountElement.textContent = totalItems; // Display total items in cart
 }
 
 // Function to retrieve cart data from localStorage
@@ -80,14 +100,14 @@ function saveCartToLocalStorage(cart) {
 // Initialize cart from localStorage when the page loads
 document.addEventListener('DOMContentLoaded', function() {
     cart = getCartFromLocalStorage();
-    updateCartDisplay(); // Update cart display with item from localStorage
+    updateCartDisplay(); // Update cart display with items from localStorage
 });
 
 // Function to update cart display and save cart to localStorage
 // Function to update cart display
 function updateCartDisplay() {
     var cartItemsDiv = document.getElementById('cart-items');
-    cartItemsDiv.innerHTML = ''; // Clear previous item
+    cartItemsDiv.innerHTML = ''; // Clear previous items
     var totalItems = 0;
     var totalPrice = 0;
     cart.forEach(function(item, index) {
@@ -98,33 +118,35 @@ function updateCartDisplay() {
         itemDiv.innerHTML = `
             <p>Name: ${item.name}</p>
             <p>Quantity: ${item.quantity}</p>
-            <p>Price: $${item.price}</p>
+            <p>Price: $${item.price.toFixed(2)}</p>
+            <p>Total: $${item.totalPrice.toFixed(2)}</p>
             <p>Wishlist: ${item.wishlist}</p>
-        ` ;
+            <br>
+        `;
         cartItemsDiv.appendChild(itemDiv);
     });
-    document.getElementById('total-price').textContent= "$" + totalPrice.toFixed(2);
-    updateCartCountDisplay(totalItems); // Update cart count display with total item
+    document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+    updateCartCountDisplay(totalItems); // Update cart count display with total items
 
     saveCartToLocalStorage(cart);
 }
 
-function removeFromCart(index) {
-    cart.splice(index, 1); // Remove item from cart
-    updateCartDisplay(); // Update cart display
+// function removeFromCart(index) {
+//     cart.splice(index, 1); // Remove item from cart
+//     updateCartDisplay(); // Update cart display
+//     saveCartToLocalStorage(cart);
+// }
 
-    saveCartToLocalStorage(cart);
-}
+// // Function to change the quantity of an item in the cart and update localStorage
+// function changeQuantity(index, change) {
+//     if (cart[index]) {
+//         cart[index].quantity += change;
+//         if (cart[index].quantity < 1) {
+//             cart[index].quantity = 1;
+//         }
+//         cart[index].totalPrice = cart[index].quantity * cart[index].price;
+//         updateCartDisplay(); // Update cart display
+//     }
+//     saveCartToLocalStorage(cart);
+// }
 
-// Function to change the quantity of an item in the cart and update localStorage
-function changeQuantity(index, change) {
-    if (cart[index]) {
-        cart[index].quantity += change;
-        if (cart[index].quantity < 1) {
-            cart[index].quantity = 1;
-        }
-        cart[index].totalPrice = cart[index].quantity * cart[index].price;
-        updateCartDisplay(); // Update cart display
-    }
-    saveCartToLocalStorage(cart);
-}

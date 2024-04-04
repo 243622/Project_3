@@ -125,6 +125,8 @@ function updateCartDisplay() {
             <button class="cart-button" onclick="changeQuantity(${index}, -1)">-</button>
             <button class="cart-button" onclick="changeQuantity(${index}, 1)">+</button>
             <br>
+            <br>
+            
         `;
         cartItemsDiv.appendChild(itemDiv);
     });
