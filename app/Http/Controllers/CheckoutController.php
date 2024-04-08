@@ -10,13 +10,16 @@ class CheckoutController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */    public function index()
+     */
+    public function index()
     {
         // Assuming $cartItems contains the item added to the cart
-        $cartitems = []; // Retrieve cart item from your storage (session, database, etc.)
+        $cartItems = []; // Retrieve cart item from your storage (session, database, etc.)
 
-        return view('checkout', compact('cartItems'));
+        // Call showCheckout() method to retrieve cart data
+        return $this->showCheckout();
     }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -75,5 +78,52 @@ class CheckoutController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    /**
+     * Display the checkout page.
+     */
+    public function showCheckout()
+    {
+        // Retrieve cart data (assuming it's stored in session)
+        $cart = session('cart', []);
+
+        // Populate cart data if it's empty (you might need to adjust this based on your actual implementation)
+        if (empty($cart)) {
+            // Fetch cart items from your storage (session, database, etc.)
+            $cart = $this->fetchCartItems(); // You need to implement this method
+        }
+
+        // Calculate total price
+        $totalPrice = $this->calculateTotalPrice($cart);
+
+        // Pass cart data and total price to the view
+        return view('checkout', compact('cart', 'totalPrice'));
+    }
+
+    /**
+     * Fetch cart items from storage.
+     */
+    private function fetchCartItems()
+    {
+        // Implement your logic to retrieve cart items from your storage (session, database, etc.)
+        // For example:
+        // $cartItems = session('cart', []);
+        // return $cartItems;
+
+        // For now, I'm returning an empty array assuming there are no cart items
+        return [];
+    }
+
+    /**
+     * Calculate total price of items in the cart.
+     */
+    private function calculateTotalPrice($cart)
+    {
+        $totalPrice = 0;
+        foreach ($cart as $item) {
+            $totalPrice += $item['price'] * $item['quantity'];
+        }
+        return $totalPrice;
     }
 }
