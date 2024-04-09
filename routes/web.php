@@ -92,4 +92,4 @@ Route::resource('/crudmedewerkers/pizza', MPizzaController::class);
 //Route::get('/crudmedewerkers/ingredient/{idnummer}/edit', [MIngredientsController::class, 'edit'])->name('ingredient.edit');
 //Route::post('/crudmedewerkers/ingredient', [MIngredientsController::class, 'store'])->name('ingredient.store');
 
-route::get('admin/dashboard',[HomeController::class,'index']);
+route::get('admin/dashboard',[HomeController::class,'index'])->middleware('admin');

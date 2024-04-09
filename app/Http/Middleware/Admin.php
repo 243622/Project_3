@@ -6,6 +6,8 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+use Illuminate\Support\Facades\Auth;
+
 class Admin
 {
     /**
@@ -15,6 +17,11 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        if(Auth::user()->usertype == 'admin')
+        {
+            return $next($request);
+        }
+
+        abort(404);
     }
 }
