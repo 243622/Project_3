@@ -6,8 +6,8 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <title>Checkout Pizza</title>
-    <script src="js/checkout.js"></script>
-    @vite(['resources/css/app.css','resources/css/custom.css', 'resources/js/app.js', 'resources/css/contact.css'])
+    <script src="js/custom.js"></script>
+    @vite(['resources/css/app.css','resources/css/custom.css', 'resources/css/contact.css'])
 </head>
 
 <body>
