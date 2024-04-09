@@ -17,7 +17,7 @@ return new class extends Migration
             $table->double('pizzaPrice')->lenght(4);
             $table->string('pizzaSize', 25)->default('Medium');
             $table->string('pizzaImage', 200);
-            $table->foreignId('pizzaIngrediënts_id');
+            $table->string('pizzaIngrediënts');
             $table->timestamps();
         });
     }

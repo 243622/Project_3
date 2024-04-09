@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 40);
             $table->integer('price')->length(4);
-            $table->foreignId('unit_id');
+            $table->foreignId('unit_id')->references('id')->on('units')->onDelete('cascade');;
             $table->timestamps();
         });
     }

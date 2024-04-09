@@ -58,8 +58,8 @@ Route::get('/crudmedewerkers', function () {
 })->name('crudmedewerkers.index');
 
 Route::resource('/crudmedewerkers/pizza', MPizzaController::class);
-Route::resource('/crudmedewerkers/item', MUnitController::class);
-Route::resource('/crudmedewerkers/ingredient', MIngredientController::class);
+//Route::resource('/crudmedewerkers/item', MUnitController::class);
+//Route::resource('/crudmedewerkers/ingredient', MIngredientController::class);
 
 
 //Route::get('/crudmedewerkers/pizza', [MPizzaController::class, 'index'])->name('pizza.index');

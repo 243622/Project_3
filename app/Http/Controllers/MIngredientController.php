@@ -12,7 +12,8 @@ class MIngredientController extends Controller
      */
     public function index()
     {
-        return view('crudmedewerkers.ingredient.index');
+        $ingredients = Ingredient::all();
+        return view('crudmedewerkers.pizza.index', ['pizzas' => $ingredients]);
     }
 
     /**

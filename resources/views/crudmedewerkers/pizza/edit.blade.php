@@ -16,31 +16,48 @@
         </ul>
     </nav>
 </header>
-    <div>
-        <form method="POST" action="{{route('pizza.update', [$pizza->PizzaId])}}">
+<div class="grid grid-cols-2 gap-5">
+    <div class="flex flex-wrap justify-center m-5">
+        <form method="POST" action="{{route('pizza.update', [$pizza->PizzaId])}}" class="gap-1">
             @csrf
             @method('PUT')
             Pizza Name:
-            <input class="outline-double rounded-lg" type="text" id="pizzaName" name="pizzaName" required value="{{$pizza->pizzaName}}">
+            <br>
+            <input class="outline rounded-lg w-auto border-opacity-25 border-blue-600" type="text" id="pizzaName" name="pizzaName" required value="{{$pizza->pizzaName}}">
             <br>
             <br>
             Pizza Price:
-            <input class="outline-double rounded-lg" type="text" id="pizzaPrice" name="pizzaPrice" value="{{$pizza->pizzaPrice}}">
+            <br>
+            <input class="outline rounded-lg w-auto" type="text" id="pizzaPrice" name="pizzaPrice" value="{{$pizza->pizzaPrice}}">
             <br>
             <br>
             pizza Size:
-            <input class="outline-double rounded-lg" type="text" id="pizzaSize" name="pizzaSize" value="{{$pizza->pizzaSize}}">
+            <br>
+            <input type="radio" id="pizzaSize" name="pizzaSize" value="Small">
+            <label for="pizzaSize">Small</label><br>
+            <input type="radio" id="pizzaSize" name="pizzaSize" value="Medium">
+            <label for="pizzaSize">Medium</label><br>
+            <input type="radio" id="pizzaSize" name="pizzaSize" value="Large">
+            <label for="pizzaSize">Large</label><br>
             <br>
             <br>
             Pizza Ingrediënts:
-            <input class="outline-double rounded-lg" type="text" id="pizzaIngrediënts_id" name="pizzaIngrediënts_id" value="{{$pizza->pizzaIngrediënts_id}}">
+            <br>
+            <input class="outline rounded-lg w-auto" type="text" id="pizzaIngrediënts" name="pizzaIngrediënts" value="{{$pizza->pizzaIngrediënts}}">
             <br>
             <br>
-            <input type="submit" value="Change">
+            <input class="" type="submit" value="Change">
+            <br>
+            <a href="{{route('pizza.index')}}">Return to home page</a>
         </form>
-
-        <a href="{{route('pizza.index')}}">Return to home page</a>
     </div>
+
+    <div class="flex justify-center m-5">
+        <img class="h-806 w-120 rounded-l" src="/{{ $pizza->pizzaImage }}">
+    </div>
+</div>
+
+
 
 <footer class="flex items-center flex-col">
     <div class="card">

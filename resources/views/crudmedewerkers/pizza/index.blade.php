@@ -11,8 +11,11 @@
     <img src="../PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
     <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
         <ul>
-            <li><a href="{{route('crudmedewerkers.index')}}">Return</a></li>
+            <li><a href="/">Homepage</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/contact">Contact</a></li>
             <li><a href="{{route('pizza.create')}}">Create Pizza's</a></li>
+            <li><a href="{{route('crudmedewerkers.index')}}">Return</a></li>
         </ul>
     </nav>
 </header>
