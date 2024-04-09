@@ -7,6 +7,7 @@ use App\Http\Controllers\MIngredientController;
 use App\Http\Controllers\CheckoutController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,3 +91,5 @@ Route::resource('/crudmedewerkers/pizza', MPizzaController::class);
 //Route::put('/crudmedewerkers/ingredient/{idnummer}', [MIngredientsController::class, 'update'])->name('ingredient.update');
 //Route::get('/crudmedewerkers/ingredient/{idnummer}/edit', [MIngredientsController::class, 'edit'])->name('ingredient.edit');
 //Route::post('/crudmedewerkers/ingredient', [MIngredientsController::class, 'store'])->name('ingredient.store');
+
+route::get('admin/dashboard',[HomeController::class,'index']);
