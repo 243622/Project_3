@@ -29,7 +29,14 @@ class MIngredientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validData = $request->validate([
+            'name' => 'required | max:255',
+            'price' => 'required | max:255',
+            'unit' => 'required | max:255',
+        ]);
+        Ingredient::create($validData);
+
+        return redirect()->route('pizza.index');
     }
 
     /**
@@ -61,6 +68,7 @@ class MIngredientController extends Controller
      */
     public function destroy(Ingredient $ingredient)
     {
-        //
+        $ingredient->delete();
+        return redirect()->route('pizza.index');
     }
 }

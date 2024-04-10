@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ingredient;
 use App\Models\Pizza;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -56,7 +57,8 @@ class MPizzaController extends Controller
      */
     public function edit(Pizza $pizza)
     {
-        return view('crudmedewerkers.pizza.edit', ['pizza' => $pizza]);
+        $ingredients = Ingredient::all();
+        return view('crudmedewerkers.pizza.edit', ['pizza' => $pizza], ['ingredients' => $ingredients]);
     }
 
     /**

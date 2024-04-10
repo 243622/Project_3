@@ -11,6 +11,8 @@ class Ingredient extends Model
 
     protected $fillable = ['name', 'price', 'unit'];
 
+    public $primaryKey = 'id';
+
     public function Pizza()
     {
         return $this->belongsToMany(Pizza::class, 'ingredient_id');
