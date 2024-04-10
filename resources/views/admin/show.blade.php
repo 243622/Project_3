@@ -10,9 +10,15 @@
             <div class="bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg ">
                 <div class="p-6 text-gray-200">
                     <h1>Customer Name: {{ $order->customer->firstname }} {{ $order->customer->lastname }}</h1>
+                    <br>
+                    <p>Order:</p>
+                    <br>
                     @foreach($order->pizzas as $pizza)
-                        <p>{{ $pizza->pizzaName }}</p>
+                        <p>{{ $pizza->pizzaName }} Status pizza: {{ $order->status_pizza }}</p>
                     @endforeach
+                    <br>
+                    <p>{{ $order->customer->address }}</p>
+                    <p>{{ $order->customer->city }}</p>
                 </div>
             </div>
         </div>
