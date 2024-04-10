@@ -11,13 +11,13 @@ class StaffController extends Controller
     {
         $orders = Order::all();
 
-        return view('admin.dashboard', ['orders' => $orders]);
+        return view('staff.dashboard', ['orders' => $orders]);
     }
 
     public function show($id)
     {
         $order = Order::find($id);
 
-        return view('admin.show', ['order' => $order]);
+        return view('staff.show', ['order' => $order]);
     }
 }
