@@ -11,6 +11,7 @@
                 </div>
 
                 <!-- Navigation Links -->
+                @if(Auth::user()->usertype=='customer')
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
@@ -21,6 +22,14 @@
                         {{ __('Order') }}
                     </x-nav-link>
                 </div>
+                @endif
+                @if(Auth::user()->usertype=='staff')
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('staff.dashboard')" :active="request()->routeIs('staff.dashboard')">
+                        {{ __('Orders') }}
+                    </x-nav-link>
+                </div>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->
