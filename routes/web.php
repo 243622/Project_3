@@ -92,4 +92,6 @@ Route::resource('/crudmedewerkers/ingredient', MIngredientController::class);
 //Route::get('/crudmedewerkers/ingredient/{idnummer}/edit', [MIngredientsController::class, 'edit'])->name('ingredient.edit');
 //Route::post('/crudmedewerkers/ingredient', [MIngredientsController::class, 'store'])->name('ingredient.store');
 
-route::get('admin/dashboard',[StaffController::class,'index'])->middleware('admin');
+route::get('admin/dashboard', [StaffController::class, 'index'])->middleware('admin');
+
+Route::get('admin/{order}', [StaffController::class, 'show'])->name('orders.show')->middleware('admin');
