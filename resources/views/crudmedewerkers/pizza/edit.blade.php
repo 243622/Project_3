@@ -41,20 +41,20 @@
             <label for="pizzaSize">Large</label><br>
             <br>
             <br>
-            Pizza Ingrediënts:
-            <br>
-            <input class="outline rounded-lg w-auto" type="text" id="pizzaIngrediënts" name="pizzaIngrediënts" value="{{$pizza->pizzaIngrediënts}}">
-            <br>
-            <br>
             <input class="" type="submit" value="Change">
             <br>
             <a href="{{route('pizza.index')}}">Return to home page</a>
         </form>
     </div>
 
-    <div class="flex justify-center m-5">
-        <img class="h-806 w-120 rounded-l" src="/{{ $pizza->pizzaImage }}">
+    <div class="flex justify-items-center m-5">
+        <div>
+            <p>Pizza Ingrediënts:</p>
+            <br>
+            <input class="outline rounded-lg w-96 h-44" type="text" id="pizzaIngrediënts" name="pizzaIngrediënts" value="{{$pizza->pizzaIngredients}}">
+        </div>
     </div>
+
 </div>
 
 

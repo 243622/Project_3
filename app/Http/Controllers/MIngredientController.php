@@ -21,7 +21,7 @@ class MIngredientController extends Controller
      */
     public function create()
     {
-        //
+        return view('crudmedewerkers.ingredient.create');
     }
 
     /**

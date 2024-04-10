@@ -17,7 +17,7 @@
     </nav>
 </header>
 
-
+You can create an ingredient on this page
 
 <footer class="flex items-center flex-col">
     <div class="card">

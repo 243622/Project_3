@@ -15,6 +15,7 @@
             <li><a href="/dashboard">Dashboard</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="{{route('pizza.create')}}">Create Pizza's</a></li>
+            <li><a href="{{route('ingredient.create')}}">Create Ingredient's</a></li>
             <li><a href="{{route('crudmedewerkers.index')}}">Return</a></li>
         </ul>
     </nav>

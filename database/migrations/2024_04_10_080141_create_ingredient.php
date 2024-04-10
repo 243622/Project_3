@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ingrediënts', function (Blueprint $table) {
+        Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
             $table->string('name', 40);
             $table->integer('price')->length(4);
-            $table->foreignId('unit_id')->references('id')->on('units')->onDelete('cascade');;
+            $table->string('unit', 40);
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('ingredient');
     }
 };

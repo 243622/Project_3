@@ -9,15 +9,10 @@ class Ingredient extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'price', 'unit_id'];
-
-    public function Unit()
-    {
-        return $this->hasOne(Unit::class, 'unit_id');
-    }
+    protected $fillable = ['name', 'price', 'unit'];
 
     public function Pizza()
     {
-        return $this->belongsToMany(Pizza::class, 'ingrediënt_id');
+        return $this->belongsToMany(Pizza::class, 'ingredient_id');
     }
 }
