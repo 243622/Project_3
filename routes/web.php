@@ -7,7 +7,7 @@ use App\Http\Controllers\MIngredientController;
 use App\Http\Controllers\CheckoutController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,4 +92,4 @@ Route::resource('/crudmedewerkers/pizza', MPizzaController::class);
 //Route::get('/crudmedewerkers/ingredient/{idnummer}/edit', [MIngredientsController::class, 'edit'])->name('ingredient.edit');
 //Route::post('/crudmedewerkers/ingredient', [MIngredientsController::class, 'store'])->name('ingredient.store');
 
-route::get('admin/dashboard',[HomeController::class,'index'])->middleware('admin');
+route::get('admin/dashboard',[StaffController::class,'index'])->middleware('admin');
