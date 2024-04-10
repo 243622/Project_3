@@ -11,15 +11,15 @@ class Pizza extends Model
     protected $table = 'Pizza';
 
     public $primaryKey = 'PizzaId';
-    protected $fillable = ['pizzaName', 'pizzaPrice', 'pizzaSize', 'pizzaImage', 'pizzaIngrediënts_id'];
+    protected $fillable = ['pizzaName', 'pizzaPrice', 'pizzaSize', 'pizzaImage', 'pizzaIngredients_id'];
 
     public function Ingredient()
     {
-        return $this->hasMany(Ingredient::class, 'pizzaIngrediënts_id');
+        return $this->hasMany(Ingredient::class, 'pizzaIngredients_id');
     }
 
     public function Order()
     {
-        return $this->belongsToMany(Order::class, 'pizza_id');
+        return $this->belongsTo(Order::class, 'pizza_id');
     }
 }

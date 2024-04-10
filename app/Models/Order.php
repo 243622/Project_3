@@ -17,6 +17,6 @@ class Order extends Model
 
     public function pizzas()
     {
-        return $this->hasMany(Pizza::class, 'pizza_id');
+        return $this->belongsToMany(Pizza::class, 'pizza_order', 'order_id', 'pizza_id');
     }
 }
