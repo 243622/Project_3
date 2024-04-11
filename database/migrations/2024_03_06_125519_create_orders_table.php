@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('customer_id');
             $table->integer('total_price')->length(4);
             $table->string('message', 250)->nullable();
-            $table->string('status_pizza', 40)->default('Preparing');
             $table->string('status_order', 40)->default('Is being processed');
             $table->timestamps();
         });

@@ -23,12 +23,10 @@ class StaffController extends Controller
 
     public function update(Request $request, Order $order)
     {
+        // Update the status of pizzas
         foreach ($request->pizza_status as $pizzaId => $status) {
-            $pizza = $order->pizzas->where('id', $pizzaId)->first();
-            if ($pizza) {
-                $pizza->status_pizza = $status;
-                $pizza->save();
-            }
+            // Zoek de relevante rij in de pivot-tabel 'pizza_order'
+            $order->pizzas()->updateExistingPivot($pizzaId, ['status_pizza' => $status]);
         }
 
         $order->status_order = $request->order_status;
