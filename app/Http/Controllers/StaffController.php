@@ -20,4 +20,21 @@ class StaffController extends Controller
 
         return view('staff.show', ['order' => $order]);
     }
+
+    public function update(Request $request, Order $order)
+    {
+        foreach ($request->pizza_status as $pizzaId => $status) {
+            $pizza = $order->pizzas->where('id', $pizzaId)->first();
+            if ($pizza) {
+                $pizza->status_pizza = $status;
+                $pizza->save();
+            }
+        }
+
+        $order->status_order = $request->order_status;
+        $order->save();
+
+        // Redirect somewhere after updating
+        return redirect()->route('orders.show', ['order' => $order->id]);
+    }
 }

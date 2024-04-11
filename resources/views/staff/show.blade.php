@@ -13,12 +13,31 @@
                     <br>
                     <p>Order:</p>
                     <br>
-                    @foreach($order->pizzas as $pizza)
-                        <p>{{ $pizza->pizzaName }} Status pizza: {{ $order->status_pizza }}</p>
-                    @endforeach
-                    <br>
-                    <p>{{ $order->customer->address }}</p>
-                    <p>{{ $order->customer->city }}</p>
+                    <form method="POST" action="{{ route('orders.update', ['order' => $order->id]) }}">
+                        @csrf
+                        @method('PUT')
+
+                        @foreach($order->pizzas as $pizza)
+                            <p>{{ $pizza->pizzaName }} Status pizza:
+                                <select name="pizza_status[{{ $pizza->id }}]" class="dark:text-black">
+                                    <option value="Preparing" {{ $pizza->status_pizza == 'Preparing' ? 'selected' : '' }}>Preparing</option>
+                                    <option value="In the oven" {{ $pizza->status_pizza == 'In the oven' ? 'selected' : '' }}>In the oven</option>
+                                    <option value="Finished" {{ $pizza->status_pizza == 'Finished' ? 'selected' : '' }}>Finished</option>
+                                </select>
+                            </p>
+                        @endforeach
+
+                        <br>
+                        <p>Status order:
+                            <select name="order_status" class="dark:text-black">
+                                <option value="Is being processed" {{ $order->status_order == 'Is being processed' ? 'selected' : '' }}>Is being processed</option>
+                                <option value="Finished" {{ $order->status_order == 'Finished' ? 'selected' : '' }}>Finished</option>
+                            </select>
+                        </p>
+
+                        <br>
+                        <button type="submit">Save</button>
+                    </form>
                 </div>
             </div>
         </div>

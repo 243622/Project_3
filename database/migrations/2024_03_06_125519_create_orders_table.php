@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id');
-            $table->foreignId('pizza_id');
             $table->integer('total_price')->length(4);
             $table->string('message', 250)->nullable();
             $table->string('status_pizza', 40)->default('Preparing');
