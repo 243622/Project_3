@@ -41,9 +41,9 @@
             <label for="pizzaSize">Large</label><br>
             <br>
             <br>
-            Pizza Price:
+            Pizza Ingredients:
             <br>
-            <input class="outline rounded-lg w-auto" type="text" id="pizzaPrice" name="pizzaPrice" value="{{$pizza->pizzaIngredients}}">
+            <input class="outline rounded-lg w-auto" type="text" id="pizzaIngredients" name="pizzaIngredients" value="{{$pizza->pizzaIngredients}}">
             <br>
             <br>
             <input class="" type="submit" value="Change">
@@ -55,17 +55,17 @@
     <div class="flex justify-items-center m-5">
         <div>
             <p>Avalible Ingredients:</p>
-            <br>
             @foreach($ingredients as $ingredient)
+                <br>
                 <a class="" type="text" id="pizzaIngredients" name="pizzaIngredients">{{$ingredient->name}} = €{{$ingredient->price}}</a>
-                <form class="bg-green-700 rounded-l" method="POST" action="">
+                <form class="bg-green-700 rounded-l" method="POST" action="{{route('pizza.store', ['PizzaId' => $pizza->PizzaId, 'id' => $ingredient->id])}}">
                     @csrf
                     <input class="text-white" type="submit" value="apply">
                 </form>
                 <form class="bg-red-600 rounded-l" method="post" action="{{route('ingredient.destroy', $ingredient->id)}}">
                     @csrf
                     @method('DELETE')
-                    <input class="text-white" type="submit" value="remove">
+                    <input class="text-white" type="submit" value="delete">
                 </form>
             @endforeach
         </div>

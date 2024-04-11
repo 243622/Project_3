@@ -13,8 +13,6 @@
         <ul>
             <li><a href="order">Return</a></li>
             <li><a href="crudmedewerkers/pizza">Pizza's</a></li>
-            <li><a href="crudmedewerkers/item">Items</a></li>
-            <li><a href="crudmedewerkers/ingredient">Ingredients</a></li>
         </ul>
     </nav>
 </header>
