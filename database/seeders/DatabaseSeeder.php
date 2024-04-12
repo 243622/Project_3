@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             CustomerTableSeeder::class,
             IngredientTableSeeder::class,
             OrderTableSeeder::class,
-            StatusPizzaTableSeeder::class
+
         ]);
     }
 }
