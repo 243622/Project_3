@@ -94,6 +94,6 @@ Route::resource('/crudmedewerkers/ingredient', MIngredientController::class);
 
 route::get('staff/dashboard', [StaffController::class, 'index'])->name('staff.dashboard')->middleware('staff');
 
-Route::get('staff/{order}', [StaffController::class, 'show'])->name('orders.show')->middleware('staff');
+Route::get('staff/{order}', [StaffController::class, 'show'])->name('staff.show')->middleware('staff');
 
-Route::put('orders/{order}', [StaffController::class, 'update'])->name('orders.update');
+Route::put('staff/{order}', [StaffController::class, 'update'])->name('staff.update');

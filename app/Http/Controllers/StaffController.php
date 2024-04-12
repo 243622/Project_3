@@ -24,15 +24,11 @@ class StaffController extends Controller
 
     public function update(Request $request, Order $order)
     {
-        // Update the status of pizzas
-        foreach ($request->pizza_status as $pizzaId => $status) {
-            // Zoek de relevante rij in de pivot-tabel 'pizza_order' en update de 'status_pizza' kolom
-            $order->pizzas()->updateExistingPivot($order->id, ['status_pizza' => $status]);
-        }
+
 
         $order->status_order = $request->order_status;
         $order->save();
 
-        return redirect()->route('orders.show', ['order' => $order->id]);
+        return redirect()->route('staff.show', ['order' => $order->id]);
     }
 }

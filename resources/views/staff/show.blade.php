@@ -13,7 +13,7 @@
                     <br>
                     <p>Order:</p>
                     <br>
-                    <form method="POST" action="{{ route('orders.update', ['order' => $order->id]) }}">
+                    <form method="POST" action="{{ route('staff.update', ['order' => $order->id]) }}">
                         @csrf
                         @method('PUT')
 
