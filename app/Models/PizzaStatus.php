@@ -9,5 +9,5 @@ class PizzaStatus extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['status_pizza'];
+    protected $table = 'status_pizza';
 }
