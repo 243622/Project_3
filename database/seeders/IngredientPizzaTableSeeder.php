@@ -12,6 +12,6 @@ class IngredientPizzaTableSeeder extends Seeder
      */
     public function run(): void
     {
-       
+
     }
 }
