@@ -86,7 +86,7 @@
                 <span>City</span>
             </label>
 
-            <input type="hidden" name="pizza" value="{{ json_encode($pizza) }}">
+            <input type="hidden" name="pizza" value="{{ json_encode($cart) }}">
 
             <label class="message">
                 <textarea class="input message" placeholder="" required></textarea>
