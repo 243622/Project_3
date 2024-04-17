@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     <ul class="text-gray-200">
                         @foreach ($orders as $order)
-                            <li><a href="{{ route('orders.show', ['order' => $order->id]) }}">Customer Name: {{ $order->customer->firstname }} {{ $order->customer->lastname }}</a></li>
+                            <li><a href="{{ route('staff.show', ['order' => $order->id]) }}">Customer Name: {{ $order->customer->firstname }} {{ $order->customer->lastname }}</a></li>
                         @endforeach
                     </ul>
                 </div>

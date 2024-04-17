@@ -12,11 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pizza_order', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('Pizza_Id')->references('PizzaId')->on('pizza')->onDelete('cascade');
             $table->foreignId('Order_Id')->references('id')->on('orders')->onDelete('cascade');
             $table->foreignId('status_pizza_id')->references('id')->on('status_pizza')->onDelete('cascade');
-            $table->primary(['Pizza_Id', 'Order_Id', 'status_pizza_id']);
-
         });
     }
 

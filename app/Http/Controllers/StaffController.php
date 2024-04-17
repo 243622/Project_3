@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\PizzaOrder;
+use App\Models\PizzaStatus;
 
 class StaffController extends Controller
 {
@@ -22,13 +24,8 @@ class StaffController extends Controller
     }
 
 
-    public function update(Request $request, Order $order)
+    public function update(Request $request, $orderId)
     {
 
-
-        $order->status_order = $request->order_status;
-        $order->save();
-
-        return redirect()->route('staff.show', ['order' => $order->id]);
     }
 }

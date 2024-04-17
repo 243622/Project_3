@@ -14,9 +14,13 @@ class PizzaOrder extends Model
     protected $fillable = ['Pizza_Id', 'Order_Id', 'status_pizza_id'];
 
 
-
-    public function Pizzastatuses()
+    public function pizzas()
     {
-        return $this->hasMany(PizzaStatus::class, 'id', 'status_pizza_id');
+        return $this->belongsToMany(Pizza::class, 'pizza_order', 'Order_Id', 'Pizza_Id');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(PizzaStatus::class, 'status_pizza_id');
     }
 }

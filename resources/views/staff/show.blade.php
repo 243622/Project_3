@@ -22,6 +22,7 @@
                                 <select name="pizza_status[{{ $pizza->id }}]" class="dark:text-black">
                                     <option value="Preparing" {{ $pizza->status_pizza == 'Preparing' ? 'selected' : '' }}>Preparing</option>
                                     <option value="In the oven" {{ $pizza->status_pizza == 'In the oven' ? 'selected' : '' }}>In the oven</option>
+                                    <option value="Last steps" {{ $pizza->status_pizza == 'Last steps' ? 'selected' : '' }}>Last steps</option>
                                     <option value="Finished" {{ $pizza->status_pizza == 'Finished' ? 'selected' : '' }}>Finished</option>
                                 </select>
                             </p>
