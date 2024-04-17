@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ingredient;
+use App\Models\IngredientPizza;
 use App\Models\Pizza;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -44,6 +45,28 @@ class MPizzaController extends Controller
 
 
     }
+
+    /**
+     * Update the specified resource in storage.
+     */
+
+    public function deleteIngredient(Request $request, IngredientPizza $ingredientPizza)
+    {
+       // delete specific ingredient from pizza
+        $ingredientPizza->delete();
+        return redirect()->route('pizza.index');
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function storeIngredient(Ingredient $ingredient, Pizza $pizza)
+    {
+        $ingredient->pizzas()->attach($pizza->PizzaId);
+        return back();
+    }
+
     /**
      * Display the specified resource.
      */

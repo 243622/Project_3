@@ -13,9 +13,9 @@ class Pizza extends Model
     public $primaryKey = 'PizzaId';
     protected $fillable = ['pizzaName', 'pizzaPrice', 'pizzaSize', 'pizzaImage', 'pizzaIngredients_id'];
 
-    public function Ingredient()
+    public function Ingredients()
     {
-        return $this->hasMany(Ingredient::class, 'pizzaIngredients_id');
+        return $this->BelongsToMany(Ingredient::class);
     }
 
     public function Order()

@@ -66,7 +66,7 @@ class MIngredientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Ingredient $ingredient)
+    public function destroy(Ingredqient $ingredient)
     {
         $ingredient->delete();
         return redirect()->route('pizza.index');

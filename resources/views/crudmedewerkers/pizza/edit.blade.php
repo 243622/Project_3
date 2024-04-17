@@ -58,7 +58,7 @@
             @foreach($ingredients as $ingredient)
                 <br>
                 <a class="" type="text" id="pizzaIngredients" name="pizzaIngredients">{{$ingredient->name}} = €{{$ingredient->price}}</a>
-                <form class="bg-green-700 rounded-l" method="POST" action="{{route('pizza.store', ['PizzaId' => $pizza->PizzaId, 'id' => $ingredient->id])}}">
+                <form class="bg-green-700 rounded-l" method="POST" action="{{route('pizza_ingredient.store', ['pizza' => $pizza->PizzaId, 'ingredient' => $ingredient->id])}}">
                     @csrf
                     <input class="text-white" type="submit" value="apply">
                 </form>

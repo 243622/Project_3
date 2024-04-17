@@ -58,9 +58,11 @@ Route::get('/crudmedewerkers', function () {
     return view('crudmedewerkers');
 })->name('crudmedewerkers.index');
 
+Route::post('/crudmedewerkers/ingredients/{ingredient}/pizza/{pizza}', [MPizzaController::class, 'storeIngredient'])->name('pizza_ingredient.store');
+Route::delete('/crudmedewerkers/pizza/{pizza}', [MPizzaController::class, 'deleteIngredient'])->name('pizza_ingredient.delete');
 Route::resource('/crudmedewerkers/pizza', MPizzaController::class);
-//Route::resource('/crudmedewerkers/item', MUnitController::class);
 Route::resource('/crudmedewerkers/ingredient', MIngredientController::class);
+//Route::resource('/crudmedewerkers/item', MUnitController::class);
 
 
 //Route::get('/crudmedewerkers/pizza', [MPizzaController::class, 'index'])->name('pizza.index');
@@ -69,7 +71,6 @@ Route::resource('/crudmedewerkers/ingredient', MIngredientController::class);
 //Route::delete('/crudmedewerkers/pizza/{idnummer}', [MPizzaController::class, 'destroy'])->name('pizza.destroy');
 //Route::put('/crudmedewerkers/pizza/{idnummer}', [MPizzaController::class, 'update'])->name('pizza.update');
 //Route::get('/crudmedewerkers/pizza/{idnummer}/edit', [MPizzaController::class, 'edit'])->name('pizza.edit');
-//Route::post('/crudmedewerkers/pizza', [MPizzaController::class, 'store'])->name('pizza.store');
 
 
 

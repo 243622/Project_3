@@ -13,8 +13,8 @@ class Ingredient extends Model
 
     public $primaryKey = 'id';
 
-    public function Pizza()
+    public function pizzas()
     {
-        return $this->belongsToMany(Pizza::class, 'ingredient_id');
+        return $this->belongsToMany(Pizza::class, 'ingredient_pizza', 'ingredient_id', 'pizza_id');
     }
 }
