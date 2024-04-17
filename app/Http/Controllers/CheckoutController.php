@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Order;
+use App\Models\Pizza;
 
 class CheckoutController extends Controller
 {
@@ -33,19 +34,48 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        // Valideer de invoer
+dd($request->all());
         $validatedData = $request->validate([
-            'firstname' => 'required|string|max:100',
-            'lastname' => 'string|max:100',
-            'e-mail' => 'string',
-            'phone-number' => 'string',
-            'address' => 'string',
-            'city' => 'string'
+            'firstname' => 'required|string|max:40',
+            'lastname' => 'required|string|max:40',
+            'e-mail' => 'required|email|max:50',
+            'phone-number' => 'required|string|max:25',
+            'address' => 'required|string|max:100',
+            'city' => 'required|string|max:40',
+            'additional_data' => 'nullable|string|max:250',
         ]);
 
-        Customer::create($validatedData);
+        $customer = Customer::create([
+            'firstname' => $validatedData['firstname'],
+            'lastname' => $validatedData['lastname'],
+            'e-mail' => $validatedData['e-mail'],
+            'phone-number' => $validatedData['phone-number'],
+            'address' => $validatedData['address'],
+            'city' => $validatedData['city'],
+        ]);
 
-        return view('checkout');
+        $order = new Order();
+        $order->customer_id = $customer->id;
+        $order->total_price = 0;
+        $order->message = $validatedData['additional_data'] ?? null;
+        $order->status_order = 'Is being processed';
+        $order->save();
+
+        $cart = json_decode($request->input('cart'), true);
+
+        // Loop door het winkelmandje en voeg elk item toe aan de bestelling
+        foreach ($cart as $item) {
+            // Voeg de prijs van het item toe aan de totale prijs van de bestelling
+            $order->total_price += $item['totalPrice'];
+
+            $order->pizzas()->attach($item['id'], ['quantity' => $item['quantity']]);
+        }
+
+        $order->save();
+
+        $request->session()->forget('cart');
+
+        return redirect()->route('pizzas.index');
     }
 
     /**

@@ -9,14 +9,14 @@ function addToCart(name, price, quantityInputId) {
         price: price,
         quantity: quantity,
         totalPrice: price * quantity,
-        size: "Medium", 
-        wishlist: "No" 
+        size: "Medium",
+        wishlist: "No"
     };
 
     showModal(pizza);
 }
 
-   var cart = []; 
+   var cart = [];
 
 function toggleSidePanel() {
     var sidePanel = document.getElementById('side-panel');
@@ -39,7 +39,7 @@ function showModal(pizza) {
     var addToCartBtn = document.getElementById('add-to-cart-modal');
     addToCartBtn.onclick = function() {
         pizza.size = document.getElementById('pizza-size').value;
-        pizza.wishlist = document.getElementById('special-instructions').value; 
+        pizza.wishlist = document.getElementById('special-instructions').value;
         cart.push(pizza);
         updateCartDisplay();
         modal.style.display = "none";
@@ -48,7 +48,7 @@ function showModal(pizza) {
 
 function updateCartCountDisplay(totalItems) {
     var cartCountElement = document.querySelector('.cart-count');
-    cartCountElement.textContent = totalItems; 
+    cartCountElement.textContent = totalItems;
 }
 
 function getCartFromLocalStorage() {
@@ -62,12 +62,12 @@ function saveCartToLocalStorage(cart) {
 
 document.addEventListener('DOMContentLoaded', function() {
     cart = getCartFromLocalStorage();
-    updateCartDisplay(); 
+    updateCartDisplay();
 });
 
 function updateCartDisplay() {
     var cartItemsDiv = document.getElementById('cart-items');
-    cartItemsDiv.innerHTML = ''; 
+    cartItemsDiv.innerHTML = '';
     var totalItems = 0;
     var totalPrice = 0;
     cart.forEach(function(item, index) {
@@ -93,7 +93,7 @@ function updateCartDisplay() {
 }
 
 function removeFromCart(index) {
-    cart.splice(index, 1); 
+    cart.splice(index, 1);
     updateCartDisplay();
 
     saveCartToLocalStorage(cart);
@@ -106,7 +106,7 @@ function changeQuantity(index, change) {
             cart[index].quantity = 1;
         }
         cart[index].totalPrice = cart[index].quantity * cart[index].price;
-        updateCartDisplay(); 
+        updateCartDisplay();
     }
     saveCartToLocalStorage(cart);
 }
