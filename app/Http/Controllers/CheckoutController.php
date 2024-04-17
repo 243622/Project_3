@@ -34,7 +34,7 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-dd($request->all());
+
         $validatedData = $request->validate([
             'firstname' => 'required|string|max:40',
             'lastname' => 'required|string|max:40',
@@ -75,7 +75,7 @@ dd($request->all());
 
         $request->session()->forget('cart');
 
-        return redirect()->route('pizzas.index');
+        return redirect()->route('customer.order', ['customer_id' => $customer->id]);
     }
 
     /**
