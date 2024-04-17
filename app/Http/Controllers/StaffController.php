@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\PizzaOrder;
+use App\Models\PizzaStatus;
 
 class StaffController extends Controller
 {
@@ -22,17 +24,8 @@ class StaffController extends Controller
     }
 
 
-    public function update(Request $request, Order $order)
+    public function update(Request $request, $orderId)
     {
-        // Update the status of pizzas
-        foreach ($request->pizza_status as $pizzaId => $status) {
-            // Zoek de relevante rij in de pivot-tabel 'pizza_order' en update de 'status_pizza' kolom
-            $order->pizzas()->updateExistingPivot($order->id, ['status_pizza' => $status]);
-        }
 
-        $order->status_order = $request->order_status;
-        $order->save();
-
-        return redirect()->route('orders.show', ['order' => $order->id]);
     }
 }
