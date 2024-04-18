@@ -101,4 +101,5 @@ Route::get('staff/{order}', [StaffController::class, 'show'])->name('staff.show'
 Route::put('staff/{order}', [StaffController::class, 'update'])->name('staff.update');
 
 
-Route::get('/customer', [CustomerOrderController::class, 'index'])->name('customer.order');
+Route::get('/customer/{customer_id}', [CustomerOrderController::class, 'index'])->name('customer.order');
+

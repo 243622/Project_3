@@ -3,15 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Customer;
+use App\Models\Order;
 
 class CustomerOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($customer_id)
     {
-        //
+        $customer = Customer::findOrFail($customer_id);
+
+        $orders = Order::where('customer_id', $customer_id)->get();
+
+        return view('customer', ['orders' => $orders, 'customer' => $customer]);
     }
 
     /**
