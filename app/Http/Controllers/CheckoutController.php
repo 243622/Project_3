@@ -61,19 +61,7 @@ class CheckoutController extends Controller
         $order->status_order = 'Is being processed';
         $order->save();
 
-        $cart = json_decode($request->input('cart'), true);
-
-        // Loop door het winkelmandje en voeg elk item toe aan de bestelling
-        foreach ($cart as $item) {
-            // Voeg de prijs van het item toe aan de totale prijs van de bestelling
-            $order->total_price += $item['totalPrice'];
-
-            $order->pizzas()->attach($item['id'], ['quantity' => $item['quantity']]);
-        }
-
         $order->save();
-
-        $request->session()->forget('cart');
 
         return redirect()->route('customer.order', ['customer_id' => $customer->id]);
     }
