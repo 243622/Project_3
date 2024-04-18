@@ -43,59 +43,62 @@
     </nav>
 </header>
 
-<div class="flex justify-evenly">
-    <div id="info" class="info flex flex-col justify-evenly p-5">
-        <h1>Your Order <span id="logged-in-username"></span></h1>
-        <div >
-            <div id="cart-items"></div>
-            <div class="total-price-label">Total Price: <span id="total-price"></span></div>
+<main>
+    <div class="flex justify-evenly">
+        <div id="info" class="info flex flex-col justify-evenly p-5 overflow-auto">
+            <h1>Your Order <span id="logged-in-username"></span></h1>
+            <div >
+                <div id="cart-items"></div>
+                <div class="total-price-label">Total Price: <span id="total-price"></span></div>
+            </div>
         </div>
+
+        <form id="form" class="form" method="POST" action="{{ route('checkout.store') }}">
+            @csrf
+
+            <label>
+                <input class="input" type="text" name="firstname" id="firstname" placeholder="" required>
+                <span>Firstname</span>
+            </label>
+
+            <label>
+                <input class="input" type="text" name="lastname" id="lastname" placeholder="" required>
+                <span>Lastname</span>
+            </label>
+
+            <label>
+                <input class="input" type="email" name="e-mail" id="e-mail" placeholder="" required>
+                <span>Email</span>
+            </label>
+
+            <label>
+                <input class="input" type="text" name="phone-number" id="phone-number" placeholder="" required>
+                <span>Phone number</span>
+            </label>
+
+            <label>
+                <input class="input" type="text" name="address" id="address" placeholder="" required>
+                <span>Address</span>
+            </label>
+
+            <label>
+                <input class="input" type="text" name="city" id="city" placeholder="" required>
+                <span>City</span>
+            </label>
+
+            <input type="hidden" name="pizza" value="{{ json_encode($cart) }}">
+
+            <label class="message">
+                <textarea class="input message" placeholder="" required></textarea>
+                <span>Message</span>
+            </label>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                Complete Purchase
+            </button>
+        </form>
+
     </div>
-
-    <form id="form" class="form" method="POST" action="{{ route('checkout.store') }}">
-        @csrf
-        <label>
-            <input class="input" type="text" name="firstname" id="firstname" placeholder="" required>
-            <span>Firstname</span>
-        </label>
-
-        <label>
-            <input class="input" type="text" name="lastname" id="lastname" placeholder="" required>
-            <span>Lastname</span>
-        </label>
-
-        <label>
-            <input class="input" type="email" name="e-mail" id="e-mail" placeholder="" required>
-            <span>Email</span>
-        </label>
-
-        <label>
-            <input class="input" type="text" name="phone-number" id="phone-number" placeholder="" required>
-            <span>Phone number</span>
-        </label>
-
-        <label>
-            <input class="input" type="text" name="address" id="address" placeholder="" required>
-            <span>Address</span>
-        </label>
-
-        <label>
-            <input class="input" type="text" name="city" id="city" placeholder="" required>
-            <span>City</span>
-        </label>
-
-        <input type="hidden" name="additional_data" id="additional-data">
-
-        <label class="message">
-            <textarea class="input message" placeholder="" required></textarea>
-            <span>Message</span>
-        </label>
-        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-            Complete Purchase
-        </button>
-    </form>
-
-</div>
+</main>
 
 <footer class="flex items-center flex-col">
     <div class="card">
