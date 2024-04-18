@@ -98,3 +98,6 @@ route::get('staff/dashboard', [StaffController::class, 'index'])->name('staff.da
 Route::get('staff/{order}', [StaffController::class, 'show'])->name('staff.show')->middleware('staff');
 
 Route::put('staff/{order}', [StaffController::class, 'update'])->name('staff.update');
+
+
+Route::get('/customer', 'CustomerOrderController@index')->name('customer.order');
