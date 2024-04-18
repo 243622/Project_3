@@ -11,6 +11,7 @@ class Ingredient_Pizza extends Model
 {
     use HasFactory;
 
+    public $table = "ingredient_pizza";
     public $primaryKey = ['ingredient_id', 'pizza_id'];
     protected $fillable = ['ingredient_id', 'pizza_id'];
 }

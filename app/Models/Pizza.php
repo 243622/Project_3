@@ -11,7 +11,7 @@ class Pizza extends Model
     protected $table = 'Pizza';
 
     public $primaryKey = 'PizzaId';
-    protected $fillable = ['pizzaName', 'pizzaPrice', 'pizzaSize', 'pizzaImage', 'pizzaIngredients_id'];
+    protected $fillable = ['pizzaName', 'pizzaPrice', 'pizzaSize', 'pizzaImage'];
 
     public function Ingredients()
     {

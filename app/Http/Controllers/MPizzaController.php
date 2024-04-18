@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ingredient;
+use App\Models\Ingredient_Pizza;
 use App\Models\IngredientPizza;
 use App\Models\Pizza;
 use Illuminate\Http\Request;
@@ -37,7 +38,6 @@ class MPizzaController extends Controller
             'pizzaPrice' => 'required | max:255',
             'pizzaSize' => 'required | max:255',
             'pizzaImage' => 'required | max:255',
-            'pizzaIngredients' => 'required | max:255'
         ]);
         Pizza::create($validData);
 
@@ -81,7 +81,12 @@ class MPizzaController extends Controller
     public function edit(Pizza $pizza)
     {
         $ingredients = Ingredient::all();
-        return view('crudmedewerkers.pizza.edit', ['pizza' => $pizza], ['ingredients' => $ingredients]);
+        $ingredient_pizza = Ingredient_Pizza::all();
+        return view('crudmedewerkers.pizza.edit', [
+            'pizza' => $pizza,
+            'ingredients' => $ingredients,
+            'ingredient_pizza' => $ingredient_pizza
+        ]);
     }
 
     /**
@@ -93,7 +98,6 @@ class MPizzaController extends Controller
             'pizzaName' => 'required | max:255',
             'pizzaPrice' => 'required | max:255',
             'pizzaSize' => 'required | max:255',
-            'pizzaIngredients' => 'required | max:255'
         ]);
         $pizza->update($validData);
         return redirect()->route('pizza.index');

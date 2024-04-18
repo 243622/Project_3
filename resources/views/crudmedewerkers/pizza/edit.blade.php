@@ -43,7 +43,7 @@
             <br>
             Pizza Ingredients:
             <br>
-            <input class="outline rounded-lg w-auto" type="text" id="pizzaIngredients" name="pizzaIngredients" value="{{$pizza->pizzaIngredients}}">
+            <input class="outline rounded-lg w-auto" type="text" id="pizzaIngredients" name="pizzaIngredients" value="{{$ingredient_pizza->ingredient_id}}">
             <br>
             <br>
             <input class="" type="submit" value="Change">
