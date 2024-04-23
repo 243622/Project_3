@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Order;
+use App\Models\PizzaOrder;
 
 class CustomerOrderController extends Controller
 {
@@ -15,9 +16,9 @@ class CustomerOrderController extends Controller
     {
         $customer = Customer::findOrFail($customer_id);
 
-        $orders = Order::where('customer_id', $customer_id)->get();
+        $order = Order::where('customer_id', $customer_id)->get();
 
-        return view('customer', ['orders' => $orders, 'customer' => $customer]);
+        return view('customer', ['orders' => $order, 'customer' => $customer]);
     }
 
     /**

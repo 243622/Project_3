@@ -38,7 +38,25 @@
 </header>
 
 <main class="content flex items-center justify-center gap-5">
+    <div>
+        <h1>Customer Name: {{ $customer->firstname }} {{ $customer->lastname }}</h1>
+        <p>Status order:
+                @foreach ($orders as $object)
+                    {{ $object->status_order }}
+                @endforeach
+        </p>
+        @foreach($orders as $order)
+            <h2>Order ID: {{ $order->id }}</h2>
+            <p>Order Date: {{ $order->created_at }}</p>
 
+            <h3>Pizzas:</h3>
+            <ul>
+                @foreach($order->pizzas as $pizza)
+                    <li>{{ $pizza->pizzaName }} {{ optional($pizza->pivot->status)->status_pizza }}</li>
+                @endforeach
+            </ul>
+        @endforeach
+    </div>
 </main>
 
 <footer class="flex items-center flex-col">
