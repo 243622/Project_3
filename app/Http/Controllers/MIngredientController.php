@@ -60,15 +60,21 @@ class MIngredientController extends Controller
      */
     public function update(Request $request, Ingredient $ingredient)
     {
-        //
+        $validData = $request->validate([
+            'name' => 'required | max:255',
+            'price' => 'required | max:255',
+            'unit' => 'required | max:255',
+        ]);
+        $ingredient->update($validData);
+        return redirect()->route('pizza.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Ingredqient $ingredient)
+    public function destroy(Ingredient $ingredient)
     {
         $ingredient->delete();
-        return redirect()->route('pizza.index');
+        return back();
     }
 }

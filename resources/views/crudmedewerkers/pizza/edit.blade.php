@@ -12,12 +12,13 @@
     <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
         <ul>
             <li><a href="/crudmedewerkers">Return</a></li>
-            <li><a href="/crudmedewerkers/pizza/create">Creat Pizza's</a></li>
+            <li><a href="{{route('pizza.create')}}">Creat Pizza's</a></li>
+            <li><a href="{{route('ingredient.create')}}">Creat Ingredients's</a></li>
         </ul>
     </nav>
 </header>
-<div class="grid grid-cols-2 gap-5">
-    <div class="flex flex-wrap justify-center m-5">
+<div class="grid grid-cols-2 gap-5 justify-items-center">
+    <div class="grid place-self-center m-5">
         <form method="POST" action="{{route('pizza.update', [$pizza->PizzaId])}}" class="gap-1">
             @csrf
             @method('PUT')
@@ -43,7 +44,7 @@
             <br>
             Pizza Ingredients:
             <br>
-            <input class="outline rounded-lg w-auto" type="text" id="pizzaIngredients" name="pizzaIngredients" value="{{$ingredient_pizza->ingredient_id}}">
+            <input class="outline rounded-lg w-auto" type="text" id="pizzaIngredients" name="pizzaIngredients" value="@foreach($ingredient_pizza as $ingredient_pizzas){{\App\Models\Ingredient::find($ingredient_pizzas->ingredient_id)->name}}, @endforeach">
             <br>
             <br>
             <input class="" type="submit" value="Change">
@@ -52,7 +53,7 @@
         </form>
     </div>
 
-    <div class="flex justify-items-center m-5">
+    <div class="grid m-5">
         <div>
             <p>Avalible Ingredients:</p>
             @foreach($ingredients as $ingredient)

@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\MIngredientPizzaController;
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MPizzaController;
@@ -60,10 +62,9 @@ Route::get('/crudmedewerkers', function () {
 
 Route::post('/crudmedewerkers/ingredients/{ingredient}/pizza/{pizza}', [MPizzaController::class, 'storeIngredient'])->name('pizza_ingredient.store');
 Route::delete('/crudmedewerkers/pizza/{pizza}', [MPizzaController::class, 'deleteIngredient'])->name('pizza_ingredient.delete');
+Route::delete('/crudmedewerkers/pizza/{pizza}', [MPizzaController::class, 'deleteIngredient_pizza'])->name('pizza_ingredient.delete');
 Route::resource('/crudmedewerkers/pizza', MPizzaController::class);
 Route::resource('/crudmedewerkers/ingredient', MIngredientController::class);
-//Route::resource('/crudmedewerkers/item', MUnitController::class);
-
 
 //Route::get('/crudmedewerkers/pizza', [MPizzaController::class, 'index'])->name('pizza.index');
 //Route::get('/crudmedewerkers/pizza/create', [MPizzaController::class, 'create'])->name('pizza.create');
