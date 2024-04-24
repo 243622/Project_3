@@ -52,7 +52,7 @@
             <h3>Pizzas:</h3>
             <ul>
                 @foreach($order->pizzas as $pizza)
-                    <li>{{ $pizza->pizzaName }} {{ optional($pizza->pivot->status)->status_pizza }}</li>
+                    <li>{{ $pizza->pizzaName }} - Status: {{ $pizza->status_pizza->status_pizza }}</li>
                 @endforeach
             </ul>
         @endforeach

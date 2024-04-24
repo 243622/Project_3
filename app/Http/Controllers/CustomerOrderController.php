@@ -17,6 +17,7 @@ class CustomerOrderController extends Controller
         $customer = Customer::findOrFail($customer_id);
 
         $order = Order::where('customer_id', $customer_id)->get();
+        $orders = Order::with('pizzas.status_pizza')->get();
 
         return view('customer', ['orders' => $order, 'customer' => $customer]);
     }
