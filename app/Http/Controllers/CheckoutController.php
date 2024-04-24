@@ -34,6 +34,8 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
+        // Debugging: Print the request data to inspect what's being received
+        // dd($request->all());
 
         $validatedData = $request->validate([
             'firstname' => 'required|string|max:40',
@@ -45,6 +47,13 @@ class CheckoutController extends Controller
             'additional_data' => 'nullable|string|max:250',
         ]);
 
+        // Debugging: Print the validated data to inspect
+        // dd($validatedData);
+
+        // Debugging: Check if the cart data is being received correctly
+        // dd($request->input('pizza'));
+
+        // Create customer
         $customer = Customer::create([
             'firstname' => $validatedData['firstname'],
             'lastname' => $validatedData['lastname'],
@@ -54,27 +63,18 @@ class CheckoutController extends Controller
             'city' => $validatedData['city'],
         ]);
 
+        // Create order
         $order = new Order();
         $order->customer_id = $customer->id;
-        $order->total_price = 0;
+        $order->total_price = 0; // Debugging: Ensure that the total price is being set correctly
         $order->message = $validatedData['additional_data'] ?? null;
         $order->status_order = 'Is being processed';
         $order->save();
 
-        $cart = json_decode($request->input('cart'), true);
+        // Debugging: Check if the order was saved correctly
+        // dd($order);
 
-        // Loop door het winkelmandje en voeg elk item toe aan de bestelling
-        foreach ($cart as $item) {
-            // Voeg de prijs van het item toe aan de totale prijs van de bestelling
-            $order->total_price += $item['totalPrice'];
-
-            $order->pizzas()->attach($item['id'], ['quantity' => $item['quantity']]);
-        }
-
-        $order->save();
-
-        $request->session()->forget('cart');
-
+        // Redirect to the customer order page
         return redirect()->route('customer.order', ['customer_id' => $customer->id]);
     }
 
@@ -105,9 +105,22 @@ class CheckoutController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Order $order)
     {
-        //
+        // Delete the associated pizzas in the pizza_order table
+        $order->pizzas()->detach();
+
+        // Get the customer
+        $customer = $order->customer;
+
+        // Delete the order
+        $order->delete();
+
+        // Delete the customer
+        $customer->delete();
+
+        // Redirect to the homepage
+        return redirect()->route('pizzas.index');
     }
 
     /**

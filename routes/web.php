@@ -10,6 +10,7 @@ use App\Http\Controllers\CheckoutController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\CustomerOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,3 +100,8 @@ route::get('staff/dashboard', [StaffController::class, 'index'])->name('staff.da
 Route::get('staff/{order}', [StaffController::class, 'show'])->name('staff.show')->middleware('staff');
 
 Route::put('staff/{order}', [StaffController::class, 'update'])->name('staff.update');
+
+
+Route::get('/customer/{customer_id}', [CustomerOrderController::class, 'index'])->name('customer.order');
+
+Route::delete('/orders/{order}', 'App\Http\Controllers\CheckoutController@destroy')->name('orders.destroy');

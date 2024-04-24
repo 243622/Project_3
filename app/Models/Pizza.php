@@ -22,4 +22,9 @@ class Pizza extends Model
     {
         return $this->belongsTo(Order::class, 'pizza_id');
     }
+
+    public function status_pizza()
+    {
+        return $this->belongsTo(PizzaStatus::class, 'status_pizza_id');
+    }
 }
