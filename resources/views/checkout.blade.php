@@ -47,10 +47,8 @@
     <div class="flex justify-evenly">
         <div id="info" class="info flex flex-col justify-evenly p-5 overflow-auto">
             <h1>Your Order <span id="logged-in-username"></span></h1>
-            <div >
-                <div id="cart-items"></div>
-                <div class="total-price-label">Total Price: <span id="total-price"></span></div>
-            </div>
+            <div id="cart-items"></div>
+            <div class="total-price-label">Total Price: <span id="total-price"></span></div>
         </div>
 
         <form id="form" class="form" method="POST" action="{{ route('checkout.store') }}">
@@ -86,17 +84,25 @@
                 <span>City</span>
             </label>
 
-            <input type="hidden" name="pizza" value="{{ json_encode($cart) }}">
+            <!-- Loop through pizza items and include them as hidden inputs -->
+            @foreach($cart as $index => $item)
+                <input type="hidden" name="pizza[{{ $index }}][id]" value="{{ $item['id'] }}">
+                <input type="hidden" name="pizza[{{ $index }}][name]" value="{{ $item['name'] }}">
+                <input type="hidden" name="pizza[{{ $index }}][price]" value="{{ $item['price'] }}">
+                <input type="hidden" name="pizza[{{ $index }}][quantity]" value="{{ $item['quantity'] }}">
+                <input type="hidden" name="pizza[{{ $index }}][totalPrice]" value="{{ $item['totalPrice'] }}">
+                <input type="hidden" name="pizza[{{ $index }}][size]" value="{{ $item['size'] }}">
+                <input type="hidden" name="pizza[{{ $index }}][wishlist]" value="{{ $item['wishlist'] }}">
+            @endforeach
 
             <label class="message">
-                <textarea class="input message" placeholder="" required></textarea>
+                <textarea class="input message" name="additional_data" placeholder=""></textarea>
                 <span>Message</span>
             </label>
             <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
                 Complete Purchase
             </button>
         </form>
-
     </div>
 </main>
 
