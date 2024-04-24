@@ -38,23 +38,29 @@
 </header>
 
 <main class="content flex items-center justify-center gap-5">
-    <div>
-        <h1>Customer Name: {{ $customer->firstname }} {{ $customer->lastname }}</h1>
-        <p>Status order:
-                @foreach ($orders as $object)
-                    {{ $object->status_order }}
-                @endforeach
+    <div class="bg-white rounded-lg shadow-md p-6 max-w-lg mx-auto">
+        <h1 class="text-xl font-bold mb-4">Customer Name: {{ $customer->firstname }} {{ $customer->lastname }}</h1>
+        <p class="mb-4">Status order:
+            @foreach ($orders as $object)
+                {{ $object->status_order }}
+            @endforeach
         </p>
         @foreach($orders as $order)
-            <h2>Order ID: {{ $order->id }}</h2>
-            <p>Order Date: {{ $order->created_at }}</p>
+            <h2 class="text-lg font-bold mb-2">Order ID: {{ $order->id }}</h2>
+            <p class="mb-4">Order Date: {{ $order->created_at }}</p>
 
-            <h3>Pizzas:</h3>
-            <ul>
+            <h3 class="text-lg font-bold mb-2">Pizzas:</h3>
+            <ul class="list-disc list-inside mb-4">
                 @foreach($order->pizzas as $pizza)
-                    <li>{{ $pizza->pizzaName }} - Status: {{ $pizza->status_pizza->status_pizza }}</li>
+                    <li>{{ $pizza->pizzaName }} - Status: {{ $pizza->status->status_pizza }}</li>
                 @endforeach
             </ul>
+
+            <form action="{{ route('orders.destroy', $order->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Cancel Order</button>
+            </form>
         @endforeach
     </div>
 </main>

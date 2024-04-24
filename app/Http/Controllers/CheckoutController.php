@@ -105,9 +105,22 @@ class CheckoutController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Order $order)
     {
-        //
+        // Delete the associated pizzas in the pizza_order table
+        $order->pizzas()->detach();
+
+        // Get the customer
+        $customer = $order->customer;
+
+        // Delete the order
+        $order->delete();
+
+        // Delete the customer
+        $customer->delete();
+
+        // Redirect to the homepage
+        return redirect()->route('pizzas.index');
     }
 
     /**
