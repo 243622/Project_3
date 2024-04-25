@@ -17,39 +17,36 @@
         </ul>
     </nav>
 </header>
-<div class="grid grid-cols-2 gap-5 justify-items-center">
-    <div class="grid place-self-center m-5">
-        <form method="POST" action="{{route('pizza.update', [$pizza->PizzaId])}}" class="gap-1">
+<div class="grid grid-cols-2 justify-items-center">
+    <div class="grid place-self-center">
+        <form method="POST" action="{{route('pizza.update', [$pizza->PizzaId])}}" class="space-y-6">
             @csrf
             @method('PUT')
-            Pizza Name:
-            <br>
-            <input class="outline rounded-lg w-auto border-opacity-25 border-blue-600" type="text" id="pizzaName" name="pizzaName" required value="{{$pizza->pizzaName}}">
-            <br>
-            <br>
-            Pizza Price:
-            <br>
-            <input class="outline rounded-lg w-auto" type="text" id="pizzaPrice" name="pizzaPrice" value="{{$pizza->pizzaPrice}}">
-            <br>
-            <br>
-            pizza Size:
-            <br>
-            <input type="radio" id="pizzaSize" name="pizzaSize" value="Small">
-            <label for="pizzaSize">Small</label><br>
-            <input type="radio" id="pizzaSize" name="pizzaSize" value="Medium">
-            <label for="pizzaSize">Medium</label><br>
-            <input type="radio" id="pizzaSize" name="pizzaSize" value="Large">
-            <label for="pizzaSize">Large</label><br>
-            <br>
-            <br>
-            Pizza Ingredients:
-            <br>
-            <input class="outline rounded-lg w-auto" type="text" id="pizzaIngredients" name="pizzaIngredients" value="@foreach($ingredient_pizza as $ingredient_pizzas){{\App\Models\Ingredient::find($ingredient_pizzas->ingredient_id)->name}}, @endforeach">
-            <br>
-            <br>
-            <input class="" type="submit" value="Change">
-            <br>
-            <a href="{{route('pizza.index')}}">Return to home page</a>
+            <div>
+                <label>Pizza Name:</label><br>
+                <input class="outline rounded-lg w-80 border-opacity-25 border-blue-600" type="text" id="pizzaName" name="pizzaName" required value="{{$pizza->pizzaName}}">
+            </div>
+            <div>
+                <label>Pizza Price:</label><br>
+                <input class="outline rounded-lg w-80" type="text" id="pizzaPrice" name="pizzaPrice" value="{{$pizza->pizzaPrice}}">
+            </div>
+            <div>
+                <label>pizza Size:</label><br>
+                <input type="radio" id="pizzaSize" name="pizzaSize" value="Small" required>
+                <label for="pizzaSize">Small</label><br>
+                <input type="radio" id="pizzaSize" name="pizzaSize" value="Medium" required>
+                <label for="pizzaSize">Medium</label><br>
+                <input type="radio" id="pizzaSize" name="pizzaSize" value="Large" required>
+                <label for="pizzaSize">Large</label><br>
+            </div>
+            <div>
+                <label>Pizza Ingredients:</label><br>
+                <input class="outline rounded-lg w-80" type="text" id="pizzaIngredients" name="pizzaIngredients" value="@foreach($ingredient_pizza as $ingredient_pizzas){{\App\Models\Ingredient::find($ingredient_pizzas->ingredient_id)->name}}, @endforeach">
+            </div>
+            <div>
+                <input class="" type="submit" value="Change"><br>
+                <a href="{{route('pizza.index')}}">Return to home page</a>
+            </div>
         </form>
     </div>
 

@@ -24,24 +24,24 @@
 <div class="grid justify-center">
     <br>
     <br>
-    <form id="Form" method="post" action="{{route('ingredient.store')}}" class="">
+    <form id="Form" method="post" action="{{route('ingredient.store')}}" class="space-y-6">
         @csrf
-        Ingredient Name:
-        <input class="outline-double rounded-lg" type="text" id="name" name="name" required>
-        <br>
-        <br>
-        Ingredient Price:
-        <input class="outline-double rounded-lg" type="text" id="price" name="price" required>
-        <br>
-        <br>
-        Unit:
-        <input class="outline-double rounded-lg" type="text" id="unit" name="unit" placeholder="stuks/gram" required>
-        <br>
-        <br>
-        <button type="submit" name="CreateIngredient">Create Ingredient</button>
+        <div>
+            <label>Ingredient Name:</label><br>
+            <input class="rounded w-max outline" type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label>Ingredient Price:</label><br>
+            <input class="rounded w-max outline" type="text" id="price" name="price" required>
+        </div>
+        <div>
+            <label>Unit:</label><br>
+            <input class="rounded w-max outline" type="text" id="unit" name="unit" placeholder="pieces/gram" required>
+        </div>
+        <button type="submit" name="CreateIngredient" class="">Create Ingredient</button>
     </form>
 
-    <a href="{{route('pizza.index')}}">Return to home page</a>
+    <a href="{{route('pizza.index')}}" class="">Return to home page</a>
 </div>
 
 <footer class="flex items-center flex-col">
