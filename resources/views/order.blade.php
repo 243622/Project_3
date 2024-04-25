@@ -25,8 +25,10 @@
         ">
         <ul>
             <li><a href="/">Homepage</a></li>
-            <li><a href="order">Order</a></li>
+            <li><a href="order" class="active">Order</a></li>
             <li><a href="dashboard">Dashboard</a></li>
+            <li><a href="login">Login</a></li>
+            <li><a href="register">Register</a></li>
             <li><a href="contact">Contact</a></li>
             <li class="cart-icon-container">
                 <span class="material-symbols-outlined" onclick="toggleSidePanel()">shopping_basket</span>
@@ -101,7 +103,7 @@
                 </a>
             </div>
             <div>
-        <p>@2024 Stonkspizza Alle rechten voorbehouden </p>
+        <p>&copy; 2024 Stonkspizza All rights reserved</p>
     </div>
     <div id="side-panel">
         <div id="cart-items"></div>

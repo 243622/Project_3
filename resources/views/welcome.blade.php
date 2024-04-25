@@ -107,18 +107,6 @@
             font-size: 16px;
         }
 
-        /* Footer Styles */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
         .social-icons {
             margin-top: 20px;
         }
@@ -169,7 +157,7 @@
             justify-content: center;
         ">
         <ul>
-            <li><a href="/">Homepage</a></li>
+            <li><a href="/" class="active">Homepage</a></li>
             <li><a href="order">Order</a></li>
             <?php
                 $loggedIn = true;
@@ -181,6 +169,8 @@
                     echo '<li><a href="register">Register</a></li>';
                 }
             ?>
+            <li><a href="login">Login</a></li>
+            <li><a href="register">Register</a></li>
              <li><a href="contact">Contact</a></li>
         </ul>
     </nav>
@@ -217,13 +207,28 @@
                 </div>
             </div>
         </section>
-     <section class="section">
-        <h1 class="text-4xl text-center font-semibold">About Stonks Pizza</h1>
-        <p>
-Since 1972, Stonks Pizza has been a beacon of flavor and innovation in the pizza industry. Our commitment to using the freshest ingredients ensures every bite is a culinary delight. Join us today and experience the irresistible taste of Stonks Pizza since 1972 ,that keeps our customers returning time and time again!</p>
-    </section>
+        <div class="main-content">
+            <div class="container">
+                <section class="section">
+                    <div class="grid">
+                        <div class="grid-item w-full bg-white rounded-lg shadow-md p-6">
+                            <h1 class="text-4xl text-center font-semibold">About Stonks Pizza</h1>
+                            <p>
+                                Since 1972, Stonks Pizza has been a beacon of flavor and innovation in the pizza industry. Our commitment to using the freshest ingredients ensures every bite is a culinary delight. Join us today and experience the irresistible taste of Stonks Pizza since 1972, that keeps our customers returning time and time again!
+                            </p>
+                            <p>
+                                Our pizzas are made from scratch with the finest ingredients sourced from local farmers. We believe in supporting our community and strive to create a sustainable business model that benefits everyone involved. Our menu is diverse, catering to a wide range of tastes and dietary needs. We offer vegan, gluten-free, and vegetarian options, ensuring everyone can enjoy our delicious pizzas.
+                            </p>
+                            <p>
+                                We are more than just a pizza place. We are a gathering spot for friends and family, a place where memories are made. We believe in providing excellent customer service and creating a welcoming atmosphere for all our guests. Come and experience the Stonks Pizza difference today!
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
+</div>
 
     <footer class="flex items-center flex-col">
     <div class="card">
@@ -248,7 +253,7 @@ Since 1972, Stonks Pizza has been a beacon of flavor and innovation in the pizza
             </div>
 
         <div>
-            <p class="text-white">@2024 Stonkspizza Alle rechten voorbehouden</p>
+            <p class="text-white">&copy; 2024 Stonkspizza All rights reserved</p>
         </div>
     </footer>
 </body>
