@@ -11,9 +11,14 @@ export default {
         extend: {
             colors: {
                 'stonks-red':'#d63b1d',
+                'italian-flag-green': '#008C45',
+                'italian-flag-white': '#FFFFFF',
+                'italian-flag-red': '#CE2B37',
+                'gray-200': '#f4f4f4',
               }
         },
     },
+    variants:{},
     plugins: [],
 }
 

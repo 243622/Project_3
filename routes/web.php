@@ -104,3 +104,7 @@ Route::put('staff/{order}', [StaffController::class, 'update'])->name('staff.upd
 Route::get('/customer/{customer_id}', [CustomerOrderController::class, 'index'])->name('customer.order');
 
 Route::delete('/orders/{order}', 'App\Http\Controllers\CheckoutController@destroy')->name('orders.destroy');
+
+Route::get('/test', function () {
+    return view('test');
+});

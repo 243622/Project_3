@@ -52,7 +52,7 @@
             <h3 class="text-lg font-bold mb-2">Pizzas:</h3>
             <ul class="list-disc list-inside mb-4">
                 @foreach($order->pizzas as $pizza)
-                    <li>{{ $pizza->pizzaName }} - Status: {{ $pizza->status->status_pizza }}</li>
+                    <li>{{ $pizza->pizzaName }}</li>
                 @endforeach
             </ul>
 
