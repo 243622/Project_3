@@ -30,6 +30,7 @@
             <li><a href="login">Login</a></li>
             <li><a href="register">Register</a></li>
             <li><a href="contact">Contact</a></li>
+            <li><a href="checkout">Checkout</a></li>
             <li class="cart-icon-container">
                 <span class="material-symbols-outlined" onclick="toggleSidePanel()">shopping_basket</span>
                 <div class="cart-count">0</div>
@@ -53,7 +54,7 @@
                 <div class="order-section">
                     <label for="quantity{{ $pizza->PizzaId }}">Quantity:</label>
                     <input type="number" id="quantity{{ $pizza->PizzaId }}" name="quantity" value="1" min="1">
-                    <button onclick="addToCart('{{ $pizza->pizzaName }}', {{ $pizza->pizzaPrice }}, 'quantity{{ $pizza->PizzaId }}')">Add to Cart</button>
+                    <button onclick="addToCart('{{ $pizza->pizzaName }}', {{ $pizza->pizzaPrice }}, 'quantity{{ $pizza->PizzaId }}', '{{ $pizza->PizzaId }}')">Add to Cart</button>
                 </div>
             </div>
             @if(($index + 1) % 4 == 0 || $index == count($pizzas) - 1)

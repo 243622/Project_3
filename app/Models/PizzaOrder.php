@@ -13,6 +13,7 @@ class PizzaOrder extends Model
 
     protected $fillable = ['Pizza_Id', 'Order_Id', 'status_pizza_id'];
 
+    public $timestamps = false;
 
     public function pizzas()
     {

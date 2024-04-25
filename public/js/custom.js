@@ -1,10 +1,16 @@
 function redirectToCheckout() {
-    window.location.href = 'checkout';
+    var cartDataInput = document.createElement('input');
+    cartDataInput.type = 'hidden';
+    cartDataInput.name = 'cart_data';
+    cartDataInput.value = JSON.stringify(cart);
+    document.getElementById('form').appendChild(cartDataInput);
+    document.getElementById('form').submit();
 }
 
-function addToCart(name, price, quantityInputId) {
+function addToCart(name, price, quantityInputId, PizzaId) {
     var quantity = parseInt(document.getElementById(quantityInputId).value);
     var pizza = {
+        PizzaId: PizzaId,
         name: name,
         price: price,
         quantity: quantity,
@@ -15,6 +21,7 @@ function addToCart(name, price, quantityInputId) {
 
     showModal(pizza);
 }
+
 
    var cart = [];
 
@@ -53,7 +60,21 @@ function updateCartCountDisplay(totalItems) {
 
 function getCartFromLocalStorage() {
     var cartData = localStorage.getItem('cart');
+    console.log(cartData);
     return cartData ? JSON.parse(cartData) : [];
+}
+
+var cartData = getCartFromLocalStorage();
+
+for (var i = 0; i < cartData.length; i++) {
+    var pizzaItem = cartData[i];
+    console.log("PizzaId: " + pizzaItem.PizzaId);
+    console.log("Name: " + pizzaItem.name);
+    console.log("Price: " + pizzaItem.price);
+    console.log("Quantity: " + pizzaItem.quantity);
+    console.log("Total Price: " + pizzaItem.totalPrice);
+    console.log("Size: " + pizzaItem.size);
+    console.log("Wishlist: " + pizzaItem.wishlist);
 }
 
 function saveCartToLocalStorage(cart) {
@@ -110,3 +131,13 @@ function changeQuantity(index, change) {
     }
     saveCartToLocalStorage(cart);
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+document.getElementById('form').addEventListener('submit', function(event) {
+    // Get the cart data from local storage
+    var cartData = getCartFromLocalStorage();
+
+    // Set the value of the hidden input field to the cart data
+    document.getElementById('cartData').value = JSON.stringify(cartData);
+});
+});

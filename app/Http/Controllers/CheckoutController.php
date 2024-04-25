@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\Pizza;
+use App\Models\PizzaOrder;
 
 class CheckoutController extends Controller
 {
@@ -63,16 +64,33 @@ class CheckoutController extends Controller
             'city' => $validatedData['city'],
         ]);
 
+        // Get the cart data from the request
+        $cartData = json_decode($request->input('cartData'), true);
+
+        // Calculate the total price
+        $totalPrice = array_reduce($cartData, function ($carry, $item) {
+            return $carry + ($item['price'] * $item['quantity']);
+        }, 0);
+
         // Create order
         $order = new Order();
         $order->customer_id = $customer->id;
-        $order->total_price = 0; // Debugging: Ensure that the total price is being set correctly
+        $order->total_price = $totalPrice;
         $order->message = $validatedData['additional_data'] ?? null;
         $order->status_order = 'Is being processed';
         $order->save();
 
-        // Debugging: Check if the order was saved correctly
-        // dd($order);
+        // Loop through the cart items and create a new PizzaOrder for each item
+        foreach ($cartData as $item) {
+
+            $pizzaId = $item['PizzaId'];
+
+            PizzaOrder::create([
+                'Pizza_Id' => $pizzaId,
+                'Order_Id' => $order->id,
+                'status_pizza_id' => 1,
+            ]);
+        }
 
         // Redirect to the customer order page
         return redirect()->route('customer.order', ['customer_id' => $customer->id]);

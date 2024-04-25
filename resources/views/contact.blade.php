@@ -35,6 +35,7 @@
                     <li><a href="login">Login</a></li>
                     <li><a href="register">Register</a></li>
                     <li><a href="contact" class="active">Contact</a></li>
+                    <li><a href="checkout">Checkout</a></li>
                 </ul>
             </nav>
         </header>
