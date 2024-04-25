@@ -50,23 +50,6 @@ class MPizzaController extends Controller
      * Update the specified resource in storage.
      */
 
-    public function deleteIngredient(Request $request, IngredientPizza $ingredientPizza)
-    {
-       // delete specific ingredient from pizza
-        $ingredientPizza->delete();
-        return redirect()->route('pizza.index');
-    }
-
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function storeIngredient(Ingredient $ingredient, Pizza $pizza)
-    {
-        $ingredient->pizzas()->attach($pizza->PizzaId);
-        return back();
-    }
-
     /**
      * Display the specified resource.
      */
@@ -80,7 +63,8 @@ class MPizzaController extends Controller
      */
     public function edit(Pizza $pizza)
     {
-        $ingredients = Ingredient::all();
+        $ingredients = Ingredient::all()->keyBy('id');
+
         $ingredient_pizza = Ingredient_Pizza::all();
         return view('crudmedewerkers.pizza.edit', [
             'pizza' => $pizza,
@@ -95,9 +79,10 @@ class MPizzaController extends Controller
     public function update(Request $request, Pizza $pizza)
     {
         $validData = $request->validate([
-            'pizzaName' => 'required | max:255',
-            'pizzaPrice' => 'required | max:255',
-            'pizzaSize' => 'required | max:255',
+            'pizzaName' => 'max:255',
+            'pizzaPrice' => 'max:255',
+            'pizzaSize' => ' max:255',
+            'ingredient_pizza' => 'max:255'
         ]);
         $pizza->update($validData);
         return redirect()->route('pizza.index');
@@ -110,5 +95,28 @@ class MPizzaController extends Controller
     {
         $pizza->delete();
         return redirect()->route('pizza.index');
+    }
+
+    public function deleteIngredient(IngredientPizza $ingredientPizza)
+    {
+        // delete specific ingredient from pizza
+        $ingredientPizza->delete();
+        return redirect()->route('pizza.index');
+    }
+
+
+    public function deleteIngredient_pizza(Ingredient $ingredient, Pizza $pizza)
+    {
+        $ingredient->pizzas()->detach($pizza->PizzaId);
+        return back();
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function storeIngredient(Ingredient $ingredient, Pizza $pizza)
+    {
+        $ingredient->pizzas()->attach($pizza->PizzaId);
+        return back();
     }
 }

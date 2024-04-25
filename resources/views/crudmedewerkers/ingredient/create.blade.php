@@ -3,21 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creating new ingredient's</title>
+    <title>Avalible pizza's</title>
     @vite(['resources/css/app.css','resources/css/custom.css', 'resources/js/app.js', 'resources/css/contact.css'])
 </head>
 <body>
 <header>
-    <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
+    <img src="/PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
     <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
         <ul>
             <li><a href="/">Homepage</a></li>
-            <li><a href="order">Order</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="{{route('pizza.create')}}">Create Pizza's</a></li>
+            <li><a href="{{route('ingredient.create')}}">Create Ingredient's</a></li>
+            <li><a href="{{route('crudmedewerkers.index')}}">Return</a></li>
         </ul>
     </nav>
 </header>
 
-You can create an ingredient on this page
+<div class="grid justify-center">
+    <br>
+    <br>
+    <form id="Form" method="post" action="{{route('ingredient.store')}}" class="space-y-6">
+        @csrf
+        <div>
+            <label>Ingredient Name:</label><br>
+            <input class="rounded w-max outline" type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label>Ingredient Price:</label><br>
+            <input class="rounded w-max outline" type="text" id="price" name="price" required>
+        </div>
+        <div>
+            <label>Unit:</label><br>
+            <input class="rounded w-max outline" type="text" id="unit" name="unit" placeholder="pieces/gram" required>
+        </div>
+        <button type="submit" name="CreateIngredient" class="">Create Ingredient</button>
+    </form>
+
+    <a href="{{route('pizza.index')}}" class="">Return to home page</a>
+</div>
 
 <footer class="flex items-center flex-col">
     <div class="card">

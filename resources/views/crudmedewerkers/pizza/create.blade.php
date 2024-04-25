@@ -11,44 +11,48 @@
     <img src="/PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
     <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
         <ul>
-            <li><a href="/crudmedewerkers">Return</a></li>
-        </ul>
+            <li><a href="/">Homepage</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="{{route('pizza.create')}}">Create Pizza's</a></li>
+            <li><a href="{{route('ingredient.create')}}">Create Ingredient's</a></li>
+            <li><a href="{{route('crudmedewerkers.index')}}">Return</a></li>        </ul>
     </nav>
 </header>
 
-<div>
-    <form id="Form" method="post" action="{{route('pizza.store')}}" class="m-5">
+<div class="grid justify-center m-10 gap-5">
+    <form id="Form" method="post" action="{{route('pizza.store')}}" class="space-y-6">
         @csrf
-        Pizza Name:
-        <input class="outline-double rounded-lg" type="text" id="pizzaName" name="pizzaName" required>
-        <br>
-        <br>
-        Pizza Price:
-        <input class="outline-double rounded-lg" type="text" id="pizzaPrice" name="pizzaPrice" required>
-        <br>
-        <br>
-        pizza Size:
-        <br>
-        <input type="radio" id="pizzaSize" name="pizzaSize" value="Small">
-        <label for="pizzaSize">Small</label><br>
-        <input type="radio" id="pizzaSize" name="pizzaSize" value="Medium">
-        <label for="pizzaSize">Medium</label><br>
-        <input type="radio" id="pizzaSize" name="pizzaSize" value="Large">
-        <label for="pizzaSize">Large</label><br>
-        <br>
-        <br>
-        pizza Image:
-        <input class="outline-double rounded-lg" type="text" id="pizzaImage" name="pizzaImage" required>
-        <br>
-        <br>
-        Pizza Ingrediënts:
-        <input class="outline-double rounded-lg" type="text" id="pizzaIngrediënts" name="pizzaIngrediënts" required>
-        <br>
-        <br>
-        <button type="submit" name="CreatePizza">Create Pizza</button>
+        <div>
+            <label>Pizza Name:</label><br>
+            <input class="rounded w-max outline" type="text" id="pizzaName" name="pizzaName" required>
+        </div>
+        <div>
+            <label>Pizza Price:</label><br>
+            <input class="rounded w-max outline" type="text" id="pizzaPrice" name="pizzaPrice" required>
+        </div>
+        <div>
+            <label>pizza Image:</label><br>
+            <input class="rounded w-max outline" type="text" id="pizzaImage" name="pizzaImage" required>
+        </div>
+        <div>
+            <label>Pizza Ingrediënts:</label><br>
+            <input class="rounded w-max outline" type="text" id="pizzaIngrediënts" name="pizzaIngrediënts" required>
+        </div>
+        <div>
+            <label for="pizzaSize">pizza Size:</label><br>
+            <select name="pizzaSize" id="pizzaSize">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+        </div>
+        <div class="">
+            <button type="submit" name="CreatePizza">Create Pizza</button>
+            <br>
+            <a href="{{route('pizza.index')}}">Return to home page</a>
+        </div>
     </form>
-
-    <a href="{{route('pizza.index')}}">Return to home page</a>
 </div>
 
 <footer class="flex items-center flex-col">
