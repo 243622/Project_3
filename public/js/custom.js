@@ -141,3 +141,12 @@ document.getElementById('form').addEventListener('submit', function(event) {
     document.getElementById('cartData').value = JSON.stringify(cartData);
 });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var completePurchaseButton = document.querySelector('.order-button');
+    if (completePurchaseButton) {
+        completePurchaseButton.addEventListener('click', function() {
+            localStorage.clear();
+        });
+    }
+});
