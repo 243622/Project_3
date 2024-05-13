@@ -31,17 +31,16 @@
                 <input class="outline rounded-lg w-80" type="text" id="pizzaPrice" name="pizzaPrice" value="{{$pizza->pizzaPrice}}">
             </div>
             <div>
-                <label>pizza Size:</label><br>
-                <input type="radio" id="pizzaSize" name="pizzaSize" value="Small" required>
-                <label for="pizzaSize">Small</label><br>
-                <input type="radio" id="pizzaSize" name="pizzaSize" value="Medium" required>
-                <label for="pizzaSize">Medium</label><br>
-                <input type="radio" id="pizzaSize" name="pizzaSize" value="Large" required>
-                <label for="pizzaSize">Large</label><br>
-            </div>
-            <div>
                 <label>Pizza Ingredients:</label><br>
                 <input class="outline rounded-lg w-80" type="text" id="pizzaIngredients" name="pizzaIngredients" value="@foreach($ingredient_pizza as $ingredient_pizzas){{\App\Models\Ingredient::find($ingredient_pizzas->ingredient_id)->name}}, @endforeach">
+            </div>
+            <div>
+                <label for="pizzaSize">pizza Size:</label><br>
+                <select name="pizzaSize" id="pizzaSize">
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                </select>
             </div>
             <div>
                 <input class="" type="submit" value="Change"><br>

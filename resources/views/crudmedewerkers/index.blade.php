@@ -11,16 +11,30 @@
     <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
     <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
         <ul>
-            <li><a href="order">Return</a></li>
-            <li><a href="crudmedewerkers/pizza">Pizza's</a></li>
+            <li><a href="/">Homepage</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="{{route('pizza.create')}}">Create Pizza's</a></li>
+            <li><a href="{{route('ingredient.create')}}">Create Ingredient's</a></li>
+            <li><a href="{{route('manager.create')}}">Create Staff</a></li>
         </ul>
     </nav>
 </header>
 
-<h1>Welcome medewerkername</h1>
-<?php
-    //{{$medewerker -> name}}
-    ?>
+
+<div class="grid">
+    @foreach($staffteam as $staff)
+        <div>
+            <a> {{$staff->firstname}} {{$staff->lastname}}</a><br>
+            <p class="bg-green-700"><a class="" href="{{route('manager.edit', ['manager' => $staff->id])}}">edit staff member</a></p>
+            <form class="bg-red-600 rounded-l" method="post" action="{{route('manager.destroy', ['manager' => $staff])}}">
+                @csrf
+                @method('DELETE')
+                <input class="text-white" type="submit" value="destroy">
+            </form>
+        </div>
+    @endforeach
+</div>
 
 <footer class="flex items-center flex-col">
     <div class="card">

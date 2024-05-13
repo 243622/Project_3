@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\MIngredientPizzaController;
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\ProfileController;
@@ -57,9 +58,9 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/crudmedewerkers', function () {
-    return view('crudmedewerkers');
-})->name('crudmedewerkers.index');
+//Route::get('/crudmedewerkers', function () {
+    //return view('crudmedewerkers');
+//})->name('crudmedewerkers.index')->middleware('staff');
 
 Route::post('/crudmedewerkers/ingredients/{ingredient}/pizza/{pizza}', [MPizzaController::class, 'storeIngredient'])->name('pizza_ingredient.store');
 Route::delete('/crudmedewerkers/pizza/{pizza}', [MPizzaController::class, 'deleteIngredient'])->name('pizza_ingredient.delete');
@@ -67,33 +68,8 @@ Route::delete('/crudmedewerkers/pizza/{pizza}', [MPizzaController::class, 'delet
 Route::resource('/crudmedewerkers/pizza', MPizzaController::class);
 Route::resource('/crudmedewerkers/ingredient', MIngredientController::class);
 
-//Route::get('/crudmedewerkers/pizza', [MPizzaController::class, 'index'])->name('pizza.index');
-//Route::get('/crudmedewerkers/pizza/create', [MPizzaController::class, 'create'])->name('pizza.create');
-//Route::get('/crudmedewerkers/pizza/{idnummer}', [MPizzaController::class, 'show'])->name('pizza.show');
-//Route::delete('/crudmedewerkers/pizza/{idnummer}', [MPizzaController::class, 'destroy'])->name('pizza.destroy');
-//Route::put('/crudmedewerkers/pizza/{idnummer}', [MPizzaController::class, 'update'])->name('pizza.update');
-//Route::get('/crudmedewerkers/pizza/{idnummer}/edit', [MPizzaController::class, 'edit'])->name('pizza.edit');
+Route::resource('/manager', ManagerController::class)->middleware('manager');
 
-
-
-//Route::get('/crudmedewerkers/item', [MItemsController::class, 'index'])->name('item.index');
-//Route::get('/crudmedewerkers/item/create', [MItemsController::class, 'create'])->name('item.create');
-//oute::get('/crudmedewerkers/item/{idnummer}', [MItemsController::class, 'show'])->name('item.show');
-//Route::delete('/crudmedewerkers/item/{idnummer}', [MItemsController::class, 'destroy'])->name('item.destroy');
-//Route::put('/crudmedewerkers/item/{idnummer}', [MItemsController::class, 'update'])->name('item.update');
-//Route::get('/crudmedewerkers/item/{idnummer}/edit', [MItemsController::class, 'edit'])->name('item.edit');
-//Route::post('/crudmedewerkers/item', [MItemsController::class, 'store'])->name('item.store');
-
-
-
-
-//Route::get('/crudmedewerkers/ingredient', [MIngredientsController::class, 'index'])->name('ingredient.index');
-//Route::get('/crudmedewerkers/ingredient/create', [MIngredientsController::class, 'create'])->name('ingredient.create');
-//Route::get('/crudmedewerkers/ingredient/{idnummer}', [MIngredientsController::class, 'show'])->name('ingredient.show');
-//Route::delete('/crudmedewerkers/ingredient/{idnummer}', [MIngredientsController::class, 'destroy'])->name('ingredient.destroy');
-//Route::put('/crudmedewerkers/ingredient/{idnummer}', [MIngredientsController::class, 'update'])->name('ingredient.update');
-//Route::get('/crudmedewerkers/ingredient/{idnummer}/edit', [MIngredientsController::class, 'edit'])->name('ingredient.edit');
-//Route::post('/crudmedewerkers/ingredient', [MIngredientsController::class, 'store'])->name('ingredient.store');
 
 route::get('staff/dashboard', [StaffController::class, 'index'])->name('staff.dashboard')->middleware('staff');
 
