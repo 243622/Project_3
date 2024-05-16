@@ -17,7 +17,7 @@
         </ul>
     </nav>
 </header>
-<div class="grid grid-cols-2 justify-items-center">
+<div class="grid grid-cols-2">
     <div class="grid place-self-center">
         <form method="POST" action="{{route('pizza.update', [$pizza->PizzaId])}}" class="space-y-6">
             @csrf
@@ -50,24 +50,39 @@
     </div>
 
     <div class="grid m-5">
-        <div>
-            <p>Avalible Ingredients:</p>
+            <div>
+                <p>Avalible Ingredients:</p>
+            </div>
+        <div class="flex flex-col">
             @foreach($ingredients as $ingredient)
-                <br>
-                <a class="" type="text" id="pizzaIngredients" name="pizzaIngredients">{{$ingredient->name}} = €{{$ingredient->price}}</a>
-                <form class="bg-green-700 rounded-l" method="POST" action="{{route('pizza_ingredient.store', ['pizza' => $pizza->PizzaId, 'ingredient' => $ingredient->id])}}">
-                    @csrf
-                    <input class="text-white" type="submit" value="apply">
-                </form>
-                <form class="bg-red-600 rounded-l" method="post" action="{{route('ingredient.destroy', $ingredient->id)}}">
-                    @csrf
-                    @method('DELETE')
-                    <input class="text-white" type="submit" value="delete">
-                </form>
+                <div class="inline-flex">
+                    <div>
+                        <p>{{$ingredient->name}} = €{{$ingredient->price}}</p>
+                    </div>
+                    <div class="absolute ml-48">
+                        <form class="bg-green-600 rounded-l" method="POST" action="{{route('pizza_ingredient.store', ['pizza' => $pizza->PizzaId, 'ingredient' => $ingredient->id])}}">
+                            @csrf
+                            <input class="text-white" type="submit" value="+">
+                        </form>
+                    </div>
+                    <div class="absolute ml-72">
+                        <form class="bg-red-600 rounded-l" method="post" action="{{route('ingredient.destroy', $ingredient->id)}}">
+                            @csrf
+                            @method('DELETE')
+                            <input class="text-white" type="submit" value="x">
+                        </form>
+                    </div>
+                    <div class="absolute ml-96">
+                        <form class="bg-red-600 rounded-l" method="post" action="{{route('pizza_ingredient.delete', ['pizza' => $pizza->PizzaId, 'ingredient' => $ingredient->id])}}">
+                            @csrf
+                            @method('DELETE')
+                            <input class="text-white" type="submit" value="remove ingredients from pizza">
+                        </form>
+                    </div>
+                </div>
             @endforeach
         </div>
     </div>
-
 </div>
 
 

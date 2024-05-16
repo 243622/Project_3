@@ -35,9 +35,6 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        // Debugging: Print the request data to inspect what's being received
-        // dd($request->all());
-
         $validatedData = $request->validate([
             'firstname' => 'required|string|max:40',
             'lastname' => 'required|string|max:40',
@@ -48,13 +45,7 @@ class CheckoutController extends Controller
             'additional_data' => 'nullable|string|max:250',
         ]);
 
-        // Debugging: Print the validated data to inspect
-        // dd($validatedData);
-
-        // Debugging: Check if the cart data is being received correctly
-        // dd($request->input('pizza'));
-
-        // Create customer
+        //Create new customer
         $customer = Customer::create([
             'firstname' => $validatedData['firstname'],
             'lastname' => $validatedData['lastname'],
@@ -64,7 +55,8 @@ class CheckoutController extends Controller
             'city' => $validatedData['city'],
         ]);
 
-        // Get the cart data from the request
+        //Gets the cart data
+        //json_decode makes the HTTP-request returns the request into a PHP-array
         $cartData = json_decode($request->input('cartData'), true);
 
         // Calculate the total price
@@ -72,7 +64,7 @@ class CheckoutController extends Controller
             return $carry + ($item['price'] * $item['quantity']);
         }, 0);
 
-        // Create order
+        //Creating a new order
         $order = new Order();
         $order->customer_id = $customer->id;
         $order->total_price = $totalPrice;
@@ -94,30 +86,6 @@ class CheckoutController extends Controller
 
         // Redirect to the customer order page
         return redirect()->route('customer.order', ['customer_id' => $customer->id]);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
     }
 
     /**

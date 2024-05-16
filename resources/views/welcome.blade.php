@@ -159,19 +159,10 @@
         <ul>
             <li><a href="/" class="active">Homepage</a></li>
             <li><a href="order">Order</a></li>
-            <?php
-                $loggedIn = true;
-
-                if ($loggedIn) {
-                    echo '<li><a href="dashboard">Dashboard</a></li>';
-                } else {
-                    echo '<li><a href="login">Login</a></li>';
-                    echo '<li><a href="register">Register</a></li>';
-                }
-            ?>
+            <li><a href="dashboard">Dashboard</a></li>
             <li><a href="login">Login</a></li>
             <li><a href="register">Register</a></li>
-             <li><a href="contact">Contact</a></li>
+            <li><a href="contact">Contact</a></li>
             <li><a href="checkout">Checkout</a></li>
         </ul>
     </nav>
