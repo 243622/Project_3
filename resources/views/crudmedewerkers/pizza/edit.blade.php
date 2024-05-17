@@ -11,7 +11,7 @@
     <img src="/PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
     <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
         <ul>
-            <li><a href="/crudmedewerkers">Return</a></li>
+            <li><a href="/">Return</a></li>
             <li><a href="{{route('pizza.create')}}">Creat Pizza's</a></li>
             <li><a href="{{route('ingredient.create')}}">Creat Ingredients's</a></li>
         </ul>
@@ -66,14 +66,14 @@
                         </form>
                     </div>
                     <div class="absolute ml-72">
-                        <form class="bg-red-600 rounded-l" method="post" action="{{route('ingredient.destroy', $ingredient->id)}}">
+                        <form class="bg-red-600 rounded-l" method="post" action="{{route('pizza_ingredient.delete', ['pizza' => $pizza->PizzaId, 'ingredient' => $ingredient->id])}}">
                             @csrf
                             @method('DELETE')
                             <input class="text-white" type="submit" value="x">
                         </form>
                     </div>
                     <div class="absolute ml-96">
-                        <form class="bg-red-600 rounded-l" method="post" action="{{route('pizza_ingredient.delete', ['pizza' => $pizza->PizzaId, 'ingredient' => $ingredient->id])}}">
+                        <form class="bg-red-600 rounded-l" method="post" action="{{route('ingredient.destroy', $ingredient->id)}}">
                             @csrf
                             @method('DELETE')
                             <input class="text-white" type="submit" value="remove ingredients from pizza">

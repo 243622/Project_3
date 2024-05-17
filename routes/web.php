@@ -49,7 +49,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/order',[PizzaController::class, 'index'])->name('pizzas.index');
-
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::get('/checkout/create', [CheckoutController::class, 'create'])->name('checkout.create');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
