@@ -165,6 +165,7 @@
             <li><a href="contact">Contact</a></li>
             <li><a href="checkout">Checkout</a></li>
             <li><a href="crudmedewerkers/pizza">pizza</a></li>
+            <li><a href="{{route('manager.index')}}">Manager</a></li>
         </ul>
     </nav>
 </header>

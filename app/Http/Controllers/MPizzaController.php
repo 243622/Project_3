@@ -37,13 +37,12 @@ class MPizzaController extends Controller
             'pizzaName' => 'required | max:255',
             'pizzaPrice' => 'required | max:255',
             'pizzaSize' => 'required | max:255',
-            'pizzaImage' => 'required | max:255',
+            'pizzaIngrediënts' => 'required | max:255',
+            'pizzaImage' => 'required | max:255'
         ]);
         Pizza::create($validData);
 
         return redirect()->route('pizza.index');
-
-
     }
 
     /**

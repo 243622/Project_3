@@ -49,6 +49,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/order',[PizzaController::class, 'index'])->name('pizzas.index');
+
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::get('/checkout/create', [CheckoutController::class, 'create'])->name('checkout.create');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
@@ -68,8 +69,9 @@ Route::delete('/crudmedewerkers/ingredients/{ingredient}/pizza/{pizza}', [MPizza
 Route::resource('/crudmedewerkers/pizza', MPizzaController::class);
 Route::resource('/crudmedewerkers/ingredient', MIngredientController::class);
 
-Route::resource('/manager', ManagerController::class)->middleware('manager');
-
+Route::resource('/manager', ManagerController::class)
+    ->middleware('manager')
+->parameters(['manager' => 'employee']);
 
 route::get('staff/dashboard', [StaffController::class, 'index'])->name('staff.dashboard')->middleware('staff');
 

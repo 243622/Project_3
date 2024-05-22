@@ -14,7 +14,7 @@ class ManagerController extends Controller
     public function index()
     {
         $staff = Staff::all();
-        return view('crudmedewerkers.index', ['staffteam' => $staff]);
+        return view('crudmedewerkers.managers.index', ['staff' => $staff]);
     }
 
     /**
@@ -22,7 +22,7 @@ class ManagerController extends Controller
      */
     public function create()
     {
-        return view('crudmedewerkers.create');
+        return view('crudmedewerkers.managers.create');
     }
 
     /**
@@ -30,41 +30,58 @@ class ManagerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validData = $request->validate([
+            'firstname' => 'required | max:255',
+            'lastname' => 'required | max:255',
+            'email' => 'required | max:255',
+            'phonenumber' => 'required | max:255',
+            'address' => 'required | max:255',
+            'city' => 'required | max:255',
+        ]);
+        Staff::create($validData);
+        return redirect()->route('manager.index');
     }
     /**
      * Display the specified resource.
      */
     public function show(Staff $staff)
     {
-        return view('crudmedewerkers.index', ['crudmedewerkers' => Staff::findOrFail($staff)]);
+        return view('crudmedewerkers.managers.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Staff $staff)
+    public function edit(Staff $employee)
     {
-        $staff = staff::all();
-        return view('manager.edit', [
-            'staff' => $staff,
+        return view('crudmedewerkers.managers.edit', [
+            'employee' => $employee
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Staff $staff)
+    public function update(Request $request, Staff $employee)
     {
-        //
+        $validData = $request->validate([
+            'firstname' => 'max:255',
+            'lastname' => 'max:255',
+            'email' => ' max:255',
+            'phonenumber' => 'max:255',
+            'address' => 'max:255',
+            'city' => 'max:255'
+        ]);
+        $employee->update($validData);
+        return redirect()->route('manager.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Staff $manager)
+    public function destroy(Staff $employee)
     {
-        $manager->delete();
+        $employee->delete();
         return redirect()->route('manager.index');
     }
 }

@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medewerker pagina</title>
-    @vite(['resources/css/app.css','resources/css/custom.css', 'resources/js/app.js', 'resources/css/contact.css'])
+    <title>Avalible pizza's</title>
+    @vite(['resources/css/app.css','resources/css/custom.css', 'resources/css/crud.css' ,'resources/js/app.js', 'resources/css/contact.css'])
 </head>
 <body>
 <header>
-    <img src="PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
+    <img src="../PizzaFotos/_09253db4-5f28-4da4-b255-46c05fda052b-removebg-preview.png" alt="StonksFoto" width="100" style="position: absolute;">
     <nav style="display: flex; flex-direction: row; width: 100%; flex-wrap: wrap; align-content: center; align-items: center; justify-content: center;">
         <ul>
             <li><a href="/">Homepage</a></li>
@@ -21,19 +21,38 @@
     </nav>
 </header>
 
-
-<div class="grid">
-    @foreach($staffteam as $staff)
+<div class="grid justify-center p-5">
+    <form class="grid" method="post" action="{{route('manager.store')}}">
+        @csrf
         <div>
-            <a> {{$staff->firstname}} {{$staff->lastname}}</a><br>
-            <p class="bg-green-700"><a class="" href="{{route('manager.edit', ['manager' => $staff->id])}}">edit staff member</a></p>
-            <form class="bg-red-600 rounded-l" method="post" action="{{route('manager.destroy', ['manager' => $staff])}}">
-                @csrf
-                @method('DELETE')
-                <input class="text-white" type="submit" value="destroy">
-            </form>
+            <label>FirstName:</label><br>
+            <input class="outline rounded-lg w-80 border-opacity-25 border-blue-600" type="text" id="firstname" name="firstname" required value="">
         </div>
-    @endforeach
+        <div>
+            <label>LastName:</label><br>
+            <input class="outline rounded-lg w-80 border-opacity-25 border-blue-600" type="text" id="lastname" name="lastname" required value="">
+        </div>
+        <div>
+            <label>e-mail:</label><br>
+            <input class="outline rounded-lg w-80 border-opacity-25 border-blue-600" type="email" id="email" name="email" required value="">
+        </div>
+        <div>
+            <label>phone-number:</label><br>
+            <input class="outline rounded-lg w-80 border-opacity-25 border-blue-600" type="number" id="phonenumber" name="phonenumber" required value="">
+        </div>
+        <div>
+            <label>address:</label><br>
+            <input class="outline rounded-lg w-80 border-opacity-25 border-blue-600" type="text" id="address" name="address" required value="">
+        </div>
+        <div>
+            <label>city:</label><br>
+            <input class="outline rounded-lg w-80 border-opacity-25 border-blue-600" type="text" id="city" name="city" required value="">
+        </div>
+        <div>
+            <input type="submit" name="CreateEmployee" value="create employee"><br>
+            <a href="{{route('manager.index')}}">Return to home page</a>
+        </div>
+    </form>
 </div>
 
 <footer class="flex items-center flex-col">
@@ -65,3 +84,4 @@
 </footer>
 </body>
 </html>
+

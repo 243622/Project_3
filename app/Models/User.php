@@ -44,7 +44,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function Manager()
+    public function staff()
     {
         return $this->hasMany(Staff::class, 'id');
     }
