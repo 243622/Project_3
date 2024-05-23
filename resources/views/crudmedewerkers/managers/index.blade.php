@@ -21,7 +21,7 @@
     </nav>
 </header>
 
-<ul>
+<ul class="grid justify-center m-2 gap-2">
     @foreach($staff as $employee)
         <div class="flex space-x-2">
             <li>{{$employee->firstname}} {{$employee->lastname}}</li>

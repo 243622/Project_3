@@ -35,11 +35,11 @@
         </div>
         <div>
             <label>e-mail:</label><br>
-            <input class="outline rounded-lg w-80 border-opacity-25 border-blue-600" type="text" id="e-mail" name="e-mail" required value="{{$employee->email}}">
+            <input class="outline rounded-lg w-80 border-opacity-25 border-blue-600" type="text" id="email" name="email" required value="{{$employee->email}}">
         </div>
         <div>
             <label>phone-number:</label><br>
-            <input class="outline rounded-lg w-80 border-opacity-25 border-blue-600" type="text" id="phone-number" name="phone-number" required value="{{$employee->phonenumber}}">
+            <input class="outline rounded-lg w-80 border-opacity-25 border-blue-600" type="text" id="phonenumber" name="phonenumber" required value="{{$employee->phonenumber}}">
         </div>
         <div>
             <label>address:</label><br>
